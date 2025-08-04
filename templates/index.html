@@ -372,3 +372,84 @@
 </script>
 </body>
     </html>
+<!-- Call-To-Action (CTA) Section -->
+<section class="cta-section text-center py-5" style="background: linear-gradient(90deg,#3b82f6,#9333ea); color: white;">
+    <div class="container" data-aos="zoom-in">
+        <h2>🚀 Ready to Build Your Dream Website?</h2>
+        <p class="mt-3">Get in touch today and let's bring your ideas to life with web development, design & editing services.</p>
+        <a href="/contact" class="btn btn-light mt-3">📞 Contact Us Now</a>
+    </div>
+</section>
+
+<!-- Newsletter Subscription -->
+<section class="newsletter-section text-center py-5 bg-light">
+    <div class="container" data-aos="fade-up">
+        <h2>📧 Subscribe to Our Newsletter</h2>
+        <p>Stay updated with the latest trends, design tips, and exclusive offers.</p>
+        <form class="d-flex justify-content-center mt-3">
+            <input type="email" class="form-control w-50 me-2" placeholder="Enter your email" required>
+            <button class="btn btn-primary">Subscribe</button>
+        </form>
+    </div>
+</section>
+
+<!-- Animated Stats -->
+<section class="stats-section text-center py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" data-aos="fade-up">
+                <h3 class="counter" data-target="150">0</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div class="col-md-3" data-aos="fade-up">
+                <h3 class="counter" data-target="100">0</h3>
+                <p>Happy Clients</p>
+            </div>
+            <div class="col-md-3" data-aos="fade-up">
+                <h3 class="counter" data-target="5">0</h3>
+                <p>Years Experience</p>
+            </div>
+            <div class="col-md-3" data-aos="fade-up">
+                <h3 class="counter" data-target="24">0</h3>
+                <p>Hours Support</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Contact Prompt -->
+<section class="help-section text-center py-4 bg-light">
+    <div class="container" data-aos="fade-up">
+        <h4>🤔 Still Have Questions?</h4>
+        <p>Don't worry! Our team is here to help you.</p>
+        <a href="/contact" class="btn btn-outline-primary">Ask Us Anything</a>
+    </div>
+</section>
+
+<!-- Google Map -->
+<section class="map-section">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=YOUR_GOOGLE_MAP_LINK"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+</section>
+
+<script>
+    // Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+        counter.innerText = '0';
+        const updateCounter = () => {
+            const target = +counter.getAttribute('data-target');
+            const current = +counter.innerText;
+            const increment = target / 100;
+            if (current < target) {
+                counter.innerText = Math.ceil(current + increment);
+                setTimeout(updateCounter, 30);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCounter();
+    });
+</script>

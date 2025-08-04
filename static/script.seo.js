@@ -147,3 +147,107 @@ document.querySelectorAll('img').forEach(img => {
 
 // (… and continues adding additional checks for OpenGraph tags, Twitter tags, JSON-LD improvements, broken scripts detection, ARIA accessibility, schema types for articles, FAQs, reviews, and 150+ additional checks with console logs and automated fixes.)
 console.log("✅ 200+ SEO checks applied successfully!");
+// ===========================================================
+// EXTRA SEO ENHANCEMENTS & CONTACT PAGE EVENTS
+// ===========================================================
+
+// 1️⃣ Structured Data for Contact Page
+if (window.location.pathname.includes('contact')) {
+    const contactSchema = document.createElement('script');
+    contactSchema.type = "application/ld+json";
+    contactSchema.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "url": window.location.href,
+        "mainEntity": {
+            "@type": "Organization",
+            "name": document.title,
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+92-300-0000000",
+                "contactType": "Customer Service",
+                "areaServed": "PK",
+                "availableLanguage": ["en", "ur"]
+            }
+        }
+    });
+    document.head.appendChild(contactSchema);
+    console.log("📌 Contact Page Schema Added");
+}
+
+// 2️⃣ Form Submission SEO Event
+const contactForm = document.querySelector('form.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', e => {
+        console.log("📢 SEO Event: Contact Form Submitted");
+        if (typeof gtag === 'function') {
+            gtag('event', 'contact_form_submission', { event_category: 'SEO', event_label: 'Contact Page' });
+        }
+    });
+}
+
+// 3️⃣ Phone Number Click Tracking
+document.querySelectorAll('a[href^="tel:"]').forEach(telLink => {
+    telLink.addEventListener('click', () => {
+        console.log("📞 SEO Event: Phone Clicked");
+        if (typeof gtag === 'function') {
+            gtag('event', 'phone_click', { event_category: 'SEO', event_label: telLink.href });
+        }
+    });
+});
+
+// 4️⃣ Email Click Tracking
+document.querySelectorAll('a[href^="mailto:"]').forEach(mailLink => {
+    mailLink.addEventListener('click', () => {
+        console.log("📧 SEO Event: Email Clicked");
+        if (typeof gtag === 'function') {
+            gtag('event', 'email_click', { event_category: 'SEO', event_label: mailLink.href });
+        }
+    });
+});
+
+// 5️⃣ Page Scroll Depth Event
+window.addEventListener('scroll', () => {
+    const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    if (scrollPercent === 25 || scrollPercent === 50 || scrollPercent === 75 || scrollPercent === 100) {
+        console.log(`📈 SEO Event: User Scrolled ${scrollPercent}%`);
+        if (typeof gtag === 'function') {
+            gtag('event', 'scroll_depth', { event_category: 'SEO', event_label: `${scrollPercent}%` });
+        }
+    }
+});
+
+// 6️⃣ Contact Form Field Interaction
+document.querySelectorAll('.contact-form input, .contact-form textarea').forEach(field => {
+    field.addEventListener('focus', () => {
+        console.log(`✏ SEO Event: Field Focused - ${field.name || field.id}`);
+    });
+});
+
+// 7️⃣ Add Google Business JSON-LD
+const businessSchema = document.createElement('script');
+businessSchema.type = "application/ld+json";
+businessSchema.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Your Business Name",
+    "image": `${window.location.origin}/logo.png`,
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main Street",
+        "addressLocality": "Bahawalpur",
+        "postalCode": "63100",
+        "addressCountry": "PK"
+    },
+    "telephone": "+92-300-0000000",
+    "url": window.location.origin
+});
+document.head.appendChild(businessSchema);
+
+// 8️⃣ SEO Ready Event for Page Load
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("🚀 SEO Ready: All SEO Enhancements Loaded");
+    if (typeof gtag === 'function') {
+        gtag('event', 'seo_ready', { event_category: 'SEO', event_label: window.location.pathname });
+    }
+});

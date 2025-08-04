@@ -307,3 +307,69 @@ window.addEventListener('scroll', () => {
 document.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => console.log("SEO Event: Link Clicked"));
 });
+// WhatsApp Pre-Fill with Name
+const whatsappBtn = document.getElementById('whatsappBtn');
+const nameField = document.getElementById('name');
+if (whatsappBtn && nameField) {
+    whatsappBtn.addEventListener('click', (e) => {
+        const userName = nameField.value.trim();
+        if (userName) {
+            const url = `https://wa.me/923000079078?text=Hello%20ZahidSolution%20Team,%20I%20am%20${encodeURIComponent(userName)}`;
+            whatsappBtn.href = url;
+        }
+    });
+}
+
+// Toast Notification for Contact Form
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'custom-toast';
+    toast.innerText = message;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+}
+
+// Smart Form Validation
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const name = nameField.value;
+    const message = document.getElementById('message').value;
+    if (!name || !email || !message) return showToast("⚠ Please fill all fields.");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showToast("⚠ Invalid email address.");
+    
+    // Loader animation
+    const btn = e.target.querySelector('button');
+    btn.disabled = true;
+    btn.innerText = "Sending...";
+    setTimeout(() => {
+        btn.disabled = false;
+        btn.innerText = "Send Message";
+        showToast("✅ Your message has been sent!");
+        e.target.reset();
+    }, 1500);
+});
+
+// Floating Quick Contact Widget
+const contactWidget = document.createElement('div');
+contactWidget.className = 'contact-widget';
+contactWidget.innerHTML = `
+    <a href="https://wa.me/923000079078" target="_blank" class="widget-btn whatsapp"><img src="/static/icons/whatsapp.svg" width="28"></a>
+    <a href="tel:+923000079078" class="widget-btn call">📞</a>
+`;
+document.body.appendChild(contactWidget);
+
+// Save form data (AI Auto-Fill Simulation)
+document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(input => {
+    input.addEventListener('input', () => localStorage.setItem(input.id, input.value));
+});
+window.addEventListener('load', () => {
+    ['name', 'email', 'message'].forEach(id => {
+        if (localStorage.getItem(id)) document.getElementById(id).value = localStorage.getItem(id);
+    });
+});
+
+// SEO Event Tracking (Google Tag Manager style)
+if (typeof dataLayer === "undefined") window.dataLayer = [];
+document.getElementById('whatsappBtn').addEventListener('click', () => dataLayer.push({ event: 'whatsapp_click' }));
+document.getElementById('contactForm').addEventListener('submit', () => dataLayer.push({ event: 'contact_form_submit' }));

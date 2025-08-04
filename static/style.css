@@ -391,3 +391,46 @@ section::before {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+/* ===================== */
+/* Fix White Text Visibility */
+/* ===================== */
+body, p, h1, h2, h3, h4, h5, h6 {
+    color: #f8fafc !important;
+}
+
+section {
+    background-color: #0f172a !important; /* Dark background for better contrast */
+}
+
+/* Fix Testimonials Section */
+.testimonials, .testimonials * {
+    color: #f8fafc !important;
+    text-align: center;
+}
+
+/* Fix Stars */
+.testimonials .stars {
+    color: #facc15 !important; /* Yellow stars */
+}
+
+/* Newsletter Fix */
+.newsletter input[type="email"] {
+    background: #1e293b;
+    color: #f8fafc;
+    border: 1px solid #38bdf8;
+}
+
+.newsletter button {
+    background: #38bdf8;
+    color: #fff;
+    border: none;
+}
+
+.newsletter button:hover {
+    background: #0ea5e9;
+}
+
+/* Get Started Button Fix */
+.btn-get-started {
+    cursor: pointer;
+    }

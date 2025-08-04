@@ -370,3 +370,37 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+// === Contact Page FAQ Schema ===
+const faqSchema = document.createElement('script');
+faqSchema.type = 'application/ld+json';
+faqSchema.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How can I contact ZahidSolution?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can contact us via WhatsApp, Email, or Phone directly from our contact page."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you provide support for international clients?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we provide web development, graphic design, and video editing support globally."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How fast do you respond?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We usually respond within 1 hour during working hours via WhatsApp or email."
+            }
+        }
+    ]
+});
+document.head.appendChild(faqSchema);

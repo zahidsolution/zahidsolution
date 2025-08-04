@@ -96,6 +96,13 @@ def get_seo_data(page_name, dynamic_title=None, dynamic_description=None):
     return seo.get(page_name, seo["home"])
 
 # =========================
+# Static JS Routes (script.js & script.seo.js)
+# =========================
+@app.route('/static/<path:filename>')
+def custom_static(filename):
+    return app.send_static_file(filename)
+
+# =========================
 # Public Routes
 # =========================
 @app.route('/')

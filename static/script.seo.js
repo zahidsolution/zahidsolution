@@ -251,3 +251,122 @@ document.addEventListener('DOMContentLoaded', () => {
         gtag('event', 'seo_ready', { event_category: 'SEO', event_label: window.location.pathname });
     }
 });
+
+            // ===========================================================
+// UI INTERACTION BASED SEO EVENTS (ENHANCEMENT)
+// ===========================================================
+
+// 1️⃣ CTA Button Click Tracking
+document.querySelectorAll('.btn, .btn-custom, .btn-get-started').forEach(button => {
+    button.addEventListener('click', () => {
+        console.log(`🎯 SEO Event: Button Clicked - ${button.innerText.trim()}`);
+        if (typeof gtag === 'function') {
+            gtag('event', 'button_click', {
+                event_category: 'SEO',
+                event_label: button.innerText.trim()
+            });
+        }
+    });
+});
+
+// 2️⃣ Navbar Link Click Tracking
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        console.log(`🔗 SEO Event: Navbar Link Clicked - ${link.innerText}`);
+        if (typeof gtag === 'function') {
+            gtag('event', 'nav_click', {
+                event_category: 'SEO',
+                event_label: link.innerText
+            });
+        }
+    });
+});
+
+// 3️⃣ WhatsApp Click Tracking
+document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(whatsappLink => {
+    whatsappLink.addEventListener('click', () => {
+        console.log("💬 SEO Event: WhatsApp Clicked");
+        if (typeof gtag === 'function') {
+            gtag('event', 'whatsapp_click', {
+                event_category: 'SEO',
+                event_label: 'WhatsApp Contact'
+            });
+        }
+    });
+});
+
+// 4️⃣ Form Field Blur Tracking
+document.querySelectorAll('.contact-form input, .contact-form textarea').forEach(field => {
+    field.addEventListener('blur', () => {
+        console.log(`🖊 SEO Event: Field Filled - ${field.name || field.id}`);
+        if (typeof gtag === 'function') {
+            gtag('event', 'form_field_filled', {
+                event_category: 'SEO',
+                event_label: field.name || field.id
+            });
+        }
+    });
+});
+
+// 5️⃣ Back-to-Top Click Tracking
+const backToTopBtn = document.querySelector('#backToTop');
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+        console.log("⬆ SEO Event: Back to Top Clicked");
+        if (typeof gtag === 'function') {
+            gtag('event', 'back_to_top', {
+                event_category: 'SEO',
+                event_label: 'Back to Top'
+            });
+        }
+    });
+}
+
+// 6️⃣ Dark Mode Toggle SEO Event
+const darkModeBtnSEO = document.querySelector('#darkModeToggle') || document.querySelector('button[title="Dark Mode"]');
+if (darkModeBtnSEO) {
+    darkModeBtnSEO.addEventListener('click', () => {
+        const mode = document.body.classList.contains('dark-mode') ? 'Dark' : 'Light';
+        console.log(`🌙 SEO Event: Dark Mode Toggled - ${mode}`);
+        if (typeof gtag === 'function') {
+            gtag('event', 'dark_mode_toggle', {
+                event_category: 'SEO',
+                event_label: mode
+            });
+        }
+    });
+}
+
+// 7️⃣ Newsletter Popup Tracking
+const newsletterFormPopup = document.querySelector('.newsletter form');
+if (newsletterFormPopup) {
+    newsletterFormPopup.addEventListener('submit', e => {
+        e.preventDefault();
+        console.log("📨 SEO Event: Newsletter Subscribed");
+        if (typeof gtag === 'function') {
+            gtag('event', 'newsletter_subscribe', {
+                event_category: 'SEO',
+                event_label: 'Newsletter'
+            });
+        }
+        alert('✅ Thank you for subscribing! You will receive our updates soon.');
+    });
+}
+
+// 8️⃣ Scroll Triggered Event (Extra Precision)
+let scrollEventsTriggered = { 25: false, 50: false, 75: false, 100: false };
+window.addEventListener('scroll', () => {
+    const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(level => {
+        if (scrollPercent >= level && !scrollEventsTriggered[level]) {
+            scrollEventsTriggered[level] = true;
+            console.log(`📊 SEO Event: User Scrolled ${level}%`);
+            if (typeof gtag === 'function') {
+                gtag('event', 'scroll_depth', {
+                    event_category: 'SEO',
+                    event_label: `${level}%`
+                });
+            }
+        }
+    });
+});

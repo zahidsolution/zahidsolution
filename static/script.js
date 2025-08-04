@@ -279,3 +279,23 @@ document.addEventListener('keyup', e => {
 
 // 3️⃣0️⃣ SEO-Friendly Structured Data Logger
 console.log("Structured data: SEO ready for Google Search Console!");
+// =======================
+// Get Started Button Scroll
+// =======================
+document.querySelectorAll('.btn-get-started').forEach(button => {
+    button.addEventListener('click', () => {
+        const targetSection = document.querySelector('#services') || document.querySelector('section');
+        if (targetSection) targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// =======================
+// Newsletter Fake Response
+// =======================
+const newsletterForm = document.querySelector('.newsletter form');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', e => {
+        e.preventDefault();
+        alert('✅ Thank you for subscribing! We will get back to you soon.');
+    });
+                          }

@@ -347,14 +347,14 @@
     <!-- Brand -->
     <a class="navbar-brand fw-bold text-white" href="index.html">ZahidSolution</a>
 
-    <!-- Toggler (for mobile only) -->
+    <!-- Toggler -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="custom-toggler-icon"></span>
     </button>
 
     <!-- Navbar Links -->
-    <div class="collapse navbar-collapse fade-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto text-center">
         <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
@@ -367,12 +367,11 @@
 </nav>
 
 <style>
-/* Body offset so navbar doesn’t hide content */
 body {
   margin-top: 70px;
 }
 
-/* ===== NAVBAR STYLING ===== */
+/* Navbar Style */
 .custom-navbar {
   background: #0b0b0b;
   border-bottom: 2px solid #9b30ff;
@@ -380,13 +379,13 @@ body {
   transition: all 0.3s ease;
 }
 
-.custom-navbar .navbar-brand {
+.navbar-brand {
   font-size: 1.4rem;
   color: #d4b3ff !important;
   text-shadow: 0 0 8px #bb86fc, 0 0 16px #9d00ff;
 }
 
-.custom-navbar .nav-link {
+.nav-link {
   color: #fff !important;
   margin: 0 12px;
   font-weight: 500;
@@ -394,23 +393,22 @@ body {
   position: relative;
 }
 
-.custom-navbar .nav-link:hover {
+.nav-link:hover {
   color: #bb86fc !important;
   text-shadow: 0 0 8px #bb86fc, 0 0 16px #9d00ff;
 }
 
-.custom-navbar .nav-link.active {
+.nav-link.active {
   color: #bb86fc !important;
   border-bottom: 2px solid #bb86fc;
 }
 
-/* ===== TOGGLER (3 Lines) ===== */
+/* ===== Custom Toggler ===== */
 .navbar-toggler {
   border: none;
   outline: none;
   padding: 6px;
 }
-
 .custom-toggler-icon {
   display: block;
   width: 26px;
@@ -446,24 +444,10 @@ body {
   box-shadow: 0 0 12px #bb86fc, 0 0 25px #9d00ff;
 }
 
-/* ===== FADE COLLAPSE ANIMATION ===== */
-.fade-collapse.collapse:not(.show) {
-  display: block;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: height 0.4s ease, opacity 0.4s ease;
-}
-.fade-collapse.collapse.show {
-  height: auto;
-  opacity: 1;
-  transition: height 0.4s ease, opacity 0.4s ease;
-}
-
-/* ===== RESPONSIVE SETTINGS ===== */
+/* Responsive */
 @media (max-width: 991px) {
   .navbar-collapse {
-    background: rgba(20, 20, 20, 0.95);
+    background: rgba(15, 15, 15, 0.97);
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(155, 48, 255, 0.4);
@@ -473,10 +457,17 @@ body {
     margin: 10px 0;
   }
 }
+
+/* Fix for laptop: force navbar visible */
+@media (min-width: 992px) {
+  .navbar-collapse {
+    display: flex !important;
+    justify-content: flex-end;
+  }
+}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 
 
 

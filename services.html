@@ -1,63 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ✅ SEO -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zahid Solution - Services</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="description" content="Zahid Solution offers website development, graphic design, video editing, AI chatbots, and portfolio services. Fast delivery, affordable pricing, and professional results.">
+  <meta name="keywords" content="Zahid Solution, Web Development, Graphic Design, Video Editing, AI Chatbot, Portfolio Design">
+  <meta name="author" content="Zahid Hussain">
+  <title>Services - Zahid Solution | Professional Web & AI Services</title>
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background:#f7f7f7; margin:0; padding:0; overflow-x:hidden; }
-
-    /* Loader */
-    #loader { position:fixed; top:0; left:0; width:100%; height:100%; background:#111; display:flex; justify-content:center; align-items:center; z-index:9999; }
-    .spinner { width:50px; height:50px; border:5px solid #ccc; border-top:5px solid #8a2be2; border-radius:50%; animation: spin 1s linear infinite; }
-    @keyframes spin { 100% { transform:rotate(360deg); } }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0b0b14;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
     /* Navbar */
-    .navbar { background: linear-gradient(90deg,#4b0082,#8a2be2); }
-    .navbar-brand,.nav-link { color:#fff !important; }
+    .navbar {
+      background: linear-gradient(90deg, #4b0082, #8a2be2, #00bcd4);
+      box-shadow: 0 3px 15px rgba(138, 43, 226, 0.5);
+      z-index: 1000;
+    }
+    .navbar-brand {
+      color: #fff !important;
+      font-weight: 700;
+      text-shadow: 0 0 10px #bb86fc;
+    }
+    .nav-link {
+      color: #fff !important;
+      transition: 0.3s;
+    }
+    .nav-link:hover {
+      color: #bb86fc !important;
+      text-shadow: 0 0 10px #bb86fc, 0 0 20px #00f0ff;
+    }
 
     /* Hero */
-    .hero { background:url('https://picsum.photos/1600/500?blur') center/cover no-repeat; color:white; text-align:center; padding:120px 20px; }
-    .hero h1 { font-size:3rem; text-shadow:2px 2px 8px #000; }
+    .hero {
+      background: radial-gradient(circle at top left, #4b0082, #0b0b14 60%);
+      text-align: center;
+      padding: 100px 20px;
+      color: #fff;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-shadow: 0 0 15px #8a2be2;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
 
-    /* Cards + animation */
-    .card { transition: transform 0.3s, box-shadow 0.3s; opacity:0; transform:translateY(50px); }
-    .card.show { opacity:1; transform:translateY(0); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
-    .buy-btn { background:#8a2be2; color:white; border:none; padding:10px 20px; border-radius:8px; transition:0.3s; }
-    .buy-btn:hover { background:#4b0082; }
+    /* Cards */
+    .card {
+      background: linear-gradient(145deg, #12122b, #1e1e3f);
+      border: 1px solid rgba(138, 43, 226, 0.4);
+      color: #fff;
+      border-radius: 15px;
+      padding: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #8a2be2;
+    }
+    .buy-btn {
+      background: linear-gradient(90deg, #8a2be2, #00bcd4);
+      border: none;
+      color: white;
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .buy-btn:hover {
+      box-shadow: 0 0 15px #8a2be2, 0 0 30px #00bcd4;
+      transform: scale(1.05);
+    }
 
-    /* FAQ */
-    .faq-question { cursor:pointer; background:#8a2be2; color:white; padding:12px; border-radius:8px; margin-bottom:5px; }
-    .faq-answer { display:none; background:#f9f9f9; padding:10px; border:1px solid #ddd; }
+    /* Section Titles */
+    h2.section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #bb86fc;
+      text-shadow: 0 0 10px #8a2be2;
+      font-weight: 700;
+    }
 
-    /* Testimonials */
-    .testimonial { background:white; padding:20px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1); }
-    .testimonial p { font-style:italic; }
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      border-radius: 50%;
+      color: white;
+      font-size: 30px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      z-index: 999;
+    }
 
-    /* Why Choose Us */
-    .why-choose { background:#111; color:#8a2be2; padding:50px 20px; text-align:center; }
-    .why-choose h2 { color:#fff; text-shadow:0 0 10px #8a2be2,0 0 20px #8a2be2; }
+    footer {
+      background: #0a0a16;
+      color: #aaa;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
 
-    /* Contact */
-    #contact input,#contact textarea { margin-bottom:10px; }
-
-    /* Floating WhatsApp */
-    .whatsapp-float { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; border-radius:50%; width:60px; height:60px; display:flex; justify-content:center; align-items:center; font-size:30px; box-shadow:0 4px 8px rgba(0,0,0,0.3); z-index:1000; }
-
-    /* Back to Top */
-    #backToTop { position:fixed; bottom:20px; left:20px; display:none; background:#8a2be2; color:white; border:none; padding:10px 15px; border-radius:8px; }
-
-    footer { background:#111; color:#fff; padding:20px 0; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .card { margin-bottom: 20px; }
+    }
   </style>
 </head>
+
 <body>
 
-<!-- Loader -->
-<div id="loader"><div class="spinner"></div></div>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg">
+<!-- ✅ Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <a class="navbar-brand" href="index.html">ZahidSolution</a>
     <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -65,11 +139,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-        <li class="nav-item"><a class="nav-link" href="#why">Why Choose Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#faq">FAQs</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
       </ul>
     </div>
   </div>
@@ -77,121 +151,62 @@
 
 <!-- Hero -->
 <section class="hero">
-  <h1>🚀 Build Your Digital Identity</h1>
-  <p>Websites, Portfolios, Videos & AI Chatbots – All in One Place</p>
-  <a href="#services" class="btn btn-light mt-3">Explore Services</a>
+  <h1>Empower Your Brand with Zahid Solution</h1>
+  <p>Professional Websites, AI Chatbots, Designs, and More — built for success.</p>
 </section>
 
-<!-- Services -->
+<!-- Services Section -->
 <section id="services" class="py-5">
-  <div class="container text-center">
-    <h2 class="mb-4">Our Services</h2>
-    <div class="row">
-      <div class="col-md-4"><div class="card p-4"><h4>🌐 Website Development</h4><p>Responsive websites for all needs.</p><a class="buy-btn" href="https://wa.me/923454627881?text=Hi! I want Website Development service">Buy Now</a></div></div>
-      <div class="col-md-4"><div class="card p-4"><h4>🎨 Graphic Designing</h4><p>Logos, flyers, thumbnails & more.</p><a class="buy-btn" href="https://wa.me/923454627881?text=Hi! I want Graphic Designing service">Buy Now</a></div></div>
-      <div class="col-md-4"><div class="card p-4"><h4>🎬 Video Editing</h4><p>Professional YouTube videos, reels.</p><a class="buy-btn" href="https://wa.me/923454627881?text=Hi! I want Video Editing service">Buy Now</a></div></div>
-      <div class="col-md-4"><div class="card p-4"><h4>🤖 AI Chatbots</h4><p>Smart chatbots powered by APIs.</p><a class="buy-btn" href="https://wa.me/923454627881?text=Hi! I want AI Chatbot service">Buy Now</a></div></div>
-      <div class="col-md-4"><div class="card p-4"><h4>📂 Portfolio Management</h4><p>Upload & showcase your projects.</p><a class="buy-btn" href="https://wa.me/923454627881?text=Hi! I want Portfolio service">Buy Now</a></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Pricing -->
-<section id="pricing" class="py-5 bg-light">
-  <div class="container text-center">
-    <h2 class="mb-4">💰 Pricing Plans</h2>
-    <div class="row">
-      <div class="col-md-4"><div class="card p-4"><h4>Basic Portfolio</h4><p>Just $13 (₨3300)</p><ul class="list-unstyled"><li>✔ 1 Page</li><li>✔ Free Hosting + Domain</li></ul><a class="buy-btn" href="https://wa.me/923454627881?text=Hi! I want Basic Portfolio">Choose Plan</a></div></div>
-      <div class="col-md-4"><div class="card p-4"><h4>Business Website</h4><p>$49</p><ul class="list-unstyled"><li>✔ 5 Pages</li><li>✔ Custom Features</li></ul><a class="buy-btn" href="https://wa.me/923454627881?text=Hi! I want Business Website">Choose Plan</a></div></div>
-      <div class="col-md-4"><div class="card p-4"><h4>Premium</h4><p>$99</p><ul class="list-unstyled"><li>✔ Unlimited Pages</li><li>✔ AI Chatbot</li></ul><a class="buy-btn" href="https://wa.me/923454627881?text=Hi! I want Premium Plan">Choose Plan</a></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Why Choose Us -->
-<section id="why" class="why-choose">
   <div class="container">
-    <h2>🔥 Why Choose Zahid Solution?</h2>
-    <p>✔ Affordable Pricing <br> ✔ Fast Delivery <br> ✔ 24/7 Support <br> ✔ Professional Quality</p>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section class="py-5">
-  <div class="container text-center">
-    <h2>⭐ What Our Clients Say</h2>
-    <div id="testimonialCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active"><div class="testimonial"><p>"Amazing website for my startup!"</p><strong>- Ali</strong></div></div>
-        <div class="carousel-item"><div class="testimonial"><p>"Great video editing & design work!"</p><strong>- Sara</strong></div></div>
-        <div class="carousel-item"><div class="testimonial"><p>"Affordable and fast delivery."</p><strong>- Ahmed</strong></div></div>
+    <h2 class="section-title">💼 Our Professional Services</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card text-center">
+          <h4>🌐 Website Development</h4>
+          <p>Modern, responsive, and fast websites tailored for your business or personal brand.</p>
+          <a class="buy-btn" href="https://wa.me/923454627881?text=Hi! I visited ZahidSolution and I’m interested in Website Development. Please share pricing, process, and sample work.">Buy Now</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center">
+          <h4>🎨 Graphic Designing</h4>
+          <p>Logo, flyers, social media posts, thumbnails & complete visual branding packages.</p>
+          <a class="buy-btn" href="https://wa.me/923454627881?text=Hi! I’d like to get Graphic Designing services from ZahidSolution. Please share portfolio and details.">Buy Now</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center">
+          <h4>🎬 Video Editing</h4>
+          <p>Engaging videos, reels, and YouTube content edited with a professional touch.</p>
+          <a class="buy-btn" href="https://wa.me/923454627881?text=Hello! I’m interested in your Video Editing services. Please tell me about packages and turnaround time.">Buy Now</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center">
+          <h4>🤖 AI Chatbots</h4>
+          <p>Smart chatbots powered by AI for websites, businesses, and customer support.</p>
+          <a class="buy-btn" href="https://wa.me/923454627881?text=Hi ZahidSolution! I want to integrate an AI Chatbot into my business. Please explain setup and cost details.">Buy Now</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center">
+          <h4>📂 Portfolio Management</h4>
+          <p>Personal portfolio design to showcase your work beautifully and professionally.</p>
+          <a class="buy-btn" href="https://wa.me/923454627881?text=Hi ZahidSolution, I want a personal Portfolio Website. Please share demo templates and pricing.">Buy Now</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-4">❓ Frequently Asked Questions</h2>
-    <div class="faq-item"><div class="faq-question">How long to build a website?</div><div class="faq-answer">Usually 3-7 days.</div></div>
-    <div class="faq-item"><div class="faq-question">Do you provide hosting?</div><div class="faq-answer">Yes, free hosting & domain.</div></div>
-    <div class="faq-item"><div class="faq-question">Can I upload portfolio later?</div><div class="faq-answer">Yes, anytime with our system.</div></div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="py-5 bg-dark text-white">
-  <div class="container text-center">
-    <h2>📞 Contact Us</h2>
-    <p>Phone: <a href="tel:+923454627881" class="text-white">+92 345 4627881</a></p>
-    <p>Email: <a href="mailto:zahidsolutions360@gmail.com" class="text-white">zahidsolutions360@gmail.com</a></p>
-    <form class="row g-3 justify-content-center">
-      <div class="col-md-5"><input type="text" class="form-control" placeholder="Your Name"></div>
-      <div class="col-md-5"><input type="email" class="form-control" placeholder="Your Email"></div>
-      <div class="col-md-10"><textarea class="form-control" rows="4" placeholder="Your Message"></textarea></div>
-      <div class="col-12"><button class="buy-btn">Send Message</button></div>
-    </form>
-  </div>
-</section>
-
 <!-- Footer -->
-<footer class="text-center">
-  <p>&copy; 2025 ZahidSolution | All Rights Reserved</p>
+<footer>
+  <p>&copy; 2025 ZahidSolution — All Rights Reserved | Designed with 💜 by Zahid Hussain</p>
 </footer>
 
 <!-- Floating WhatsApp -->
-<a href="https://wa.me/923454627881?text=Hi! I am interested in your services" class="whatsapp-float" target="_blank">💬</a>
+<a href="https://wa.me/923454627881?text=Hi! I want to discuss a project with ZahidSolution." target="_blank" class="whatsapp-float">💬</a>
 
-<!-- Back to Top -->
-<button id="backToTop">⬆ Top</button>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  // Loader
-  window.addEventListener("load",()=>{ document.getElementById("loader").style.display="none"; });
-
-  // FAQ Toggle
-  document.querySelectorAll(".faq-question").forEach(q=>{
-    q.addEventListener("click",()=>{
-      const a=q.nextElementSibling;
-      a.style.display=a.style.display==="block"?"none":"block";
-    });
-  });
-
-  // Scroll animation
-  function revealCards() {
-    document.querySelectorAll(".card").forEach(card=>{
-      const rect=card.getBoundingClientRect();
-      if(rect.top < window.innerHeight-50) card.classList.add("show");
-    });
-  }
-  window.addEventListener("scroll",revealCards);
-
-  // Back to top
-  const btn=document.getElementById("backToTop");
-  window.onscroll=function(){ btn.style.display=window.scrollY>200?"block":"none"; }
-  btn.onclick=function(){ window.scrollTo({top:0,behavior:"smooth"}); }
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

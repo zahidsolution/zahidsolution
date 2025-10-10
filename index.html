@@ -109,15 +109,13 @@
 </head>
   <body>
    <!-- ✅ Slim Premium Navbar -->
-<!-- 🌟 Premium Glassmorphism Navbar -->
+<!-- 🌟 Premium Neon Glass Navbar -->
 <header class="navbar">
   <div class="navbar-container">
     <div class="brand">
       ✨ <span>Zahid Solutions</span>
     </div>
-    <div class="menu-icon" id="menu-toggle">
-      ☰
-    </div>
+    <div class="menu-icon" id="menu-toggle">☰</div>
     <nav class="nav-links" id="nav-links">
       <a href="#home">🏠 Home</a>
       <a href="#services">💼 Services</a>
@@ -129,24 +127,26 @@
 </header>
 
 <style>
-/* ===== GLASSMORPHISM NAVBAR ===== */
+/* ===== NEON GLASS NAVBAR ===== */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9999;
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
-  animation: glowPulse 4s ease-in-out infinite alternate;
+  background: linear-gradient(135deg, rgba(75,0,130,0.9), rgba(0,255,255,0.25));
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+  animation: gradientShift 8s ease-in-out infinite alternate;
   transition: all 0.4s ease;
 }
 
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 10px rgba(0,255,255,0.2), 0 0 20px rgba(187,134,252,0.2); }
-  100% { box-shadow: 0 0 20px rgba(0,255,255,0.5), 0 0 40px rgba(187,134,252,0.5); }
+/* Animated gradient background movement */
+@keyframes gradientShift {
+  0% { background: linear-gradient(135deg, rgba(85,0,150,0.9), rgba(0,255,255,0.3)); }
+  50% { background: linear-gradient(135deg, rgba(0,255,255,0.3), rgba(150,0,200,0.9)); }
+  100% { background: linear-gradient(135deg, rgba(60,0,130,0.9), rgba(0,200,255,0.35)); }
 }
 
 .navbar-container {
@@ -158,13 +158,13 @@
   margin: auto;
 }
 
-/* Brand Styling */
+/* Brand */
 .brand {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #fff;
   font-weight: 700;
   letter-spacing: 1px;
-  text-shadow: 0 0 10px #00e0ff, 0 0 20px #bb86fc;
+  text-shadow: 0 0 10px #00e0ff, 0 0 20px #bb86fc, 0 0 40px #00e0ff;
 }
 
 /* Menu Icon (mobile) */
@@ -174,12 +174,16 @@
   cursor: pointer;
   color: #fff;
   text-shadow: 0 0 10px #00e0ff;
+  transition: transform 0.3s;
+}
+.menu-icon:hover {
+  transform: rotate(90deg);
 }
 
-/* Links */
+/* Links (desktop) */
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 30px;
 }
 
 .nav-links a {
@@ -190,26 +194,40 @@
   position: relative;
   transition: all 0.3s ease;
 }
-
 .nav-links a:hover {
   color: #00ffff;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #bb86fc;
+  text-shadow: 0 0 10px #00ffff, 0 0 25px #bb86fc;
 }
 
-/* Mobile Styles */
+/* Underline glow effect */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #bb86fc, #00ffff);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ===== MOBILE STYLES ===== */
 @media (max-width: 850px) {
   .menu-icon {
     display: block;
   }
-  
+
   .nav-links {
     position: fixed;
     top: 70px;
     right: -100%;
     width: 70%;
     height: 100vh;
-    background: rgba(20, 20, 40, 0.95);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(180deg, rgba(25,0,60,0.95), rgba(0,255,255,0.2));
+    backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -217,10 +235,10 @@
     padding-top: 40px;
     gap: 25px;
     transition: right 0.4s ease;
-    border-left: 2px solid rgba(0,255,255,0.2);
-    box-shadow: -5px 0 25px rgba(0,255,255,0.2);
+    border-left: 2px solid rgba(0,255,255,0.3);
+    box-shadow: -5px 0 25px rgba(0,255,255,0.4);
   }
-  
+
   .nav-links.active {
     right: 0;
   }
@@ -229,8 +247,8 @@
     font-size: 1.3rem;
     width: 80%;
     text-align: center;
-    padding: 10px 0;
-    border-radius: 8px;
+    padding: 12px 0;
+    border-radius: 10px;
     transition: all 0.3s;
   }
 
@@ -242,7 +260,7 @@
 </style>
 
 <script>
-// Navbar Toggle Logic
+// Navbar toggle and close
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.getElementById('nav-links');
 
@@ -250,7 +268,6 @@ menuToggle.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
-// Close menu when clicking outside
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.navbar-container')) {
     navLinks.classList.remove('active');

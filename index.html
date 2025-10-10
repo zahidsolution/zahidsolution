@@ -2149,162 +2149,192 @@ document.querySelectorAll(".faq-toggle").forEach(btn => {
  
     
 <!-- ================= FOOTER ================= -->
-<!-- ====== Zahid Premium Footer (Safe Scoped Version) ====== -->
-<footer id="zahid-footer">
-  <div class="zf-overlay"></div>
-  <div class="zf-container">
-    <div class="zf-card">
-      <h3 class="zf-title">Let’s Build Something Together 🚀</h3>
-      <p class="zf-text">
-        Empowering your ideas with <span class="zf-highlight">AI</span>, <span class="zf-highlight">Design</span>,
-        and <span class="zf-highlight">Innovation</span>.
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About -->
+    <div class="footer-about glass-card">
+      <img src="images/logo.png" alt="Zahid Solutions Logo" class="footer-logo">
+      <p class="footer-text">
+        Delivering <span class="highlight">Design</span>, <span class="highlight">Development</span>,  
+        and <span class="highlight">Marketing</span> solutions to help your business grow 🚀.
       </p>
     </div>
 
-    <div class="zf-card">
-      <h4 class="zf-subtitle">Contact</h4>
-      <p>📧 <a href="mailto:zahidsolutions360@gmail.com">zahidsolutions360@gmail.com</a></p>
-      <p>📞 <a href="https://wa.me/923454627881">+92 345 4627881</a></p>
+    <!-- Links -->
+    <div class="footer-links glass-card">
+      <h4 class="glow-text">Quick Links</h4>
+      <ul>
+        <li><a href="#home">🏠 Home</a></li>
+        <li><a href="#services">💼 Services</a></li>
+        <li><a href="#portfolio">📂 Portfolio</a></li>
+        <li><a href="#contact">📩 Contact</a></li>
+        <li><a href="#faqs">❓ FAQs</a></li>
+      </ul>
     </div>
 
-    <div class="zf-card">
-      <h4 class="zf-subtitle">Follow</h4>
-      <div class="zf-icons">
-        <a href="https://facebook.com/zahidsolutions360" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://instagram.com/zahidsolutions360" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com/in/zahid-hussain-351756375" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <!-- Contact -->
+    <div class="footer-contact glass-card">
+      <h4 class="glow-text">Contact Us</h4>
+      <p>📍 Near Noor Mahal Road, Bahawalpur</p>
+      <p>📞 <a href="tel:+923454627881">+92 3454627881</a> (Call/WhatsApp)</p>
+      <p>✉ <a href="mailto:zahidsolutions360@gmail.com">zahidsolutions360@gmail.com</a></p>
+      <p id="footer-status"></p>
+    </div>
+
+    <!-- Social -->
+    <div class="footer-social glass-card">
+      <h4 class="glow-text">Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/zahidsolutions360" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/zahidsolutions360" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/zahidsolutions360" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
   </div>
 
-  <div class="zf-bottom">© <span id="zf-year"></span> Zahid Solutions | Crafted with 💙</div>
+  <!-- Divider -->
+  <div class="footer-divider"></div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> Zahid Solutions. All Rights Reserved.  
+      | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
+    </p>
+  </div>
+
+
+  <!-- Floating Bubbles -->
+  <div class="footer-bubbles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
 </footer>
 
-<!-- ===== Scoped Styles (Won’t Affect Rest of Site) ===== -->
+<!-- ===== FOOTER STYLES ===== -->
 <style>
-#zahid-footer {
+.footer {
   position: relative;
-  padding: 80px 20px 40px;
-  background: rgba(20, 0, 40, 0.8);
-  backdrop-filter: blur(15px);
+  background: linear-gradient(135deg, rgba(17,0,34,0.95), rgba(34,0,68,0.95));
   color: #fff;
-  text-align: center;
+  padding: 80px 20px 40px;
   overflow: hidden;
-  z-index: 10;
-  border-top: 2px solid rgba(255,255,255,0.2);
 }
 
-/* Overlay glow */
-#zahid-footer .zf-overlay {
+/* Bubble Background */
+.footer-bubbles span {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(0,255,255,0.15), transparent 60%),
-              radial-gradient(circle at 70% 80%, rgba(140,0,255,0.25), transparent 60%);
-  animation: zf-glowMove 10s infinite alternate ease-in-out;
+  bottom: -50px;
+  background: rgba(187,134,252,0.3);
+  border-radius: 50%;
+  animation: rise 20s infinite ease-in;
 }
-@keyframes zf-glowMove {
-  from { transform: translateY(0px); }
-  to { transform: translateY(-30px); }
+.footer-bubbles span:nth-child(1) { left: 10%; width: 60px; height: 60px; animation-duration: 18s; }
+.footer-bubbles span:nth-child(2) { left: 25%; width: 40px; height: 40px; animation-duration: 22s; }
+.footer-bubbles span:nth-child(3) { left: 40%; width: 20px; height: 20px; animation-duration: 20s; }
+.footer-bubbles span:nth-child(4) { left: 60%; width: 70px; height: 70px; animation-duration: 26s; }
+.footer-bubbles span:nth-child(5) { left: 75%; width: 50px; height: 50px; animation-duration: 24s; }
+.footer-bubbles span:nth-child(6) { left: 85%; width: 30px; height: 30px; animation-duration: 28s; }
+
+@keyframes rise {
+  from { transform: translateY(0); opacity: 0.6; }
+  to { transform: translateY(-700px); opacity: 0; }
 }
 
-#zahid-footer .zf-container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/* Container */
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 30px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
 }
-
-#zahid-footer .zf-card {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
-  padding: 25px;
-  flex: 1 1 250px;
-  box-shadow: 0 0 20px rgba(0,255,255,0.2);
-  transition: all 0.3s ease;
+@media(min-width: 900px) {
+  .footer-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
-#zahid-footer .zf-card:hover {
-  box-shadow: 0 0 40px rgba(0,255,255,0.6);
+
+/* Cards */
+.glass-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(187,134,252,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 40px rgba(187,134,252,0.5);
 }
 
-#zahid-footer .zf-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(90deg, #00ffff, #a200ff);
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: zf-textGlow 2s infinite alternate;
+/* Glow Titles */
+.glow-text {
+  animation: neonGlow 2.5s ease-in-out infinite alternate;
 }
-@keyframes zf-textGlow {
-  from { text-shadow: 0 0 10px #00ffff; }
-  to { text-shadow: 0 0 25px #a200ff; }
+@keyframes neonGlow {
+  from { text-shadow: 0 0 8px #fff, 0 0 20px #bb86fc, 0 0 25px #00e0ff; }
+  to   { text-shadow: 0 0 15px #fff, 0 0 30px #ff00ff, 0 0 45px #00e0ff; }
 }
 
-#zahid-footer .zf-text {
-  font-size: 1rem;
-  margin-top: 10px;
-  color: rgba(255,255,255,0.85);
+/* Text & Links */
+.footer-logo { width: 140px; margin-bottom: 15px; }
+.footer-text { font-size: 1rem; line-height: 1.6; color: #ddd; }
+.highlight { color: #bb86fc; font-weight: 700; }
+
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a {
+  text-decoration: none; color: #ccc; transition: all 0.3s;
+}
+.footer-links a:hover {
+  color: #bb86fc; text-shadow: 0 0 10px #bb86fc;
 }
 
-#zahid-footer .zf-highlight {
-  color: #00ffff;
-  font-weight: bold;
+/* Social Icons */
+.social-icons { display: flex; gap: 20px; }
+.social-icons a {
+  font-size: 1.8rem; color: #ccc; transition: all 0.3s ease;
+}
+.social-icons a:hover {
+  color: #bb86fc; text-shadow: 0 0 15px #bb86fc, 0 0 25px #00e0ff;
 }
 
-#zahid-footer .zf-subtitle {
-  font-size: 1.2rem;
-  color: #00ffff;
-  margin-bottom: 10px;
+/* Divider */
+.footer-divider {
+  margin: 40px auto 20px;
+  height: 2px;
+  width: 90%;
+  background: linear-gradient(90deg, transparent, #bb86fc, transparent);
 }
 
-#zahid-footer .zf-icons a {
-  margin: 0 8px;
-  font-size: 1.6rem;
-  color: #fff;
-  transition: 0.3s;
-}
-#zahid-footer .zf-icons a:hover {
-  color: #00ffff;
-  text-shadow: 0 0 15px #00ffff;
-}
+/* Bottom */
+.footer-bottom { text-align: center; font-size: 0.9rem; color: #aaa; }
+.footer-bottom a { color: #bb86fc; text-decoration: none; }
+.footer-bottom a:hover { text-decoration: underline; }
 
-#zahid-footer .zf-bottom {
-  margin-top: 40px;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-@media (max-width: 600px) {
-  #zahid-footer { padding: 60px 15px; }
-  #zahid-footer .zf-title { font-size: 1.4rem; }
-}
 </style>
 
-<!-- ===== Scripts ===== -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- ===== FOOTER SCRIPT ===== -->
 <script>
-document.getElementById("zf-year").textContent = new Date().getFullYear();
+// Dynamic Year
+document.getElementById("year").textContent = new Date().getFullYear();
 
-gsap.from("#zahid-footer .zf-card", {
-  opacity: 0, y: 40, duration: 1, stagger: 0.2, ease: "power2.out"
-});
-gsap.to("#zahid-footer", {
-  backgroundPosition: "200% center",
-  repeat: -1,
-  yoyo: true,
-  duration: 10,
-  ease: "sine.inOut"
-});
+// Business Hours
+const fStatus = document.getElementById("footer-status");
+const now = new Date();
+const day = now.getDay();
+const hour = now.getHours();
+let open = false;
+if (day >= 1 && day <= 5 && hour >= 9 && hour < 18) open = true;
+if (day === 6 && hour >= 10 && hour < 16) open = true;
+fStatus.textContent = open ? "✅ Open Now" : "❌ Closed";
 </script>
 
-
-
+<!-- Font Awesome for Social Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
 <!-- ===== BACK TO TOP BUTTON ===== -->
 <button id="backToTop" class="back-to-top">Back to Top</button>
 

@@ -110,52 +110,41 @@
   <body>
    <!-- ✅ Slim Premium Navbar -->
 <!-- 🌟 Premium Neon Glass Navbar -->
+<!-- 🌟 Premium Neon Glass Navbar -->
 <header class="navbar">
   <div class="navbar-container">
-    <div class="brand">
-      ✨ <span>Zahid Solutions</span>
-    </div>
+    <div class="brand">💫 Zahid Solutions</div>
     <div class="menu-icon" id="menu-toggle">☰</div>
     <nav class="nav-links" id="nav-links">
-      <a href="#home">🏠 Home</a>
-      <a href="#services">💼 Services</a>
-      <a href="#portfolio">📂 Portfolio</a>
-      <a href="#contact">📩 Contact</a>
-      <a href="#feedback">💬 Feedback</a>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+      <a href="#feedback">Feedback</a>
     </nav>
   </div>
 </header>
 
-<!-- ===== HERO SECTION ===== -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <h1>👋 Welcome to Zahid Solutions</h1>
-    <p>Let’s build something extraordinary together — design, development & creativity powered by innovation.</p>
-    <img src="images/profile.png" alt="Zahid Profile">
-  </div>
-</section>
-
 <style>
-/* ===== NEON GLASS NAVBAR ===== */
+/* ===== Neon Glassmorphism Navbar ===== */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999;
-  background: linear-gradient(135deg, rgba(75,0,130,0.9), rgba(0,255,255,0.25));
-  backdrop-filter: blur(14px);
+  z-index: 999;
+  background: linear-gradient(135deg, rgba(75,0,130,0.8), rgba(0,255,255,0.15));
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 0 25px rgba(0,255,255,0.3);
-  animation: gradientShift 8s ease-in-out infinite alternate;
+  box-shadow: 0 0 25px rgba(0,255,255,0.25);
+  animation: gradientFlow 10s ease-in-out infinite alternate;
   transition: all 0.4s ease;
 }
 
-/* Animated gradient movement */
-@keyframes gradientShift {
-  0% { background: linear-gradient(135deg, rgba(85,0,150,0.9), rgba(0,255,255,0.3)); }
-  50% { background: linear-gradient(135deg, rgba(0,255,255,0.3), rgba(150,0,200,0.9)); }
-  100% { background: linear-gradient(135deg, rgba(60,0,130,0.9), rgba(0,200,255,0.35)); }
+@keyframes gradientFlow {
+  0% { background: linear-gradient(135deg, rgba(60,0,130,0.8), rgba(0,255,255,0.15)); }
+  50% { background: linear-gradient(135deg, rgba(0,255,255,0.25), rgba(130,0,200,0.7)); }
+  100% { background: linear-gradient(135deg, rgba(30,0,100,0.8), rgba(0,200,255,0.25)); }
 }
 
 .navbar-container {
@@ -169,14 +158,23 @@
 
 /* Brand */
 .brand {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   color: #fff;
   font-weight: 700;
   letter-spacing: 1px;
-  text-shadow: 0 0 10px #00e0ff, 0 0 20px #bb86fc, 0 0 40px #00e0ff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 0 15px #00ffff, 0 0 30px #bb86fc;
+  animation: brandGlow 3s infinite alternate;
 }
 
-/* Menu Icon (mobile) */
+@keyframes brandGlow {
+  0% { text-shadow: 0 0 8px #00ffff, 0 0 20px #bb86fc; }
+  100% { text-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff; }
+}
+
+/* Menu Icon */
 .menu-icon {
   display: none;
   font-size: 2rem;
@@ -185,49 +183,43 @@
   text-shadow: 0 0 10px #00e0ff;
   transition: transform 0.3s;
 }
-.menu-icon:hover {
-  transform: rotate(90deg);
-}
+.menu-icon:hover { transform: rotate(90deg); }
 
-/* Links (desktop) */
+/* Links */
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 35px;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #f5f5f5;
   font-weight: 500;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   position: relative;
   transition: all 0.3s ease;
 }
+
 .nav-links a:hover {
   color: #00ffff;
-  text-shadow: 0 0 10px #00ffff, 0 0 25px #bb86fc;
+  text-shadow: 0 0 15px #00ffff, 0 0 30px #bb86fc;
 }
 
-/* Underline glow */
 .nav-links a::after {
   content: "";
   position: absolute;
-  bottom: -5px;
+  bottom: -6px;
   left: 0;
   width: 0%;
   height: 2px;
   background: linear-gradient(90deg, #bb86fc, #00ffff);
   transition: width 0.3s ease;
 }
-.nav-links a:hover::after {
-  width: 100%;
-}
+.nav-links a:hover::after { width: 100%; }
 
-/* ===== MOBILE NAV ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 850px) {
-  .menu-icon {
-    display: block;
-  }
+  .menu-icon { display: block; }
 
   .nav-links {
     position: fixed;
@@ -235,28 +227,26 @@
     right: -100%;
     width: 70%;
     height: 100vh;
-    background: linear-gradient(180deg, rgba(25,0,60,0.95), rgba(0,255,255,0.2));
-    backdrop-filter: blur(12px);
+    background: rgba(10, 0, 30, 0.9);
+    backdrop-filter: blur(14px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding-top: 40px;
     gap: 25px;
-    transition: right 0.4s ease;
-    border-left: 2px solid rgba(0,255,255,0.3);
+    border-left: 2px solid rgba(0,255,255,0.4);
     box-shadow: -5px 0 25px rgba(0,255,255,0.4);
+    transition: right 0.4s ease;
   }
 
-  .nav-links.active {
-    right: 0;
-  }
+  .nav-links.active { right: 0; }
 
   .nav-links a {
     font-size: 1.3rem;
     width: 80%;
     text-align: center;
-    padding: 12px 0;
+    padding: 10px 0;
     border-radius: 10px;
     transition: all 0.3s;
   }
@@ -265,77 +255,6 @@
     background: rgba(0,255,255,0.15);
     box-shadow: 0 0 15px rgba(0,255,255,0.3);
   }
-}
-
-/* ===== HERO SECTION ===== */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 80px; /* ensures content not hidden behind navbar */
-  background: linear-gradient(135deg, rgba(10, 0, 21, 0.9), rgba(75, 0, 130, 0.8), rgba(0, 255, 255, 0.4));
-  background-size: 300% 300%;
-  animation: heroGlow 8s ease-in-out infinite;
-  color: #fff;
-}
-
-/* Animate background gradient */
-@keyframes heroGlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.hero-content {
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 15px;
-  text-shadow: 0 0 15px #00ffff, 0 0 25px #bb86fc;
-  animation: textGlow 2.5s ease-in-out infinite alternate;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  color: #ddd;
-  max-width: 600px;
-  line-height: 1.6;
-}
-
-/* Profile Image */
-.hero img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  margin-top: 30px;
-  border: 3px solid rgba(255,255,255,0.2);
-  box-shadow: 0 0 20px #00ffff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.hero img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px #bb86fc;
-}
-
-/* Text Glow Animation */
-@keyframes textGlow {
-  from { text-shadow: 0 0 10px #00ffff, 0 0 20px #bb86fc; }
-  to { text-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff; }
-}
-
-/* Responsive Hero Text */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2.2rem; }
-  .hero p { font-size: 1rem; }
 }
 </style>
 
@@ -354,6 +273,7 @@ document.addEventListener('click', (e) => {
   }
 });
 </script>
+
 
 <!-- 🚀 Premium Profile Section (Neon + Glassmorphism + Highlighted Text) -->
 <!-- ================= PROFILE SECTION ================= -->

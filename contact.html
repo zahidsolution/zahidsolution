@@ -1,327 +1,438 @@
-<!-- 🚀 Zahid Solution Universal Navbar -->
-<nav class="navbar">
-  <div class="logo">ZahidSolution</div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Contact — Zahid Solution</title>
+  <meta name="description" content="Contact Zahid Solution — web development, video editing & design. Quick WhatsApp, call or email support. +92 345 4627881" />
+  <meta name="keywords" content="Zahid Solution contact, web development contact, hire Zahid Hussain, portfolio contact" />
+  <meta name="author" content="Zahid Hussain" />
+  <link rel="canonical" href="https://zahidsolution.netlify.app/contact.html" />
 
-  <!-- Hamburger Menu -->
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
+  <!-- Bootstrap (only for base grid & components) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Inline styles (single file) -->
+  <style>
+    :root{
+      --bg-1: #060013;
+      --bg-2: #0f0033;
+      --neon-purple: #a855f7;
+      --neon-blue: #00c3ff;
+      --glass: rgba(255,255,255,0.04);
+      --card-bg: rgba(255,255,255,0.025);
+      --accent: linear-gradient(90deg,var(--neon-purple),var(--neon-blue));
+      --max-width: 1100px;
+    }
+    html,body{height:100%; margin:0; font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Arial;}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(168,85,247,0.07), transparent),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(0,195,255,0.04), transparent),
+                  linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      color:#eae8ff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding-top:72px; /* navbar height */
+    }
+
+    /* ===== Navbar ===== */
+    .nav-wrap{backdrop-filter: blur(6px); position:fixed; inset:auto 0 0 0; z-index:1200;}
+    .navbar-custom{
+      background: linear-gradient(90deg, rgba(10,6,20,0.60), rgba(6,3,24,0.60));
+      border-bottom: 1px solid rgba(168,85,247,0.08);
+      box-shadow:0 6px 30px rgba(9,6,20,0.6);
+      padding: .6rem 1rem;
+    }
+    .brand {
+      color: #fff;
+      font-weight:800;
+      letter-spacing: .3px;
+      text-shadow:0 0 10px rgba(168,85,247,0.25);
+    }
+    .brand .accent { background: -webkit-linear-gradient(90deg,var(--neon-blue),var(--neon-purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .nav-link { color:#e6e0ff !important; font-weight:600; margin-left:.3rem; }
+    .nav-link:hover { color:#fff !important; text-shadow:0 0 12px rgba(0,195,255,0.06); transform:translateY(-1px); }
+
+    /* Hamburger behavior: show on widths <= 1200px */
+    @media (max-width:1200px){
+      .navbar-expand-xl .navbar-collapse { display:none; }
+      .navbar-expand-xl .navbar-toggler { display:block; }
+    }
+    @media (min-width:1201px){
+      .navbar-expand-xl .navbar-collapse { display:flex!important; }
+      .navbar-expand-xl .navbar-toggler { display:none; }
+    }
+
+    /* ===== Page container ===== */
+    .page {
+      max-width: var(--max-width);
+      margin: 28px auto;
+      padding: 28px;
+    }
+
+    /* ===== Contact Section layout ===== */
+    .contact-wrapper {
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 980px){
+      .contact-wrapper{ grid-template-columns: 1fr; padding: 0 12px; }
+      .side-cards { order: -1; margin-bottom: 12px; }
+    }
+
+    /* ===== Glass form card ===== */
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+      border: 1px solid rgba(168,85,247,0.06);
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 10px 40px rgba(10,6,20,0.7);
+      transition: transform .45s ease, opacity .45s ease;
+    }
+    .glass h2 { font-size:1.9rem; margin-bottom:.25rem; background: var(--accent); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .glass p.lead { color: #dfe9ff; opacity:.9; margin-bottom:14px; }
+
+    /* inputs */
+    .form-control {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 12px;
+      transition: box-shadow .22s, transform .12s;
+    }
+    .form-control:focus {
+      outline: none;
+      box-shadow: 0 8px 30px rgba(168,85,247,0.12);
+      transform: translateY(-2px);
+      border-color: rgba(168,85,247,0.22);
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* service dropdown */
+    .select-wrap { position: relative; }
+    .form-floating .form-select { background: rgba(0,0,0,0.05); color:#fff; border-radius:12px; padding:12px 14px; }
+
+    /* submit button neon */
+    .btn-neon {
+      background: linear-gradient(90deg,var(--neon-purple),var(--neon-blue));
+      border: none;
+      padding: 12px 18px;
+      color: #fff;
+      border-radius: 12px;
+      font-weight:700;
+      box-shadow: 0 12px 40px rgba(168,85,247,0.12);
+      transition: transform .12s, box-shadow .18s;
+    }
+    .btn-neon:hover { transform: translateY(-3px); box-shadow: 0 20px 70px rgba(0,195,255,0.12); }
+
+    /* quick actions */
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
+    .action-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+      border-radius: 12px; padding: 12px; display:flex; gap:10px; align-items:center; border:1px solid rgba(168,85,247,0.04);
+    }
+    .action-card .big { font-size:1.05rem; font-weight:700; color:#fff; }
+    .action-card small { color:#bfc8ff; opacity:.8; }
+
+    /* side contact cards */
+    .side-cards .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+      border-radius: 12px; padding:14px; margin-bottom:14px; border:1px solid rgba(168,85,247,0.04);
+    }
+    .contact-info { display:flex; gap:12px; align-items:center; }
+    .contact-info img{ width:64px; height:64px; object-fit:cover; border-radius:12px; border:2px solid rgba(168,85,247,0.14); box-shadow:0 8px 30px rgba(168,85,247,0.06); }
+
+    /* social & qr row */
+    .qr-row { display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-top:10px; }
+    .qr-row img{ width:86px; height:86px; object-fit:contain; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background: rgba(255,255,255,0.02); padding:6px; }
+
+    /* subtle entrance animation */
+    .anim-enter { opacity:0; transform: translateY(18px) scale(.995); }
+    .anim-enter.show { opacity:1; transform:none; transition: all .6s cubic-bezier(.16,.84,.44,1); }
+
+    /* success toast */
+    .toast-box { position:fixed; right:18px; top:18px; z-index:1400; display:none; padding:12px 18px; border-radius:12px; background:linear-gradient(90deg,var(--neon-blue),var(--neon-purple)); color:#051; font-weight:700; box-shadow:0 10px 40px rgba(0,0,0,0.6); }
+
+    /* footer */
+    footer { text-align:center; padding:28px 12px; color:#dfe8ff; opacity:.9; margin-top:38px; font-size:.95rem; }
+
+    /* accessibility focus */
+    .btn:focus, .form-control:focus { outline: 3px solid rgba(168,85,247,0.12); outline-offset:2px; }
+
+    /* small-mobile tweaks */
+    @media (max-width:420px){
+      .glass { padding:18px; border-radius:14px; }
+      .contact-wrapper { gap:14px; }
+      .side-cards img{ width:56px; height:56px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="nav-wrap">
+    <nav class="navbar navbar-expand-xl navbar-custom">
+      <div class="container">
+        <a class="brand" href="index.html">Zahid<span class="accent">Solution</span></a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <rect width="24" height="3" rx="1.5" y="4" fill="white" opacity="0.95"></rect>
+            <rect width="24" height="3" rx="1.5" y="11" fill="white" opacity="0.95"></rect>
+            <rect width="24" height="3" rx="1.5" y="18" fill="white" opacity="0.95"></rect>
+          </svg>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
 
-  <!-- Navigation Links -->
-  <ul class="nav-links" id="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="feedback.html">Feedback</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
+  <!-- PAGE -->
+  <main class="page">
+    <section class="anim-enter show" aria-labelledby="contactTitle">
+      <div class="contact-wrapper">
 
-<style>
-/* ===== General Styles ===== */
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: #0b002b;
-  color: white;
-  scroll-behavior: smooth;
-}
+        <!-- LEFT: Form -->
+        <div class="glass" role="region" aria-labelledby="contactTitle">
+          <h2 id="contactTitle">Get in touch</h2>
+          <p class="lead">Choose a service, share your details and we’ll reply quickly — or start a WhatsApp chat now.</p>
 
-/* ===== Navbar Container ===== */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #0d0d0d;
-  padding: 12px 24px;
-  border-bottom: 2px solid #6a0dad;
-  box-shadow: 0 2px 15px rgba(106, 13, 173, 0.6);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+          <form id="contactForm" onsubmit="return handleSubmit(event)" autocomplete="on">
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label visually-hidden" for="name">Name</label>
+                <input id="name" class="form-control" name="name" required placeholder="Your full name" value="Zahid Hussain">
+              </div>
 
-/* ===== Logo ===== */
-.logo {
-  color: #bb86fc;
-  font-weight: bold;
-  font-size: 1.4rem;
-  text-shadow: 0 0 10px #9d00ff, 0 0 20px #00bfff;
-}
+              <div class="col-md-6">
+                <label class="form-label visually-hidden" for="email">Email</label>
+                <input id="email" class="form-control" name="email" type="email" required placeholder="Email address" value="zahidsolutions360@gmail.com">
+              </div>
 
-/* ===== Nav Links ===== */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-  transition: all 0.4s ease;
-}
+              <div class="col-md-6">
+                <label class="form-label visually-hidden" for="phone">Phone</label>
+                <input id="phone" class="form-control" name="phone" placeholder="Phone (optional) or WhatsApp" value="+923454627881">
+              </div>
 
-.nav-links li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.05rem;
-  transition: all 0.3s ease;
-}
+              <div class="col-12">
+                <label class="form-label visually-hidden" for="service">Service</label>
+                <select id="service" class="form-select" required>
+                  <option value="Website Development">Website Development</option>
+                  <option value="Portfolio Website">Portfolio Website</option>
+                  <option value="Video Editing">Video Editing</option>
+                  <option value="Graphic Designing">Graphic Designing</option>
+                  <option value="AI Chatbot">AI Chatbot</option>
+                  <option value="Other">Other / Custom</option>
+                </select>
+              </div>
 
-.nav-links li a:hover,
-.nav-links li a.active {
-  color: #bb86fc;
-  text-shadow: 0 0 8px #9d00ff, 0 0 20px #00bfff;
-}
+              <div class="col-12">
+                <input id="subject" class="form-control" name="subject" placeholder="Subject (brief) - e.g. 'New portfolio website'">
+              </div>
 
-/* ===== Hamburger Menu ===== */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-.hamburger span {
-  width: 26px;
-  height: 3px;
-  background: #fff;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
+              <div class="col-12">
+                <label class="form-label visually-hidden" for="message">Message</label>
+                <textarea id="message" class="form-control" rows="5" placeholder="Write your message — include budgets, deadlines or any reference links."></textarea>
+              </div>
 
-/* ===== Responsive Styling ===== */
-@media (max-width: 1024px) {
-  .nav-links {
-    position: fixed;
-    right: -100%;
-    top: 60px;
-    background: rgba(17, 0, 34, 0.98);
-    flex-direction: column;
-    align-items: center;
-    width: 70%;
-    height: calc(100vh - 60px);
-    backdrop-filter: blur(10px);
-    border-left: 2px solid #6a0dad;
-    transition: right 0.4s ease;
-  }
+              <div class="col-12 d-flex gap-2 align-items-center">
+                <button type="submit" class="btn btn-neon" id="sendBtn" aria-live="polite">Send via WhatsApp</button>
+                <button type="button" class="btn btn-outline-light" onclick="openEmail()" title="Send by email">📧 Send Email</button>
+                <a href="tel:+923454627881" class="btn btn-outline-light" title="Call Now">📞 Call Now</a>
+                <div style="flex:1"></div>
+              </div>
 
-  .nav-links.show { right: 0; }
+              <div class="col-12 mt-2">
+                <small style="color:#cfcfff; opacity:.85">
+                  Tip: Use the "Send via WhatsApp" button to start a chat with all form details pre-filled. We reply fast.
+                </small>
+              </div>
+            </div>
+          </form>
+        </div>
 
-  .hamburger { display: flex; }
+        <!-- RIGHT: Contact info, QR, social -->
+        <aside class="side-cards">
+          <div class="card">
+            <div class="contact-info">
+              <img src="static/images/profile.jpg" alt="Zahid Hussain" onerror="this.style.display='none'">
+              <div>
+                <div style="font-weight:800; font-size:1rem">Zahid Hussain</div>
+                <div style="color:#d7d5ff; opacity:.85; font-size:.92rem">Founder — Zahid Solution</div>
+                <div style="margin-top:8px; font-weight:700"><a href="tel:+923454627881" style="color:inherit; text-decoration:none">+92 345 4627881</a></div>
+                <div style="font-size:.92rem; color:#cfcfff; opacity:.9"><a href="mailto:zahidsolutions360@gmail.com" style="color:inherit; text-decoration:none">zahidsolutions360@gmail.com</a></div>
+              </div>
+            </div>
+          </div>
 
-  .nav-links li { margin: 20px 0; }
-}
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <div style="font-weight:800">Location</div>
+                <div style="color:#cfcfff; opacity:.9">Bahawalpur, Punjab, Pakistan</div>
+              </div>
+              <div style="text-align:right">
+                <small style="color:#bfc8ff">Open hours</small>
+                <div style="font-weight:700">09:00 — 22:00</div>
+              </div>
+            </div>
+          </div>
 
-/* ===== Hamburger Animation ===== */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 6px);
-}
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -6px);
-}
-</style>
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap;">
+              <div>
+                <div style="font-weight:800">Quick Actions</div>
+                <div style="color:#cfcfff; opacity:.9">WhatsApp, Call or Email</div>
+              </div>
 
-<script>
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+              <div style="display:flex; gap:8px; flex-direction:column;">
+                <a class="action-card" href="https://wa.me/923454627881?text=Hi%20Zahid!" target="_blank" rel="noopener">
+                  <div class="big">💬</div>
+                  <div>
+                    <div style="font-weight:700">WhatsApp</div>
+                    <small>Start a chat</small>
+                  </div>
+                </a>
 
-// Toggle navbar for mobile/laptop
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-  hamburger.classList.toggle('active');
-});
+                <a class="action-card" href="tel:+923454627881">
+                  <div class="big">📞</div>
+                  <div>
+                    <div style="font-weight:700">Call</div>
+                    <small>Ring directly</small>
+                  </div>
+                </a>
+              </div>
+            </div>
 
-// Highlight active page
-document.querySelectorAll('.nav-links a').forEach(link => {
-  if (link.href === window.location.href) {
-    link.classList.add('active');
-  }
-});
-</script>
+            <div style="margin-top:12px; display:flex; gap:8px; align-items:center; justify-content:space-between;">
+              <div style="font-weight:700">Follow</div>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <a href="https://www.linkedin.com/in/zahid-hussain-351756375" target="_blank" rel="noopener" title="LinkedIn" style="color:inherit; text-decoration:none; font-weight:700">LinkedIn</a>
+                <a href="https://instagram.com/zahidsolution" target="_blank" rel="noopener" title="Instagram" style="color:inherit; text-decoration:none; font-weight:700">Instagram</a>
+              </div>
+            </div>
 
+            <div class="qr-row" style="margin-top:12px;">
+              <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
+                <img src="static/images/facebook_qr.png" alt="Facebook QR" onerror="this.style.display='none'">
+                <small style="color:#cfcfff; opacity:.85">Facebook QR</small>
+              </div>
 
-<!-- 💎 Premium Contact Section -->
-<section id="contact" class="contact-section">
-  <div class="contact-container">
-    <h2 class="contact-title">Let’s Build Something Extraordinary Together 🚀</h2>
-    <p class="contact-subtitle">
-      Whether you want a website, AI chatbot, video editing, or portfolio management — 
-      I’d love to hear from you! Just drop your details below 👇
-    </p>
+              <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
+                <img src="static/images/instagram_qr.png" alt="Instagram QR" onerror="this.style.display='none'">
+                <small style="color:#cfcfff; opacity:.85">Instagram QR</small>
+              </div>
 
-    <form id="contactForm" class="contact-form">
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" value="Zahid Hussain" required>
+              <div style="flex:1; text-align:right;">
+                <small style="color:#bfc8ff">Profile</small>
+                <div style="font-weight:700">www.linkedin.com/in/zahid-hussain-351756375</div>
+              </div>
+            </div>
+
+          </div>
+        </aside>
       </div>
+    </section>
+  </main>
 
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" value="zahidsolutions360@gmail.com" required>
-      </div>
+  <div id="toast" class="toast-box" role="status" aria-live="polite">Message opened in WhatsApp</div>
 
-      <div class="form-group">
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="e.g. Need AI Chatbot for my business" required>
-      </div>
+  <footer>
+    © <span id="year"></span> Zahid Solution · Bahawalpur · All rights reserved
+  </footer>
 
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" required>
-Hey Zahid! 👋 I visited your portfolio and loved your creative energy. 
-I’d love to discuss a project with you — please get in touch via email or WhatsApp at your earliest convenience. 🚀
-        </textarea>
-      </div>
+  <!-- Scripts -->
+  <script>
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      <button type="submit" class="submit-btn">Send Message 💌</button>
-    </form>
+    // Smooth collapse toggle (Bootstrap's collapse works but we ensure hamburger visibility across sizes)
+    (function(){
+      // no-op: Bootstrap manages collapse. This keeps progressive enhancement.
+    })();
 
-    <div class="contact-details">
-      <p>📞 Call / WhatsApp: <a href="https://wa.me/923454627881" target="_blank">+92 345 4627881</a></p>
-      <p>📧 Email: <a href="mailto:zahidsolutions360@gmail.com">zahidsolutions360@gmail.com</a></p>
-    </div>
-  </div>
-</section>
+    // Build WhatsApp message and open chat (also show toast)
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
 
-<!-- ===== CSS ===== -->
-<style>
-.contact-section {
-  width: 100%;
-  padding: 80px 20px;
-  background: radial-gradient(circle at top left, #6a0dad, #000);
-  color: #fff;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
+      const prefilled = [
+        `Hello Zahid Solution 👋,`,
+        ``,
+        `*New enquiry from website*`,
+        `• Name: ${name || '—'}`,
+        `• Email: ${email || '—'}`,
+        `• Phone: ${phone || '—'}`,
+        `• Service: ${service}`,
+        `• Subject: ${subject || '—'}`,
+        `• Message: ${message || '—'}`,
+        ``,
+        `Please respond with available slots & pricing. Thanks!`
+      ].join('%0A'); // newline for wa.me
 
-/* Glow background animation */
-.contact-section::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(157, 0, 255, 0.2), transparent 70%);
-  animation: glowmove 8s infinite linear;
-}
-@keyframes glowmove {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+      // open WhatsApp
+      const wa = `https://wa.me/923454627881?text=${encodeURIComponent(prefilled)}`;
+      window.open(wa, '_blank');
 
-.contact-container {
-  max-width: 650px;
-  margin: auto;
-  position: relative;
-  z-index: 2;
-}
+      // show temporary toast
+      const t = document.getElementById('toast');
+      t.style.display = 'block';
+      setTimeout(()=>{ t.style.opacity = 1; }, 40);
+      setTimeout(()=>{ t.style.opacity = 0; setTimeout(()=>{ t.style.display='none'; }, 420); }, 3500);
 
-.contact-title {
-  font-size: 2rem;
-  color: #bb86fc;
-  text-shadow: 0 0 15px #9d00ff, 0 0 25px #6a0dad;
-  margin-bottom: 15px;
-}
+      // return false to prevent real submit
+      return false;
+    }
 
-.contact-subtitle {
-  font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 40px;
-  line-height: 1.5;
-}
+    // Email fallback
+    function openEmail(){
+      const name = document.getElementById('name').value.trim() || '—';
+      const email = document.getElementById('email').value.trim() || '—';
+      const phone = document.getElementById('phone').value.trim() || '—';
+      const service = document.getElementById('service').value;
+      const subject = document.getElementById('subject').value.trim() || 'Contact from website';
+      const message = document.getElementById('message').value.trim() || '—';
 
-.contact-form {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 0 25px rgba(157, 0, 255, 0.4);
-  backdrop-filter: blur(8px);
-  text-align: left;
-}
+      const body = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Phone: ${phone}`,
+        `Service: ${service}`,
+        `Subject: ${subject}`,
+        ``,
+        message
+      ].join('%0A');
 
-.form-group {
-  margin-bottom: 20px;
-}
+      window.location.href = `mailto:zahidsolutions360@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
 
-.form-group label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 8px;
-  color: #bb86fc;
-}
+    // entrance animation: remove anim-enter class after animation
+    window.addEventListener('load', ()=> {
+      document.querySelectorAll('.anim-enter').forEach(el => {
+        setTimeout(()=> el.classList.add('show'), 60);
+      });
+    });
+  </script>
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  background: #111;
-  border: 1px solid #6a0dad;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #bb86fc;
-  box-shadow: 0 0 15px #9d00ff, 0 0 25px #00bfff;
-  background: #0d0d0d;
-}
-
-.submit-btn {
-  display: inline-block;
-  background: linear-gradient(90deg, #9d00ff, #00bfff);
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: all 0.4s ease;
-  width: 100%;
-  cursor: pointer;
-  box-shadow: 0 0 20px #9d00ff;
-}
-
-.submit-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px #9d00ff, 0 0 40px #00bfff;
-}
-
-/* Contact details */
-.contact-details {
-  margin-top: 30px;
-  font-size: 1rem;
-}
-.contact-details a {
-  color: #00bfff;
-  text-decoration: none;
-  font-weight: bold;
-}
-.contact-details a:hover {
-  text-shadow: 0 0 10px #00bfff;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .contact-title { font-size: 1.6rem; }
-  .contact-form { padding: 20px; }
-  .submit-btn { font-size: 1rem; }
-}
-</style>
-
-<!-- ===== JS: Success Popup ===== -->
-<script>
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert("🎉 Thank you for reaching out, Zahid will contact you shortly on WhatsApp or Email!");
-  this.reset();
-});
-</script>
+  <!-- Bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

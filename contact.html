@@ -3,184 +3,211 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ZahidSolution — Contact</title>
-  <meta name="description" content="Contact ZahidSolution for web, design, video editing, AI chatbots and portfolio services. Quick replies via WhatsApp." />
-  <meta name="keywords" content="ZahidSolution, Contact, Web Development, Graphic Design, Video Editing, AI Chatbot" />
+  <title>ZahidSolution — Let’s Build Something Together</title>
+  <meta name="description" content="Contact ZahidSolution — premium web, design, video and AI services. Quick replies via WhatsApp." />
   <link rel="icon" href="/static/favicon.png" type="image/png">
 
-  <!-- Bootstrap + icons -->
+  <!-- Bootstrap + Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
 
-  <!-- GSAP (animation) -->
+  <!-- GSAP for smooth animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
   <style>
-    /* ===== Brand Colors & Globals ===== */
+    /* ----------------------- THEME & GLOBALS ----------------------- */
     :root{
-      --bg-1: #06060b;
-      --bg-2: #0b0428;
+      --bg-dark-1: #04040a;
+      --bg-dark-2: #0b0320;
       --accent-purple: #8a2be2;
       --accent-blue: #00bcd4;
-      --neon-blue: #9ce0ff;
-      --neon-white: #eaf6ff;
-      --glass: rgba(255,255,255,0.03);
-      --glass-2: rgba(255,255,255,0.04);
+      --neon-white: #f6fbff;
+      --glass: rgba(255,255,255,0.025);
+      --glass-2: rgba(255,255,255,0.035);
     }
     html,body{height:100%;}
     body{
-      margin:0; font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
-      color: #fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, var(--bg-dark-1), var(--bg-dark-2));
+      color: var(--neon-white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
       overflow-x:hidden;
     }
 
-    /* ===== NAVBAR (matching services look) ===== */
+    /* ----------------------- NAVBAR (same as services) ----------------------- */
     .navbar{
       background: linear-gradient(90deg, var(--accent-purple), #b76bfb, var(--accent-blue));
-      box-shadow: 0 6px 30px rgba(138,43,226,0.25);
+      box-shadow: 0 6px 30px rgba(138,43,226,0.22);
       z-index:1200; padding:0.6rem 1rem;
     }
-    .navbar-brand{ font-weight:800; color:#fff !important; text-shadow:0 0 12px rgba(186,120,255,0.9); font-size:1.15rem; }
-    .nav-link{ color:#fff !important; font-weight:600; transition:0.18s; padding:0.5rem 0.8rem; }
-    .nav-link:hover{ color:var(--neon-blue) !important; text-shadow: 0 0 12px var(--neon-blue); }
+    .navbar-brand{ font-weight:800; color:#fff !important; text-shadow:0 0 12px rgba(186,120,255,0.9); font-size:1.12rem; }
+    .nav-link{ color:#fff !important; font-weight:700; transition:0.18s; padding:0.45rem 0.7rem; }
+    .nav-link:hover{ color:var(--accent-blue) !important; text-shadow: 0 0 10px var(--accent-blue); }
 
-    /* ===== Page hero — but form is main focus ===== */
+    /* ----------------------- HERO CTA ----------------------- */
     .hero {
-      padding: 90px 18px 28px;
-      text-align:center;
-      margin-top:6px;
-    }
-    .hero h1{
-      margin:0; font-size:2.4rem; color:var(--neon-white);
-      letter-spacing:0.2px;
-      text-shadow: 0 0 18px rgba(156,224,255,0.25);
-      animation: glowText 2.2s ease-in-out infinite alternate;
-    }
-    .hero p{
-      margin-top:8px; color:rgba(255,255,255,0.88); font-size:1.05rem;
-    }
-    @keyframes glowText {
-      from { text-shadow: 0 0 8px rgba(156,224,255,0.06); }
-      to   { text-shadow: 0 0 22px rgba(156,224,255,0.28); }
-    }
-
-    /* ===== Centered prominent form card ===== */
-    .stage {
-      display:flex; justify-content:center; align-items:flex-start;
-      padding: 18px;
-      margin-bottom:48px;
-    }
-    .card-front {
-      width:min(980px, 96%);
-      border-radius:18px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid rgba(138,43,226,0.08);
-      box-shadow: 0 18px 60px rgba(13,0,80,0.45);
-      display:flex; gap:0; overflow:hidden;
-    }
-
-    /* Make form area front & centered (visual depth) */
-    .form-area {
-      flex:1;
-      padding:28px 28px;
-      position:relative;
-      z-index:4;
-    }
-    /* right side aside: contact quick actions */
-    .aside-area {
-      width:360px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-left: 1px solid rgba(255,255,255,0.02);
-      padding:28px;
-      display:flex; flex-direction:column; gap:18px; align-items:stretch;
+      min-height: 62vh;
+      display:flex;
+      align-items:center;
       justify-content:center;
-    }
-    @media(max-width:991px){
-      .card-front{ flex-direction:column; }
-      .aside-area{ width:100%; border-left:none; border-top:1px solid rgba(255,255,255,0.02); }
+      text-align:center;
+      padding: 90px 20px 36px;
     }
 
-    /* Headline inside card */
-    .form-title {
-      font-size:1.4rem; margin:0 0 8px; color:var(--neon-white);
-      text-shadow: 0 0 12px rgba(156,224,255,0.14);
-      font-weight:800;
+    .cta {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 28px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.02);
+      box-shadow: 0 22px 80px rgba(12,6,40,0.6);
     }
-    .form-sub { color: rgba(255,255,255,0.9); margin-bottom:16px; font-size:1rem; }
 
-    /* Inputs: larger, high-contrast */
-    .form-control {
-      background: var(--glass);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: #fff; font-size:1.02rem; padding:14px 14px;
-      border-radius:10px; transition: box-shadow .18s ease, border-color .18s ease;
+    .cta-title {
+      font-size: clamp(34px, 6.5vw, 64px);
+      line-height: 1.02;
+      margin: 0;
+      color: var(--neon-white);
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      text-transform: none;
+      /* glowing wave gradient overlay */
+      background: linear-gradient(90deg, rgba(156,224,255,0.92), rgba(167,107,250,0.95), rgba(156,224,255,0.9));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 6px 28px rgba(106,0,244,0.16));
+      text-shadow: 0 0 18px rgba(156,224,255,0.06);
+      transform-origin: center;
     }
-    .form-control::placeholder { color: rgba(255,255,255,0.55); }
-    .form-control:focus{
-      border-color: var(--neon-blue); box-shadow: 0 6px 30px rgba(156,224,255,0.12);
+
+    /* glowing wave/fade animation */
+    .cta-title-wrap {
+      display:inline-block;
+      padding: 6px 10px;
+      border-radius: 12px;
+      position: relative;
+    }
+    .cta-glow {
+      position:absolute; inset:0; border-radius:12px; z-index:-1;
+      background: linear-gradient(90deg, rgba(138,43,226,0.06), rgba(0,188,212,0.06));
+      filter: blur(18px);
+      opacity:0.28;
+      transition: opacity .4s ease;
+    }
+
+    .cta-sub {
+      margin-top:16px;
+      font-size: clamp(16px, 2.2vw, 20px);
+      color: rgba(255,255,255,0.92);
+      font-weight:600;
+      text-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    /* animated small hook line */
+    .hook {
+      margin-top:14px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      opacity:0.95;
+      font-weight:600;
+    }
+
+    /* ----------------------- FORM SECTION (shows after hero) ----------------------- */
+    .form-stage {
+      max-width: 980px;
+      margin: 28px auto 80px;
+      padding: 22px;
+      border-radius: 16px;
       background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
-      outline:none;
+      border: 1px solid rgba(255,255,255,0.02);
+      box-shadow: 0 18px 48px rgba(12,6,40,0.42);
     }
-    label{ color:#fff; font-weight:700; font-size:.98rem; margin-bottom:6px; display:block; }
 
-    /* Big primary CTA */
-    .btn-primary-neon{
-      background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
-      color:#fff; font-weight:800; padding:14px 18px; border-radius:12px;
-      border:none; font-size:1.05rem; box-shadow: 0 14px 50px rgba(106,0,244,0.16);
-      transition: transform .16s ease, box-shadow .16s ease;
+    .form-grid {
+      display:grid;
+      grid-template-columns: 1fr 340px;
+      gap: 22px;
+      align-items:start;
     }
-    .btn-primary-neon:hover{ transform: translateY(-4px); box-shadow: 0 20px 70px rgba(106,0,244,0.22); }
+
+    @media (max-width:990px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    label{ display:block; font-weight:800; color:#fff; margin-bottom:6px; font-size:1rem; }
+    .form-control {
+      width:100%;
+      padding:14px 14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.06);
+      background: var(--glass);
+      color: #fff;
+      font-size:1.03rem;
+      transition: box-shadow .18s ease, border-color .18s ease, transform .08s ease;
+    }
+    .form-control::placeholder { color: rgba(255,255,255,0.52); }
+    .form-control:focus {
+      outline:none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 12px 40px rgba(0,188,212,0.08);
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.008));
+    }
+
+    .primary-cta {
+      display:inline-flex; align-items:center; gap:10px;
+      background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+      color:#fff; padding:14px 18px; font-weight:900; border-radius:12px;
+      border:none; font-size:1.04rem; cursor:pointer;
+      box-shadow: 0 18px 60px rgba(106,0,244,0.14);
+      transition: transform .12s ease, box-shadow .12s ease, opacity .12s;
+    }
+    .primary-cta:hover { transform: translateY(-4px); box-shadow: 0 28px 84px rgba(106,0,244,0.20); }
 
     .btn-ghost {
       background: transparent; border:1px solid rgba(255,255,255,0.06); color:#fff;
-      padding:12px 14px; border-radius:10px; font-weight:700;
+      padding:12px 14px; border-radius:10px; font-weight:800;
     }
 
-    .btn-disabled {
-      opacity:0.55; pointer-events:none; filter:grayscale(.03);
+    .cta-disabled { opacity:0.56; pointer-events:none; }
+
+    /* ASIDE quick area */
+    .aside {
+      padding:10px;
+      border-radius:10px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));
+      border:1px solid rgba(255,255,255,0.02);
+      display:flex; flex-direction:column; gap:12px;
     }
+    .aside .title { font-weight:900; color:var(--neon-white); font-size:1.02rem; }
+    .aside .desc { color: rgba(255,255,255,0.88); font-weight:600; font-size:.98rem; }
 
-    /* Aside area styling: visible buttons and quick info */
-    .aside-h { font-weight:800; color:var(--neon-blue); font-size:1.05rem; margin-bottom:2px; text-shadow:0 0 8px rgba(156,224,255,0.18); }
-    .aside-p { color: rgba(255,255,255,0.95); font-size:0.98rem; margin-bottom:6px; }
-    .quick-buttons { display:flex; gap:10px; flex-wrap:wrap; }
-    .quick-buttons .btn { flex:1 1 auto; min-width:38%; }
+    /* small note */
+    .note { color: rgba(255,255,255,0.72); font-size:0.92rem; }
 
-    /* Floating/inline WhatsApp + icons visible below the form too for clarity on mobile */
-    .contact-actions { display:flex; gap:12px; margin-top:8px; align-items:center; flex-wrap:wrap; }
-
-    /* subtle badge */
-    .small-note { font-size:0.88rem; color:rgba(255,255,255,0.78); }
-
-    /* back to top */
+    /* BACK TO TOP */
     #backToTop {
       position:fixed; right:22px; bottom:22px; z-index:1600; border:none;
-      width:52px; height:52px; border-radius:50%; color:#fff;
+      width:54px; height:54px; border-radius:50%; color:#fff;
       background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
-      box-shadow:0 12px 40px rgba(106,0,244,0.2);
+      box-shadow:0 12px 40px rgba(106,0,244,0.18);
       display:none; align-items:center; justify-content:center; font-size:20px;
+      cursor:pointer;
     }
 
-    /* intro canvas covering page during animation */
+    /* intro canvas */
     .intro-canvas{ position:fixed; inset:0; pointer-events:none; z-index:1500; overflow:hidden; }
-    .intro-item{ position:absolute; will-change:transform,opacity; }
-    .balloon-shape{ border-radius:38% 38% 50% 50%; width:100%; height:100%; box-shadow:0 10px 30px rgba(0,0,0,0.25); }
-    .flower-shape{ width:100%; height:100%; border-radius:50%; box-shadow:0 10px 30px rgba(0,0,0,0.25); }
 
-    /* responsive tweaks */
-    @media (max-width:480px){
-      .hero h1{ font-size:1.6rem; }
-      .form-title{ font-size:1.12rem; }
-      .aside-area{ padding:18px; }
-      .form-area{ padding:18px; }
-      .card-front{ box-shadow: 0 8px 34px rgba(13,0,80,0.45); }
-    }
+    /* toast style */
+    .toast-custom{ position:fixed; right:18px; top:18px; z-index:1700; padding:12px 16px; border-radius:10px; font-weight:800; color:#fff; box-shadow:0 10px 30px rgba(0,0,0,0.35); }
+
   </style>
 </head>
 <body>
-
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
@@ -200,35 +227,40 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero" role="banner" aria-hidden="false">
-    <h1>Contact ZahidSolution</h1>
-    <p>Fill the form below — after submit we open WhatsApp with your message. Quick replies guaranteed.</p>
-  </header>
+  <!-- HERO CTA -->
+  <main class="hero" role="main" aria-labelledby="primaryCTA">
+    <div class="cta" id="ctaCard" aria-hidden="false">
+      <div class="cta-title-wrap" id="ctaTitleWrap">
+        <h1 class="cta-title" id="primaryCTA">Let’s Build Something Together</h1>
+        <div class="cta-glow" id="ctaGlow" aria-hidden="true"></div>
+      </div>
+      <p class="cta-sub">Premium websites, designs, videos and AI chatbots. Start your project with a message — we reply quickly.</p>
+      <div class="hook" id="hookLine">Describe your idea below — we'll handle the rest.</div>
+    </div>
+  </main>
 
-  <!-- MAIN STAGE -->
-  <section class="stage" aria-labelledby="contactHeading">
-    <div class="card-front" role="region" aria-label="Contact card">
-
-      <!-- FORM (center-front) -->
-      <div class="form-area">
-        <h2 class="form-title" id="contactHeading">Send your project details</h2>
-        <p class="form-sub">Required fields highlighted. We will open WhatsApp with a copy of your message after submission.</p>
+  <!-- FORM (appears after hero animation) -->
+  <section class="form-stage" id="formStage" aria-labelledby="formHeading">
+    <div class="form-grid">
+      <!-- LEFT: FORM -->
+      <div>
+        <h2 id="formHeading" style="margin:0 0 8px; font-size:1.4rem; font-weight:900;">Share your project details</h2>
+        <p class="note" style="margin:0 0 14px;">Required fields: Name, Email, Message. After submit we open WhatsApp with your message and also store submission in Netlify Forms.</p>
 
         <!-- Netlify form -->
         <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-          <input type="hidden" name="form-name" value="contact">
+          <input type="hidden" name="form-name" value="contact" />
           <p class="d-none"><label>Don’t fill this out if you are human: <input name="bot-field"></label></p>
 
-          <div class="row g-2">
+          <div class="row g-2" style="margin-top:10px;">
             <div class="col-12">
               <label for="name">Name *</label>
-              <input id="name" name="name" class="form-control" placeholder="Your full name" required aria-required="true" />
+              <input id="name" name="name" class="form-control" placeholder="Your full name" required />
             </div>
 
             <div class="col-12 col-md-6">
               <label for="email">Email *</label>
-              <input id="email" name="email" type="email" class="form-control" placeholder="you@example.com" required aria-required="true" />
+              <input id="email" name="email" type="email" class="form-control" placeholder="you@example.com" required />
             </div>
 
             <div class="col-12 col-md-6">
@@ -249,47 +281,41 @@
 
             <div class="col-12">
               <label for="message">Message *</label>
-              <textarea id="message" name="message" rows="5" class="form-control" placeholder="Describe your project..." required aria-required="true"></textarea>
+              <textarea id="message" name="message" rows="5" class="form-control" placeholder="Tell us about your idea..." required></textarea>
             </div>
           </div>
 
           <div style="display:flex; gap:12px; margin-top:16px; align-items:center; flex-wrap:wrap;">
-            <button id="sendBtn" type="submit" class="btn-primary-neon btn-disabled" aria-disabled="true" title="Fill required fields to enable">💬 Send via WhatsApp</button>
-
+            <button id="sendBtn" type="submit" class="primary-cta cta-disabled" aria-disabled="true">💬 Send via WhatsApp</button>
             <button id="previewBtn" type="button" class="btn-ghost">Preview WhatsApp</button>
-
-            <div style="margin-left:auto;">
-              <small class="small-note">Required: Name, Email, Message</small>
-            </div>
+            <div style="margin-left:auto;"><small class="note">We store submissions via Netlify Forms.</small></div>
           </div>
         </form>
       </div>
 
-      <!-- ASIDE (visible behind/right of form) -->
-      <aside class="aside-area" aria-label="Quick contact">
+      <!-- RIGHT: ASIDE actions -->
+      <aside class="aside" aria-label="Quick contact">
         <div>
-          <div class="aside-h">Quick contact</div>
-          <div class="aside-p">Prefer to call or email? Both are always active — WhatsApp opens after the form is submitted.</div>
+          <div class="title">Quick Contact</div>
+          <div class="desc">Prefer direct contact? Use Email or Call — both are always active.</div>
         </div>
 
-        <div class="quick-buttons">
-          <a class="btn btn-ghost" href="mailto:zahidsolutions360@gmail.com" aria-label="Email ZahidSolution">📧 Email</a>
-          <a class="btn btn-ghost" href="tel:+923454627881" aria-label="Call ZahidSolution">📞 Call Now</a>
+        <div style="display:flex; gap:10px; margin-top:6px;">
+          <a class="btn-ghost" href="mailto:zahidsolutions360@gmail.com" aria-label="Email ZahidSolution">📧 Email</a>
+          <a class="btn-ghost" href="tel:+923454627881" aria-label="Call ZahidSolution">📞 Call Now</a>
         </div>
 
         <div style="margin-top:10px;">
-          <div class="aside-h" style="font-size:0.98rem;">Services</div>
-          <div class="aside-p" style="margin-top:6px;">Website Development · Graphic Designing · Video Editing · AI Chatbots · Portfolio Management</div>
+          <div class="title" style="font-size:0.98rem;">Services</div>
+          <div class="desc" style="font-size:0.97rem;">Website Development · Graphic Designing · Video Editing · AI Chatbots · Portfolio Management</div>
         </div>
 
-        <div style="display:flex; gap:10px; margin-top:auto;">
-          <a id="floatActionWhats" class="btn btn-primary-neon btn-disabled" href="#" aria-disabled="true" style="flex:1;">💬 WhatsApp (send)</a>
-          <a href="https://wa.me/923454627881?text=Hi%20ZahidSolution" class="btn btn-ghost" style="flex:1;">Chat Now</a>
+        <div style="margin-top:auto; display:flex; gap:10px;">
+          <a id="asideSend" class="primary-cta cta-disabled" href="#" aria-disabled="true" style="text-align:center; display:inline-flex; justify-content:center; align-items:center; width:100%;">💬 Send</a>
+          <a class="btn-ghost" href="https://wa.me/923454627881?text=Hi%20ZahidSolution" style="width:100%; text-align:center;">Chat Now</a>
         </div>
 
-        <div style="margin-top:8px;">
-          <small class="small-note">Submissions are stored in Netlify Forms. Configure notifications in Netlify dashboard to receive emails at <strong>zahidsolutions360@gmail.com</strong>.</small>
-        </div>
+        <div style="margin-top:10px;"><small class="note">Email notifications: zahidsolutions360@gmail.com (configure in Netlify).</small></div>
       </aside>
     </div>
   </section>
@@ -297,65 +323,62 @@
   <!-- BACK TO TOP -->
   <button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
 
-  <!-- Intro animation canvas (GSAP will render balloons & flowers here) -->
+  <!-- INTRO CANVAS -->
   <div class="intro-canvas" id="introCanvas" aria-hidden="true"></div>
 
-  <!-- Footer -->
-  <footer style="padding:18px 10px; text-align:center; color:rgba(255,255,255,0.85);">
+  <!-- FOOTER -->
+  <footer style="padding:18px 12px; text-align:center; color:rgba(255,255,255,0.85);">
     <small>&copy; <span id="year"></span> ZahidSolution — Designed by Zahid Hussain</small>
   </footer>
 
-  <!-- Scripts -->
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // ====== DOM refs ======
-    const form = document.getElementById('contactForm');
+    // ------------------ Config & DOM ------------------
+    const WA_NUMBER = '923454627881';
     const nameEl = document.getElementById('name');
     const emailEl = document.getElementById('email');
+    const messageEl = document.getElementById('message');
     const phoneEl = document.getElementById('phone');
     const serviceEl = document.getElementById('service');
-    const messageEl = document.getElementById('message');
     const sendBtn = document.getElementById('sendBtn');
     const previewBtn = document.getElementById('previewBtn');
-    const floatActionWhats = document.getElementById('floatActionWhats');
+    const asideSend = document.getElementById('asideSend');
+    const form = document.getElementById('contactForm');
     const introCanvas = document.getElementById('introCanvas');
     document.getElementById('year').innerText = new Date().getFullYear();
-    const WA_NUMBER = '923454627881';
 
-    // ====== Utility & validation ======
-    function isValid() {
+    // ------------------ Validation + enable/disable CTAs ------------------
+    function formIsValid(){
       return nameEl.value.trim() !== '' &&
              emailEl.value.trim() !== '' &&
              messageEl.value.trim() !== '';
     }
 
-    function setEnabled(enabled) {
-      if (enabled) {
-        sendBtn.classList.remove('btn-disabled');
+    function updateCTAs(){
+      if(formIsValid()){
+        sendBtn.classList.remove('cta-disabled');
         sendBtn.removeAttribute('aria-disabled');
-        floatActionWhats.classList.remove('btn-disabled');
-        floatActionWhats.removeAttribute('aria-disabled');
+        asideSend.classList.remove('cta-disabled');
+        asideSend.removeAttribute('aria-disabled');
       } else {
-        sendBtn.classList.add('btn-disabled');
+        sendBtn.classList.add('cta-disabled');
         sendBtn.setAttribute('aria-disabled','true');
-        floatActionWhats.classList.add('btn-disabled');
-        floatActionWhats.setAttribute('aria-disabled','true');
+        asideSend.classList.add('cta-disabled');
+        asideSend.setAttribute('aria-disabled','true');
       }
     }
 
-    // initial state
-    setEnabled(isValid());
+    [nameEl, emailEl, messageEl].forEach(i => i.addEventListener('input', updateCTAs));
+    updateCTAs();
 
-    [nameEl, emailEl, messageEl].forEach(el => {
-      el.addEventListener('input', () => setEnabled(isValid()));
-    });
-
-    function buildWhatsText() {
+    // ------------------ Build WhatsApp message ------------------
+    function buildMessage(){
       const name = nameEl.value.trim() || 'N/A';
       const email = emailEl.value.trim() || 'N/A';
       const phone = phoneEl.value.trim() || 'N/A';
-      const serv = serviceEl.value || 'General';
+      const service = serviceEl.value || 'General';
       const msg = messageEl.value.trim() || 'N/A';
       return [
         "🌟 *New message for ZahidSolution* 🌟",
@@ -363,191 +386,159 @@
         `👤 Name: ${name}`,
         `📧 Email: ${email}`,
         `📞 Phone: ${phone}`,
-        `🛠 Service: ${serv}`,
+        `🛠 Service: ${service}`,
         `💬 Message: ${msg}`,
         "",
         "— Sent from ZahidSolution contact form"
-      ].join("\n");
+      ].join('\n');
     }
 
-    // ====== Preview button (opens WA without submitting) ======
+    // ------------------ Preview (open WA without submitting) ------------------
     previewBtn.addEventListener('click', () => {
-      if (!isValid()) {
-        alert('Please complete required fields (Name, Email, Message) to preview.');
-        return;
-      }
-      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildWhatsText())}`;
+      if(!formIsValid()){ alert('Please fill Name, Email, and Message to preview.'); return; }
+      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildMessage())}`;
       window.open(url, '_blank');
     });
 
-    // ====== Netlify friendly submit with fetch, then open WhatsApp ======
+    // ------------------ Submit (POST to Netlify then open WA) ------------------
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (!isValid()) {
-        alert('Please fill Name, Email and Message.');
-        return;
-      }
-      // temporarily disable to prevent duplicates
+      if(!formIsValid()){ alert('Please fill required fields: Name, Email, Message.'); return; }
       sendBtn.disabled = true;
-      sendBtn.classList.add('btn-disabled');
+      sendBtn.classList.add('cta-disabled');
 
-      // prepare payload
-      const data = new URLSearchParams();
-      data.append('form-name', 'contact');
-      data.append('name', nameEl.value.trim());
-      data.append('email', emailEl.value.trim());
-      data.append('phone', phoneEl.value.trim());
-      data.append('service', serviceEl.value);
-      data.append('message', messageEl.value.trim());
+      // prepare payload for Netlify
+      const payload = new URLSearchParams();
+      payload.append('form-name', 'contact');
+      payload.append('name', nameEl.value.trim());
+      payload.append('email', emailEl.value.trim());
+      payload.append('phone', phoneEl.value.trim());
+      payload.append('service', serviceEl.value);
+      payload.append('message', messageEl.value.trim());
 
-      // POST to current page (Netlify will capture it)
+      // send
       fetch(window.location.pathname, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: data.toString()
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: payload.toString()
       })
       .then(() => {
-        // open WhatsApp chat with message
-        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildWhatsText())}`, '_blank');
-
-        // small success toast
-        toast('Message submitted — WhatsApp opened.', true);
-
-        // reset form (optional) and disable buttons again
+        // open WA
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildMessage())}`, '_blank');
+        showToast('Message submitted — WhatsApp opened.', true);
         form.reset();
-        setEnabled(false);
-        setTimeout(() => { sendBtn.disabled = false; }, 1400);
+        updateCTAs();
+        sendBtn.disabled = false;
       })
-      .catch((err) => {
-        console.error('Form submit error', err);
-        // still attempt to open WA so user flow continues
-        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildWhatsText())}`, '_blank');
-        toast('Network error — WhatsApp opened but submission may not be saved.', false);
-        setEnabled(false);
-        setTimeout(() => { sendBtn.disabled = false; }, 1400);
+      .catch(err => {
+        console.warn(err);
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildMessage())}`, '_blank');
+        showToast('Network issue — WhatsApp opened but submission may not be saved.', false);
+        form.reset();
+        updateCTAs();
+        sendBtn.disabled = false;
       });
     });
 
-    // floating aside WhatsApp button action
-    floatActionWhats.addEventListener('click', (e) => {
+    asideSend.addEventListener('click', (e) => {
       e.preventDefault();
-      if (floatActionWhats.classList.contains('btn-disabled')) return;
-      if (!isValid()) { alert('Please complete the required fields first.'); return; }
-      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildWhatsText())}`, '_blank');
+      if(asideSend.classList.contains('cta-disabled')){ alert('Please fill required fields first.'); return; }
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildMessage())}`, '_blank');
     });
 
-    // toast helper
-    function toast(text, success=true) {
-      const el = document.createElement('div');
-      el.style.position = 'fixed';
-      el.style.right = '18px';
-      el.style.top = '18px';
-      el.style.padding = '12px 16px';
-      el.style.borderRadius = '10px';
-      el.style.zIndex = 1600;
-      el.style.color = '#fff';
-      el.style.fontWeight = 800;
-      el.style.boxShadow = '0 10px 30px rgba(0,0,0,0.35)';
-      el.style.background = success ? 'linear-gradient(90deg,#00b09b,#96c93d)' : 'linear-gradient(90deg,#ffb347,#ffcc33)';
-      el.textContent = text;
-      document.body.appendChild(el);
-      setTimeout(()=> el.style.opacity='0.01', 2400);
-      setTimeout(()=> el.remove(), 3000);
+    // ------------------ small toast ------------------
+    function showToast(msg, ok=true){
+      const t = document.createElement('div');
+      t.className = 'toast-custom';
+      t.style.background = ok ? 'linear-gradient(90deg,#00b09b,#96c93d)' : 'linear-gradient(90deg,#ffb347,#ffcc33)';
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(()=> t.style.opacity='0.01', 2400);
+      setTimeout(()=> t.remove(), 3000);
     }
 
-    // ====== Back to top ======
+    // ------------------ Back to top ------------------
     const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', ()=> {
       backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
     });
-    backToTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+    backToTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 
-    // ====== GSAP Intro animation: balloons + flowers (solid glowing look) ======
-    function spawnIntro() {
+    // ------------------ GSAP hero glowing wave/fade + intro reveal ------------------
+    function heroAnimations(){
+      // continuous subtle pulse for glow
+      gsap.to('#ctaGlow', { opacity: 0.32, duration: 1.4, repeat: -1, yoyo: true, ease: "sine.inOut" });
+      gsap.to('#ctaTitleWrap', { scale: 1.02, duration: 3.8, repeat: -1, yoyo: true, ease: "sine.inOut" });
+
+      // bring hero card in
+      gsap.from('#ctaCard', { y: 40, opacity: 0, duration: 0.9, ease: "power2.out" });
+
+      // reveal form after small delay
+      gsap.from('#formStage', { y: 30, opacity: 0, duration: 0.9, delay: 0.85, ease: "power2.out" });
+
+      // small hook text shimmer
+      gsap.to('.hook', { opacity: [0.85,1], duration: 1.6, repeat: -1, yoyo:true, ease:"sine.inOut" });
+    }
+
+    // ------------------ GSAP balloons + flowers mini burst (subtle) ------------------
+    function burstIntro(){
       const colors = ['#9ce0ff','#a76bfa','#7ee8fa','#ffd56b','#ff9ce0'];
       const items = [];
-      // 10 balloons
+      // small number for subtlety
       for (let i=0;i<10;i++){
         const el = document.createElement('div');
         el.className = 'intro-item';
-        const size = 36 + Math.random()*42;
+        const size = 28 + Math.random()*34;
         el.style.width = size+'px';
-        el.style.height = (size*1.25)+'px';
-        el.style.left = (5 + Math.random()*90)+'%';
-        el.style.bottom = '-10%';
-        const color = colors[Math.floor(Math.random()*colors.length)];
-        el.innerHTML = `<div class="balloon-shape" style="background: radial-gradient(circle at 25% 25%, ${color}, rgba(0,0,0,0.06));"></div>`;
-        introCanvas.appendChild(el);
-        items.push(el);
-      }
-      // 8 flowers (circular bursts)
-      for (let j=0;j<8;j++){
-        const el = document.createElement('div');
-        el.className = 'intro-item';
-        const size = 44 + Math.random()*36;
-        el.style.width = size+'px';
-        el.style.height = size+'px';
-        el.style.left = (5 + Math.random()*90)+'%';
-        el.style.bottom = '-6%';
-        const hue = Math.floor(Math.random()*360);
-        el.innerHTML = `<div class="flower-shape" style="background: conic-gradient(hsl(${hue} 85% 70%), hsl(${(hue+45)%360} 85% 70%), hsl(${(hue+90)%360} 85% 70%)); border-radius:50%;"></div>`;
+        el.style.height = (size * (Math.random()*0.35 + 0.9)) + 'px';
+        el.style.left = (6 + Math.random()*88) + '%';
+        el.style.bottom = '-12%';
+        el.style.opacity = 0;
+        // choose balloon or flower randomly
+        if(Math.random() > 0.45){
+          el.innerHTML = `<div class="balloon-shape" style="background: radial-gradient(circle at 25% 25%, ${colors[Math.floor(Math.random()*colors.length)]}, rgba(0,0,0,0.04)); width:100%; height:100%; border-radius:38% 38% 50% 50%;"></div>`;
+        } else {
+          const hue = Math.floor(Math.random()*360);
+          el.innerHTML = `<div class="flower-shape" style="background: conic-gradient(hsl(${hue} 85% 70%), hsl(${(hue+60)%360} 85% 70%), hsl(${(hue+120)%360} 85% 70%)); width:100%; height:100%; border-radius:50%;"></div>`;
+        }
         introCanvas.appendChild(el);
         items.push(el);
       }
 
-      // animate with GSAP
-      const tl = gsap.timeline();
+      // animate upward then fade
       items.forEach((el, idx) => {
-        const start = idx * 0.06;
-        tl.fromTo(el, {
-          y: 0, rotation: (Math.random()-0.5)*40, opacity:0, scale:0.9
-        },{
-          delay: start,
-          y: - (180 + Math.random()*160),
-          x: (Math.random()-0.5)*160,
-          rotation: (Math.random()-0.5)*140,
-          opacity:1,
-          scale: 1 + Math.random()*0.08,
-          duration: 2.2 + Math.random()*0.9,
-          ease: "power2.out"
-        }, 0);
-        tl.to(el, {
-          y: '-=' + (90 + Math.random()*160),
-          opacity:0,
-          duration: 0.7 + Math.random()*0.6,
-          ease: "power1.in"
-        }, `+=0.12`);
+        const up = 160 + Math.random()*120;
+        gsap.to(el, { opacity:1, y: - (up * 0.6), x: (Math.random()-0.5)*80, rotation: (Math.random()-0.5)*80, duration: 1.9 + Math.random()*0.6, ease:"power2.out", delay: idx*0.06 });
+        gsap.to(el, { opacity:0, y: - (up + 60), duration: 0.8 + Math.random()*0.6, ease:"power1.in", delay: 1.9 + idx*0.06 });
       });
 
-      // cleanup after ~4s
-      setTimeout(()=> introCanvas.innerHTML = '', 3800);
+      // cleanup
+      setTimeout(()=> { introCanvas.innerHTML=''; }, 4200);
     }
 
-    // ====== Speech greeting (speechSynthesis) ======
-    function speakGreeting(){
+    // ------------------ Speech greeting ------------------
+    function speak() {
       const greetings = [
-        "Hello! Welcome to ZahidSolution. We're happy to help — please share your project details.",
-        "Salam! Fill the form and we'll reply quickly via WhatsApp.",
-        "Hi there — ZahidSolution is ready to assist. Tell us about your project."
+        "Hello! Welcome to ZahidSolution. Let's build something together — share your project details below.",
+        "Hi there! Tell us about your idea and we'll reply quickly via WhatsApp.",
+        "Salam! Fill the form and get a prompt response from ZahidSolution."
       ];
-      const msg = greetings[Math.floor(Math.random()*greetings.length)];
-      if ('speechSynthesis' in window) {
-        const u = new SpeechSynthesisUtterance(msg);
-        u.rate = 1.0;
-        u.pitch = 1.0;
-        // speak after a short delay so it doesn't clash with load
-        setTimeout(()=> speechSynthesis.speak(u), 400);
-      }
+      const u = new SpeechSynthesisUtterance(greetings[Math.floor(Math.random()*greetings.length)]);
+      u.rate = 1.0; u.pitch = 1.0;
+      setTimeout(()=> { if ('speechSynthesis' in window) speechSynthesis.speak(u); }, 420);
     }
 
-    // Run intro and greeting on load
+    // ------------------ Run on load ------------------
     window.addEventListener('load', () => {
-      try { spawnIntro(); } catch(e){ console.warn(e); }
-      try { speakGreeting(); } catch(e){ /* ignore */ }
-      setTimeout(()=> setEnabled(isValid()), 600);
+      try { heroAnimations(); } catch(e){ console.warn(e); }
+      try { burstIntro(); } catch(e){ console.warn(e); }
+      try { speak(); } catch(e){ /* ignore */ }
+      updateCTAs();
+      // slight enable check (in case browser autofill)
+      setTimeout(updateCTAs, 800);
     });
 
-    // prevent accidental back/forward form resubmit
+    // Prevent form resubmit in navigation
     if (window.history.replaceState) window.history.replaceState(null, null, window.location.href);
   </script>
 </body>

@@ -1,251 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>ZahidSolution | Contact Us</title>
-<meta name="description" content="Get in touch with ZahidSolution for premium digital services.">
+<meta name="description" content="Contact ZahidSolution for web, design, video editing, AI chatbots, and portfolio services. Fast replies via WhatsApp." />
+<meta name="keywords" content="ZahidSolution, Contact, Web Development, Graphic Design, Video Editing, AI Chatbot" />
 <link rel="icon" href="/static/favicon.png" type="image/png">
 
-<!-- Bootstrap + Icons + AOS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZahidSolution | Contact">
+<meta property="og:description" content="Contact ZahidSolution - premium web & AI services." />
+<meta property="og:image" content="/static/logo.png" />
+<meta property="og:url" content="https://your-netlify-site.netlify.app/contact.html" />
+
+<!-- Bootstrap & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+
+<!-- GSAP (for premium animation) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <style>
-/* Global */
-body {
-  background: radial-gradient(circle at top left, #0d0d2b, #050510);
-  color: #fff;
-  overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
-}
-h2, h3 {color: #a8d8ff;}
-a, .btn {text-decoration: none;}
+  /* ===== Global & Theme (matches your services page style) ===== */
+  :root{
+    --bg-dark:#0b0b14;
+    --grad1:#4b0082;
+    --grad2:#8a2be2;
+    --grad3:#00bcd4;
+    --neon-blue:#9ce0ff;
+    --neon-purple:#bb86fc;
+  }
+  html,body{height:100%;}
+  body{
+    margin:0;
+    font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: radial-gradient(circle at top left, var(--grad1), var(--bg-dark) 60%);
+    color:#fff;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden;
+  }
 
-/* Navbar */
-.navbar {
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
-}
-.navbar-brand span {color:#a76bfa;}
-.nav-link {
-  color: #cfd2f3 !important;
-  transition: 0.3s;
-}
-.nav-link:hover, .nav-link.active {
-  color: #9ce0ff !important;
-  text-shadow: 0 0 10px #9ce0ff;
-}
+  /* ===== Navbar (same look as services file) ===== */
+  .navbar{
+    background: linear-gradient(90deg, var(--grad1), var(--grad2), var(--grad3));
+    box-shadow: 0 3px 15px rgba(138,43,226,0.45);
+    z-index:1200;
+    backdrop-filter: blur(6px);
+  }
+  .navbar-brand{ font-weight:700; color:#fff !important; text-shadow:0 0 10px var(--neon-purple); }
+  .nav-link{ color:#fff !important; transition:0.25s; }
+  .nav-link:hover{ color:var(--neon-purple) !important; text-shadow: 0 0 10px var(--neon-purple), 0 0 20px #00f0ff; }
 
-/* Contact Section */
-section {
-  position: relative;
-  z-index: 2;
-}
-form {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 0 30px rgba(145, 110, 255, 0.3);
-  border-radius: 20px;
-}
-.form-control {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: #fff;
-}
-.form-control:focus {
-  box-shadow: 0 0 10px #9ce0ff;
-  border-color: #9ce0ff;
-}
-label {color: #cfd2f3; font-weight: 500;}
-.btn-custom {
-  background: linear-gradient(90deg, #6a00f4, #009dff);
-  border: none;
-  font-weight: 600;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(0,157,255,0.5);
-  transition: 0.3s;
-}
-.btn-custom:hover {
-  box-shadow: 0 0 25px #9ce0ff;
-  transform: translateY(-2px);
-}
-.btn-disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
+  /* ===== Page header ===== */
+  .hero{ text-align:center; padding:90px 18px 40px; }
+  .hero h1{ font-size:2.6rem; margin:0 0 6px; color:var(--neon-blue); text-shadow:0 0 12px var(--neon-blue); }
+  .hero p{ margin:0; color:rgba(255,255,255,0.85); opacity:0.95; }
 
-/* Floating WhatsApp */
-#floatWhatsapp {
-  position: fixed;
-  bottom: 90px;
-  right: 30px;
-  z-index: 1000;
-  animation: pulse 2s infinite;
-  box-shadow: 0 0 20px rgba(0,255,100,0.6);
-}
-@keyframes pulse {
-  0%,100%{transform: scale(1);}
-  50%{transform: scale(1.1);}
-}
+  /* ===== Contact Card ===== */
+  .contact-card{
+    max-width:920px;
+    margin:30px auto 60px;
+    padding:28px;
+    border-radius:18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    border: 1px solid rgba(138,43,226,0.14);
+    box-shadow: 0 8px 40px rgba(106,0,244,0.08);
+    display:grid;
+    grid-template-columns: 1fr 420px;
+    gap:28px;
+    align-items:stretch;
+  }
+  @media(max-width:991px){ .contact-card{ grid-template-columns: 1fr; padding:20px; } }
 
-/* Back to Top */
-#backToTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  display: none;
-  z-index: 999;
-  background: linear-gradient(90deg, #6a00f4, #009dff);
-  border: none;
-  box-shadow: 0 0 15px rgba(0,157,255,0.5);
-}
+  /* Left area: intro + services list */
+  .contact-left{ padding:8px 6px; }
+  .contact-left h3{ color:var(--neon-purple); text-shadow:0 0 10px var(--neon-purple); margin-bottom:8px; }
+  .services-list{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .service-pill{
+    background: linear-gradient(90deg, rgba(138,43,226,0.12), rgba(0,188,212,0.08));
+    border:1px solid rgba(138,43,226,0.12);
+    color: #fff; padding:8px 12px; border-radius:999px; font-weight:600;
+    box-shadow: 0 6px 20px rgba(106,0,244,0.04);
+  }
 
-/* Balloons animation on load */
-.balloons {
-  position: fixed;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 20px;
-  z-index: 1001;
-}
-.balloon {
-  width: 40px;
-  height: 60px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #9ce0ff, #6a00f4);
-  animation: floatUp 3s ease-out forwards;
-}
-@keyframes floatUp {
-  0% {transform: translate(-50%, 100vh) scale(1);}
-  100% {transform: translate(-50%, -120vh) scale(1.1);}
-}
+  /* Right area: form */
+  .form-wrap{ padding:6px 8px; }
+  form#contactForm{
+    display:flex; flex-direction:column; gap:12px;
+  }
+  .form-control{
+    background: rgba(255,255,255,0.04);
+    color:#fff; border:1px solid rgba(255,255,255,0.06);
+    border-radius:10px; padding:12px 14px;
+  }
+  .form-control:focus{
+    outline:none;
+    box-shadow: 0 0 20px rgba(156,224,255,0.12);
+    border-color: var(--neon-blue);
+    background: rgba(255,255,255,0.03);
+  }
+  label { font-weight:600; color:#dfe9ff; font-size:0.95rem; }
+
+  /* Select styling */
+  select.form-control{ -webkit-appearance:none; appearance:none; background-image:linear-gradient(45deg,transparent 50%, #fff 50%), linear-gradient(135deg,#fff 50%, transparent 50%); background-position:calc(100% - 18px) calc(1.1em + 2px), calc(100% - 13px) calc(1.1em + 2px); background-size:6px 6px,6px 6px; background-repeat:no-repeat; }
+
+  /* Buttons */
+  .btn-primary-neon{
+    background: linear-gradient(90deg, #8a2be2, #00bcd4);
+    border: none; color: #fff; font-weight:700; border-radius:12px;
+    padding:12px 16px; box-shadow: 0 6px 30px rgba(106,0,244,0.18);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary-neon:hover{ transform: translateY(-4px); box-shadow: 0 10px 40px rgba(106,0,244,0.24); }
+
+  .btn-outline-ghost{
+    background: transparent; color:#dfe9ff; border:1px solid rgba(255,255,255,0.06);
+    padding:10px 14px; border-radius:10px; font-weight:700;
+  }
+
+  /* Disabled WhatsApp CTA style */
+  .btn-disabled {
+    opacity:0.55; pointer-events:none; filter:grayscale(.02);
+  }
+
+  /* Floating WhatsApp button */
+  .whatsapp-float {
+    position: fixed; right:20px; bottom:20px; z-index:1400;
+    width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background: linear-gradient(90deg,#00c853,#25d366); color:#fff; font-size:26px;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.18);
+    transition: transform .2s ease;
+  }
+  .whatsapp-float:active{ transform: scale(.96); }
+
+  /* Balloon & Flower canvas wrapper - sits above page while animating */
+  .intro-canvas{
+    pointer-events:none; position:fixed; inset:0; z-index:1350; overflow:hidden;
+  }
+  .intro-item{
+    position:absolute; width:44px; height:60px; border-radius:22px; transform-origin:center bottom;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  }
+  .flower{
+    width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0;
+    box-shadow: 0 8px 30px rgba(138,43,226,0.12);
+  }
+
+  /* Footer */
+  footer{
+    text-align:center; padding:18px 8px; color:#bfc9ff; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  }
+
+  /* Small screens */
+  @media(max-width:576px){
+    .hero{ padding-top:80px; }
+    .contact-card{ margin:16px; grid-template-columns:1fr; gap:12px; padding:16px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- Balloons Animation -->
-<div class="balloons" id="balloons"></div>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
+<!-- Navbar (same palette as services) -->
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="index.html">Zahid<span>Solution</span></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <a class="navbar-brand" href="index.html">ZahidSolution</a>
+    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navMain">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
         <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
         <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Contact -->
-<section class="py-5 text-center">
-  <div class="container">
-    <h2 data-aos="fade-up" class="mb-3">Let’s Talk!</h2>
-    <p class="text-light mb-5" data-aos="fade-up" data-aos-delay="100">Share your details and we’ll get back to you instantly on WhatsApp 💬</p>
-
-    <div class="row justify-content-center">
-      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <form id="contactForm" class="p-4">
-          <div class="mb-3">
-            <label>Name</label>
-            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
-          </div>
-          <div class="mb-3">
-            <label>Email</label>
-            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-          </div>
-          <div class="mb-3">
-            <label>Phone</label>
-            <input type="text" id="phone" class="form-control" placeholder="Phone (optional)">
-          </div>
-          <div class="mb-3">
-            <label>Subject</label>
-            <input type="text" id="subject" class="form-control" placeholder="Subject">
-          </div>
-          <div class="mb-3">
-            <label>Message</label>
-            <textarea id="message" rows="4" class="form-control" placeholder="Your message" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-custom w-100 mt-3">Enable WhatsApp Chat</button>
-        </form>
-      </div>
-    </div>
-  </div>
+<!-- Intro hero -->
+<section class="hero">
+  <h1>Let’s build something amazing ✨</h1>
+  <p>Share your project details below — we’ll reply quickly via WhatsApp.</p>
 </section>
 
-<!-- Floating WhatsApp -->
-<a id="floatWhatsapp" href="#" class="btn btn-success btn-lg d-flex align-items-center gap-2 btn-disabled">
-  <i class="bi bi-whatsapp"></i> Send via WhatsApp
+<!-- Contact Card -->
+<main class="contact-card" role="main" aria-labelledby="contactHeading">
+  <!-- Left: info & services -->
+  <div class="contact-left" aria-hidden="false">
+    <h3 id="contactHeading">Contact ZahidSolution</h3>
+    <p style="opacity:.9">Choose a service and share the details — or call / email directly for faster responses.</p>
+
+    <div style="margin-top:18px;">
+      <div class="services-list" aria-hidden="false">
+        <div class="service-pill">Website Development</div>
+        <div class="service-pill">Graphic Designing</div>
+        <div class="service-pill">Video Editing</div>
+        <div class="service-pill">AI Chatbots</div>
+        <div class="service-pill">Portfolio Management</div>
+      </div>
+    </div>
+
+    <div style="margin-top:22px; display:flex; gap:12px; flex-wrap:wrap;">
+      <!-- Email & Call always active -->
+      <a class="btn btn-outline-ghost" href="mailto:zahidsolutions360@gmail.com" aria-label="Email ZahidSolution">📧 Email</a>
+      <a class="btn btn-outline-ghost" href="tel:+923454627881" aria-label="Call ZahidSolution">📞 Call Now</a>
+    </div>
+
+    <small style="display:block; margin-top:16px; color:rgba(255,255,255,0.65)">Netlify form enabled • WhatsApp opens after successful submission</small>
+  </div>
+
+  <!-- Right: the form -->
+  <div class="form-wrap">
+    <!-- Netlify form -->
+    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-describedby="formNote" novalidate>
+      <input type="hidden" name="form-name" value="contact">
+      <!-- Honeypot -->
+      <p class="d-none"><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
+
+      <div class="row g-2">
+        <div class="col-12">
+          <label for="name">Name *</label>
+          <input id="name" name="name" class="form-control" required aria-required="true" placeholder="Your full name">
+        </div>
+        <div class="col-12 col-md-6">
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" class="form-control" required aria-required="true" placeholder="you@example.com">
+        </div>
+        <div class="col-12 col-md-6">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" class="form-control" placeholder="+92...">
+        </div>
+        <div class="col-12">
+          <label for="service">Service</label>
+          <select id="service" name="service" class="form-control">
+            <option value="Website Development">Website Development</option>
+            <option value="Graphic Designing">Graphic Designing</option>
+            <option value="Video Editing">Video Editing</option>
+            <option value="AI Chatbots">AI Chatbots</option>
+            <option value="Portfolio Management">Portfolio Management</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="4" class="form-control" required aria-required="true" placeholder="Tell us about your project..."></textarea>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:12px; margin-top:12px; align-items:center;">
+        <!-- Primary CTA: sends to Netlify and then opens WhatsApp; disabled until required fields filled -->
+        <button id="whatsappSend" class="btn btn-primary-neon btn-disabled" type="submit" aria-disabled="true" title="Complete required fields to enable WhatsApp">💬 Send via WhatsApp</button>
+
+        <!-- Quick enable button: fills WhatsApp link but doesn't submit (kept disabled to respect Netlify requirement) -->
+        <button id="previewWhatsApp" type="button" class="btn btn-outline-ghost" title="Preview WhatsApp message (does not submit)">Preview</button>
+      </div>
+
+      <div id="formNote" style="margin-top:10px; color:#cfeaff; font-size:.92rem;">
+        <small>Required fields are marked *. After sending, a WhatsApp window will open with your message and a copy is stored in Netlify Forms.</small>
+      </div>
+    </form>
+  </div>
+</main>
+
+<!-- Floating WhatsApp (disabled until form valid) -->
+<a id="floatWhats" class="whatsapp-float btn-disabled" href="#" aria-label="Send message via WhatsApp (fill form first)">
+  <i class="bi bi-whatsapp"></i>
 </a>
 
-<!-- Back to Top -->
-<button id="backToTop" class="btn btn-lg text-white"><i class="bi bi-arrow-up"></i></button>
+<!-- Intro animation container (GSAP will add elements here) -->
+<div class="intro-canvas" id="introCanvas" aria-hidden="true"></div>
 
-<footer class="text-center py-4">
-  <p class="text-muted mb-0">&copy; <span id="year"></span> ZahidSolution | All Rights Reserved</p>
+<!-- Footer -->
+<footer>
+  <small>&copy; <span id="year"></span> ZahidSolution — Designed by Zahid Hussain</small>
 </footer>
 
-<!-- JS -->
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
-AOS.init();
+/* =========================
+   Helper & DOM references
+   ========================= */
+const form = document.getElementById('contactForm');
+const nameEl = document.getElementById('name');
+const emailEl = document.getElementById('email');
+const phoneEl = document.getElementById('phone');
+const serviceEl = document.getElementById('service');
+const messageEl = document.getElementById('message');
+const whatsappBtn = document.getElementById('whatsappSend');
+const floatWhats = document.getElementById('floatWhats');
+const previewBtn = document.getElementById('previewWhatsApp');
+const introCanvas = document.getElementById('introCanvas');
 document.getElementById('year').innerText = new Date().getFullYear();
 
-// Floating balloons on load
-function createBalloons() {
-  const container = document.getElementById('balloons');
-  for (let i = 0; i < 8; i++) {
-    const balloon = document.createElement('div');
-    balloon.className = 'balloon';
-    balloon.style.left = `${Math.random()*100}%`;
-    balloon.style.background = `radial-gradient(circle at 30% 30%, 
-      hsl(${Math.random()*360},100%,75%), #6a00f4)`;
-    container.appendChild(balloon);
-  }
-  setTimeout(() => container.remove(), 4000);
+/* =========================
+   Form validation & UI state
+   ========================= */
+function isFormValid() {
+  return nameEl.value.trim() !== '' &&
+         emailEl.value.trim() !== '' &&
+         messageEl.value.trim() !== '';
 }
-window.addEventListener('load', createBalloons);
 
-// Back to Top
-const backToTop = document.getElementById('backToTop');
-window.onscroll = () => { backToTop.style.display = (window.scrollY > 300) ? 'block' : 'none'; }
-backToTop.onclick = () => { window.scrollTo({top:0, behavior:'smooth'}); }
-
-// WhatsApp integration
-const form = document.getElementById('contactForm');
-const whatsappBtn = document.getElementById('floatWhatsapp');
-
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const subject = document.getElementById('subject').value.trim();
-  const message = document.getElementById('message').value.trim();
-
-  if (name && email && message) {
-    const msg = `🌟 *New Contact Message from ZahidSolution!* 🌟\n\n` +
-      `👤 Name: ${name}\n📧 Email: ${email}\n📞 Phone: ${phone || 'N/A'}\n📝 Subject: ${subject}\n💬 Message: ${message}`;
-    const encodedMsg = encodeURIComponent(msg);
-    whatsappBtn.href = `https://wa.me/923454627881?text=${encodedMsg}`;
+function setWhatsEnabled(enabled){
+  if(enabled){
     whatsappBtn.classList.remove('btn-disabled');
-    whatsappBtn.innerHTML = '<i class="bi bi-whatsapp"></i> Send via WhatsApp';
-    whatsappBtn.focus();
+    whatsappBtn.removeAttribute('aria-disabled');
+    floatWhats.classList.remove('btn-disabled');
+    floatWhats.setAttribute('tabindex','0');
+  } else {
+    whatsappBtn.classList.add('btn-disabled');
+    whatsappBtn.setAttribute('aria-disabled','true');
+    floatWhats.classList.add('btn-disabled');
+    floatWhats.removeAttribute('tabindex');
+  }
+}
+
+/* Attach input listeners */
+[ nameEl, emailEl, messageEl ].forEach(el => {
+  el.addEventListener('input', () => {
+    setWhatsEnabled(isFormValid());
+  });
+});
+
+/* Preview button - opens WhatsApp but does not submit (for testing) */
+previewBtn.addEventListener('click', () => {
+  if(!isFormValid()){
+    alert('Please fill Name, Email and Message to preview the WhatsApp message.');
+    return;
+  }
+  const text = buildWhatsText();
+  const url = `https://wa.me/923454627881?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank');
+});
+
+/* Build the WhatsApp message string with form values */
+function buildWhatsText() {
+  const name = nameEl.value.trim() || 'N/A';
+  const email = emailEl.value.trim() || 'N/A';
+  const phone = phoneEl.value.trim() || 'N/A';
+  const service = serviceEl.value || 'General';
+  const message = messageEl.value.trim() || 'N/A';
+
+  const lines = [
+    "🌟 *New message for ZahidSolution* 🌟",
+    "",
+    `👤 Name: ${name}`,
+    `📧 Email: ${email}`,
+    `📞 Phone: ${phone}`,
+    `🛠️ Service: ${service}`,
+    `💬 Message: ${message}`,
+    "",
+    "— Sent from ZahidSolution contact form"
+  ];
+  return lines.join("\n");
+}
+
+/* =========================
+   Netlify-friendly form submit via fetch
+   =========================
+   We'll POST url-encoded data to the current path so Netlify records the submission.
+   After success, open WhatsApp. If fetch fails, still attempt to open WhatsApp
+   so user doesn't lose flow (but they may need to retry later).
+   ========================= */
+form.addEventListener('submit', function(evt){
+  evt.preventDefault();
+  if(!isFormValid()){
+    alert('Please fill required fields: Name, Email, Message.');
+    return;
+  }
+
+  // Disable button while processing
+  whatsappBtn.disabled = true;
+  whatsappBtn.classList.add('btn-disabled');
+
+  const formName = form.querySelector('input[name="form-name"]').value || 'contact';
+
+  const payload = new URLSearchParams();
+  // include form-name for Netlify
+  payload.append('form-name', formName);
+  payload.append('name', nameEl.value.trim());
+  payload.append('email', emailEl.value.trim());
+  payload.append('phone', phoneEl.value.trim());
+  payload.append('service', serviceEl.value);
+  payload.append('message', messageEl.value.trim());
+
+  // Submit to Netlify endpoint (same path). Netlify will capture this.
+  fetch(window.location.pathname, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: payload.toString()
+  })
+  .then(response => {
+    // Even if Netlify responds with a redirect or success, we proceed
+    // Open WhatsApp with encoded message
+    const text = buildWhatsText();
+    const waUrl = `https://wa.me/923454627881?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank');
+
+    // Visual confirmation to user (small toast)
+    showTempToast('Message submitted — WhatsApp opened.', 'success');
+    // re-enable button after small delay
+    setTimeout(()=>{ whatsappBtn.disabled=false; setWhatsEnabled(isFormValid()); }, 1500);
+    // Optionally clear form (comment out if you prefer to keep fields)
+    form.reset();
+    setWhatsEnabled(false);
+  })
+  .catch(err=>{
+    console.error('Netlify form submit failed:', err);
+    // still open WhatsApp so user doesn't lose flow
+    const text = buildWhatsText();
+    const waUrl = `https://wa.me/923454627881?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank');
+    showTempToast('Network issue — WhatsApp opened. Form may not be saved.', 'warning');
+    setTimeout(()=>{ whatsappBtn.disabled=false; setWhatsEnabled(isFormValid()); }, 1500);
+  });
+});
+
+/* Small toast helper (temporary message) */
+function showTempToast(msg, type='info'){
+  const el = document.createElement('div');
+  el.style.position='fixed';
+  el.style.right='18px';
+  el.style.top='18px';
+  el.style.padding='12px 16px';
+  el.style.borderRadius='10px';
+  el.style.zIndex=1500;
+  el.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)';
+  el.style.color='#fff';
+  el.style.fontWeight=700;
+  el.style.background = type==='success' ? 'linear-gradient(90deg,#00b09b,#96c93d)' : (type==='warning'? 'linear-gradient(90deg,#ffb347,#ffcc33)':'rgba(0,0,0,0.6)');
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(()=> el.style.opacity='0.01', 2500);
+  setTimeout(()=> el.remove(), 3000);
+}
+
+/* Floating WhatsApp: same action as preview (but only if enabled) */
+floatWhats.addEventListener('click', (e)=>{
+  if(floatWhats.classList.contains('btn-disabled')){ e.preventDefault(); return; }
+  const text = buildWhatsText();
+  const url = `https://wa.me/923454627881?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank');
+});
+
+/* =========================
+   GSAP animation: Balloons + Flowers burst on page load
+   ========================= */
+function createIntroItems(){
+  const items = [];
+  const colors = ['#9ce0ff','#a76bfa','#ff9ce0','#00d1ff','#ffd56b'];
+  // create 10 balloons and 8 flowers (total ~18)
+  for(let i=0;i<10;i++){
+    const el = document.createElement('div');
+    el.className = 'intro-item';
+    el.style.width = `${36 + Math.random()*28}px`;
+    el.style.height = `${48 + Math.random()*34}px`;
+    el.style.left = `${10 + Math.random()*80}%`;
+    el.style.bottom = '-20%';
+    el.style.background = `radial-gradient(circle at 30% 30%, ${colors[Math.floor(Math.random()*colors.length)]}, ${colors[Math.floor(Math.random()*colors.length)]})`;
+    el.style.borderRadius = '50% / 60%';
+    el.style.opacity = 0;
+    introCanvas.appendChild(el);
+    items.push({el,type:'balloon'});
+  }
+  for(let j=0;j<8;j++){
+    const el = document.createElement('div');
+    el.className = 'intro-item flower';
+    el.style.left = `${5 + Math.random()*90}%`;
+    el.style.bottom = '-10%';
+    const hue = Math.floor(Math.random()*360);
+    el.style.background = `conic-gradient(hsl(${hue} 80% 70%), hsl(${(hue+60)%360} 80% 70%), hsl(${(hue+120)%360} 80% 70%))`;
+    el.style.opacity = 0;
+    introCanvas.appendChild(el);
+    items.push({el,type:'flower'});
+  }
+  return items;
+}
+
+function runIntroAnimation(){
+  const items = createIntroItems();
+  const tl = gsap.timeline();
+  items.forEach((it, idx)=>{
+    const extraY = 110 + Math.random()*40;
+    // stagger start
+    const start = idx * 0.06;
+    // animate upward with rotation and fade
+    tl.to(it.el, {
+      duration: 2.6 + Math.random()*1.2,
+      yPercent: - (160 + Math.random()*80),
+      x: (Math.random()-0.5) * 120,
+      rotation: (Math.random()-0.5)*80,
+      scale: 1 + Math.random()*0.15,
+      opacity: 1,
+      ease: "power2.out"
+    }, start);
+    // then fade out and move up more
+    tl.to(it.el, {
+      duration: 0.9 + Math.random()*0.9,
+      yPercent: - (260 + Math.random()*120),
+      opacity: 0,
+      ease: "power1.in"
+    }, start + 2.1 + Math.random()*0.3);
+  });
+  // cleanup after 4s
+  tl.call(()=> { introCanvas.innerHTML=''; }, null, "+=0.2");
+}
+
+/* Run intro once on load */
+window.addEventListener('load', ()=> {
+  try{ runIntroAnimation(); } catch(e){ console.warn(e); }
+  // Ensure initial button state
+  setWhatsEnabled(isFormValid());
+});
+
+/* Accessibility: allow Enter on floating button when enabled */
+floatWhats.addEventListener('keydown', (e)=>{
+  if((e.key === 'Enter' || e.key === ' ') && !floatWhats.classList.contains('btn-disabled')){
+    floatWhats.click();
   }
 });
+
+/* Prevent accidental form resubmit on reload (for UX) */
+if (window.history.replaceState) {
+  window.history.replaceState(null, null, window.location.href);
+}
 </script>
 </body>
 </html>

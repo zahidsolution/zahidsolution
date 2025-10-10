@@ -109,134 +109,154 @@
 </head>
   <body>
    <!-- ✅ Slim Premium Navbar -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<nav class="navbar navbar-expand-lg custom-navbar fixed-top">
-  <div class="container">
-    <!-- Brand -->
-    <a class="navbar-brand fw-bold text-white" href="index.html">ZahidSolution</a>
-
-    <!-- Toggler -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="custom-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar Links -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto text-center">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
-      </ul>
+<!-- 🌟 Premium Glassmorphism Navbar -->
+<header class="navbar">
+  <div class="navbar-container">
+    <div class="brand">
+      ✨ <span>Zahid Solutions</span>
     </div>
+    <div class="menu-icon" id="menu-toggle">
+      ☰
+    </div>
+    <nav class="nav-links" id="nav-links">
+      <a href="#home">🏠 Home</a>
+      <a href="#services">💼 Services</a>
+      <a href="#portfolio">📂 Portfolio</a>
+      <a href="#contact">📩 Contact</a>
+      <a href="#feedback">💬 Feedback</a>
+    </nav>
   </div>
-</nav>
+</header>
 
 <style>
-body {
-  margin-top: 70px;
-}
-
-/* Navbar Style */
-.custom-navbar {
-  background: #0b0b0b;
-  border-bottom: 2px solid #9b30ff;
-  box-shadow: 0 0 15px rgba(155, 48, 255, 0.4);
-  transition: all 0.3s ease;
-}
-
-.navbar-brand {
-  font-size: 1.4rem;
-  color: #d4b3ff !important;
-  text-shadow: 0 0 8px #bb86fc, 0 0 16px #9d00ff;
-}
-
-.nav-link {
-  color: #fff !important;
-  margin: 0 12px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.nav-link:hover {
-  color: #bb86fc !important;
-  text-shadow: 0 0 8px #bb86fc, 0 0 16px #9d00ff;
-}
-
-.nav-link.active {
-  color: #bb86fc !important;
-  border-bottom: 2px solid #bb86fc;
-}
-
-/* ===== Custom Toggler ===== */
-.navbar-toggler {
-  border: none;
-  outline: none;
-  padding: 6px;
-}
-.custom-toggler-icon {
-  display: block;
-  width: 26px;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
-  position: relative;
-  box-shadow: 0 0 8px #fff, 0 0 16px #9d00ff;
-  transition: all 0.3s ease;
-}
-.custom-toggler-icon::before,
-.custom-toggler-icon::after {
-  content: "";
-  position: absolute;
+/* ===== GLASSMORPHISM NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 26px;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 0 8px #fff, 0 0 16px #9d00ff;
+  width: 100%;
+  z-index: 9999;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  animation: glowPulse 4s ease-in-out infinite alternate;
+  transition: all 0.4s ease;
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px rgba(0,255,255,0.2), 0 0 20px rgba(187,134,252,0.2); }
+  100% { box-shadow: 0 0 20px rgba(0,255,255,0.5), 0 0 40px rgba(187,134,252,0.5); }
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Brand Styling */
+.brand {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px #00e0ff, 0 0 20px #bb86fc;
+}
+
+/* Menu Icon (mobile) */
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 0 0 10px #00e0ff;
+}
+
+/* Links */
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-weight: 500;
+  font-size: 1.05rem;
+  position: relative;
   transition: all 0.3s ease;
 }
-.custom-toggler-icon::before {
-  top: -8px;
-}
-.custom-toggler-icon::after {
-  top: 8px;
-}
-.navbar-toggler:hover .custom-toggler-icon,
-.navbar-toggler:hover .custom-toggler-icon::before,
-.navbar-toggler:hover .custom-toggler-icon::after {
-  background: #bb86fc;
-  box-shadow: 0 0 12px #bb86fc, 0 0 25px #9d00ff;
+
+.nav-links a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #bb86fc;
 }
 
-/* Responsive */
-@media (max-width: 991px) {
-  .navbar-collapse {
-    background: rgba(15, 15, 15, 0.97);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(155, 48, 255, 0.4);
-  }
-  .navbar-nav .nav-link {
+/* Mobile Styles */
+@media (max-width: 850px) {
+  .menu-icon {
     display: block;
-    margin: 10px 0;
   }
-}
+  
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(20, 20, 40, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 40px;
+    gap: 25px;
+    transition: right 0.4s ease;
+    border-left: 2px solid rgba(0,255,255,0.2);
+    box-shadow: -5px 0 25px rgba(0,255,255,0.2);
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
 
-/* Fix for laptop: force navbar visible */
-@media (min-width: 992px) {
-  .navbar-collapse {
-    display: flex !important;
-    justify-content: flex-end;
+  .nav-links a {
+    font-size: 1.3rem;
+    width: 80%;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 8px;
+    transition: all 0.3s;
+  }
+
+  .nav-links a:hover {
+    background: rgba(0,255,255,0.15);
+    box-shadow: 0 0 15px rgba(0,255,255,0.3);
   }
 }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Navbar Toggle Logic
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.navbar-container')) {
+    navLinks.classList.remove('active');
+  }
+});
+</script>
 
 <!-- 🚀 Premium Profile Section (Neon + Glassmorphism + Highlighted Text) -->
 <!-- ================= PROFILE SECTION ================= -->

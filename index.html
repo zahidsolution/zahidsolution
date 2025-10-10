@@ -364,7 +364,6 @@ document.addEventListener('click', (e) => {
 /* ===== Glass Card ===== */
 .glass-card {
   background: rgba(255, 255, 255, 0.08);
-
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-radius: 30px;
@@ -373,7 +372,15 @@ document.addEventListener('click', (e) => {
   border: 1px solid rgba(255, 255, 255, 0.25);
   z-index: 2;
   max-width: 900px;
+
+  /* ✅ Fix: Center text and content */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 
 /* ===== Profile Image ===== */
 .profile-image-wrapper {
@@ -493,8 +500,6 @@ document.addEventListener('click', (e) => {
     
 
 
-<!-- Font Awesome (add in <head> if not already included) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <!-- ================= PROFILE SECTION ================= -->
 <section class="profile-section">
@@ -531,6 +536,8 @@ document.addEventListener('click', (e) => {
 }
 
 /* Glass Card */
+
+ 
 .profile-glass {
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid rgba(255, 255, 255, 0.2);

@@ -320,13 +320,14 @@ document.addEventListener('click', (e) => {
 /* ===== Section Background ===== */
 .premium-section {
   position: relative;
-  padding: 120px 20px;
+  padding: 0 20px; /* remove top padding */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   overflow: hidden;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px); /* subtract navbar height */
 }
 
 /* ===== Animated Bubbles ===== */

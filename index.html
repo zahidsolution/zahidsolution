@@ -128,9 +128,11 @@
 
 <!-- ===== HERO SECTION ===== -->
 <section class="hero" id="home">
-  <h1>👋 Welcome to Zahid Solutions</h1>
-  <p>Let’s build something extraordinary together — design, development & creativity powered by innovation.</p>
-  <img src="images/profile.png" alt="Zahid Profile">
+  <div class="hero-content">
+    <h1>👋 Welcome to Zahid Solutions</h1>
+    <p>Let’s build something extraordinary together — design, development & creativity powered by innovation.</p>
+    <img src="images/profile.png" alt="Zahid Profile">
+  </div>
 </section>
 
 <style>
@@ -149,7 +151,7 @@
   transition: all 0.4s ease;
 }
 
-/* Animated gradient background movement */
+/* Animated gradient movement */
 @keyframes gradientShift {
   0% { background: linear-gradient(135deg, rgba(85,0,150,0.9), rgba(0,255,255,0.3)); }
   50% { background: linear-gradient(135deg, rgba(0,255,255,0.3), rgba(150,0,200,0.9)); }
@@ -206,7 +208,7 @@
   text-shadow: 0 0 10px #00ffff, 0 0 25px #bb86fc;
 }
 
-/* Underline glow effect */
+/* Underline glow */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -221,7 +223,7 @@
   width: 100%;
 }
 
-/* ===== MOBILE STYLES ===== */
+/* ===== MOBILE NAV ===== */
 @media (max-width: 850px) {
   .menu-icon {
     display: block;
@@ -267,31 +269,37 @@
 
 /* ===== HERO SECTION ===== */
 .hero {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 100vh;
-  padding: 100px 20px 40px; /* add top padding for navbar */
+  padding-top: 80px; /* ensures content not hidden behind navbar */
   background: linear-gradient(135deg, rgba(10, 0, 21, 0.9), rgba(75, 0, 130, 0.8), rgba(0, 255, 255, 0.4));
   background-size: 300% 300%;
   animation: heroGlow 8s ease-in-out infinite;
   color: #fff;
 }
 
-/* Animated background movement */
+/* Animate background gradient */
 @keyframes heroGlow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Hero Text */
+.hero-content {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .hero h1 {
   font-size: 3rem;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   text-shadow: 0 0 15px #00ffff, 0 0 25px #bb86fc;
   animation: textGlow 2.5s ease-in-out infinite alternate;
 }
@@ -318,21 +326,20 @@
   box-shadow: 0 0 30px #bb86fc;
 }
 
-/* Animated text glow */
+/* Text Glow Animation */
 @keyframes textGlow {
   from { text-shadow: 0 0 10px #00ffff, 0 0 20px #bb86fc; }
   to { text-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff; }
 }
 
-/* Responsive Fix */
+/* Responsive Hero Text */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
+  .hero h1 { font-size: 2.2rem; }
   .hero p { font-size: 1rem; }
 }
 </style>
 
 <script>
-// Navbar toggle and close
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.getElementById('nav-links');
 
@@ -340,6 +347,7 @@ menuToggle.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
+// Close menu when clicking outside
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.navbar-container')) {
     navLinks.classList.remove('active');

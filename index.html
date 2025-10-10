@@ -257,6 +257,71 @@
     box-shadow: 0 0 15px rgba(0,255,255,0.3);
   }
 }
+
+/* ===== HERO SECTION FIX ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  padding: 0 20px;
+  background: linear-gradient(135deg, rgba(10, 0, 21, 0.9), rgba(75, 0, 130, 0.8), rgba(0, 255, 255, 0.4));
+  background-size: 300% 300%;
+  animation: heroGlow 8s ease-in-out infinite;
+  color: #fff;
+}
+
+/* Animated background movement */
+@keyframes heroGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hero Text */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px #00ffff, 0 0 25px #bb86fc;
+  animation: textGlow 2.5s ease-in-out infinite alternate;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #ddd;
+  max-width: 600px;
+}
+
+/* Profile Image */
+.hero img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin-top: 30px;
+  border: 3px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 20px #00ffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #bb86fc;
+}
+
+/* Animated text glow */
+@keyframes textGlow {
+  from { text-shadow: 0 0 10px #00ffff, 0 0 20px #bb86fc; }
+  to { text-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff; }
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+}
+
 </style>
 
 <script>
@@ -273,7 +338,9 @@ document.addEventListener('click', (e) => {
     navLinks.classList.remove('active');
   }
 });
-</script>
+</script>   
+
+   
 
 <!-- 🚀 Premium Profile Section (Neon + Glassmorphism + Highlighted Text) -->
 <!-- ================= PROFILE SECTION ================= -->

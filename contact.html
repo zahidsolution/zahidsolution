@@ -1,535 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>ZahidSolution | Contact Us</title>
-<meta name="description" content="Contact ZahidSolution for web, design, video editing, AI chatbots, and portfolio services. Fast replies via WhatsApp." />
-<meta name="keywords" content="ZahidSolution, Contact, Web Development, Graphic Design, Video Editing, AI Chatbot" />
-<link rel="icon" href="/static/favicon.png" type="image/png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZahidSolution — Contact</title>
+  <meta name="description" content="Contact ZahidSolution for web, design, video editing, AI chatbots and portfolio services. Quick replies via WhatsApp." />
+  <meta name="keywords" content="ZahidSolution, Contact, Web Development, Graphic Design, Video Editing, AI Chatbot" />
+  <link rel="icon" href="/static/favicon.png" type="image/png">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="ZahidSolution | Contact">
-<meta property="og:description" content="Contact ZahidSolution - premium web & AI services." />
-<meta property="og:image" content="/static/logo.png" />
-<meta property="og:url" content="https://your-netlify-site.netlify.app/contact.html" />
+  <!-- Bootstrap + icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
 
-<!-- Bootstrap & Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <!-- GSAP (animation) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-<!-- GSAP (for premium animation) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    /* ===== Brand Colors & Globals ===== */
+    :root{
+      --bg-1: #06060b;
+      --bg-2: #0b0428;
+      --accent-purple: #8a2be2;
+      --accent-blue: #00bcd4;
+      --neon-blue: #9ce0ff;
+      --neon-white: #eaf6ff;
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.04);
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      color: #fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
 
-<style>
-  /* ===== Global & Theme (matches your services page style) ===== */
-  :root{
-    --bg-dark:#0b0b14;
-    --grad1:#4b0082;
-    --grad2:#8a2be2;
-    --grad3:#00bcd4;
-    --neon-blue:#9ce0ff;
-    --neon-purple:#bb86fc;
-  }
-  html,body{height:100%;}
-  body{
-    margin:0;
-    font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: radial-gradient(circle at top left, var(--grad1), var(--bg-dark) 60%);
-    color:#fff;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    overflow-x:hidden;
-  }
+    /* ===== NAVBAR (matching services look) ===== */
+    .navbar{
+      background: linear-gradient(90deg, var(--accent-purple), #b76bfb, var(--accent-blue));
+      box-shadow: 0 6px 30px rgba(138,43,226,0.25);
+      z-index:1200; padding:0.6rem 1rem;
+    }
+    .navbar-brand{ font-weight:800; color:#fff !important; text-shadow:0 0 12px rgba(186,120,255,0.9); font-size:1.15rem; }
+    .nav-link{ color:#fff !important; font-weight:600; transition:0.18s; padding:0.5rem 0.8rem; }
+    .nav-link:hover{ color:var(--neon-blue) !important; text-shadow: 0 0 12px var(--neon-blue); }
 
-  /* ===== Navbar (same look as services file) ===== */
-  .navbar{
-    background: linear-gradient(90deg, var(--grad1), var(--grad2), var(--grad3));
-    box-shadow: 0 3px 15px rgba(138,43,226,0.45);
-    z-index:1200;
-    backdrop-filter: blur(6px);
-  }
-  .navbar-brand{ font-weight:700; color:#fff !important; text-shadow:0 0 10px var(--neon-purple); }
-  .nav-link{ color:#fff !important; transition:0.25s; }
-  .nav-link:hover{ color:var(--neon-purple) !important; text-shadow: 0 0 10px var(--neon-purple), 0 0 20px #00f0ff; }
+    /* ===== Page hero — but form is main focus ===== */
+    .hero {
+      padding: 90px 18px 28px;
+      text-align:center;
+      margin-top:6px;
+    }
+    .hero h1{
+      margin:0; font-size:2.4rem; color:var(--neon-white);
+      letter-spacing:0.2px;
+      text-shadow: 0 0 18px rgba(156,224,255,0.25);
+      animation: glowText 2.2s ease-in-out infinite alternate;
+    }
+    .hero p{
+      margin-top:8px; color:rgba(255,255,255,0.88); font-size:1.05rem;
+    }
+    @keyframes glowText {
+      from { text-shadow: 0 0 8px rgba(156,224,255,0.06); }
+      to   { text-shadow: 0 0 22px rgba(156,224,255,0.28); }
+    }
 
-  /* ===== Page header ===== */
-  .hero{ text-align:center; padding:90px 18px 40px; }
-  .hero h1{ font-size:2.6rem; margin:0 0 6px; color:var(--neon-blue); text-shadow:0 0 12px var(--neon-blue); }
-  .hero p{ margin:0; color:rgba(255,255,255,0.85); opacity:0.95; }
+    /* ===== Centered prominent form card ===== */
+    .stage {
+      display:flex; justify-content:center; align-items:flex-start;
+      padding: 18px;
+      margin-bottom:48px;
+    }
+    .card-front {
+      width:min(980px, 96%);
+      border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(138,43,226,0.08);
+      box-shadow: 0 18px 60px rgba(13,0,80,0.45);
+      display:flex; gap:0; overflow:hidden;
+    }
 
-  /* ===== Contact Card ===== */
-  .contact-card{
-    max-width:920px;
-    margin:30px auto 60px;
-    padding:28px;
-    border-radius:18px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-    border: 1px solid rgba(138,43,226,0.14);
-    box-shadow: 0 8px 40px rgba(106,0,244,0.08);
-    display:grid;
-    grid-template-columns: 1fr 420px;
-    gap:28px;
-    align-items:stretch;
-  }
-  @media(max-width:991px){ .contact-card{ grid-template-columns: 1fr; padding:20px; } }
+    /* Make form area front & centered (visual depth) */
+    .form-area {
+      flex:1;
+      padding:28px 28px;
+      position:relative;
+      z-index:4;
+    }
+    /* right side aside: contact quick actions */
+    .aside-area {
+      width:360px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-left: 1px solid rgba(255,255,255,0.02);
+      padding:28px;
+      display:flex; flex-direction:column; gap:18px; align-items:stretch;
+      justify-content:center;
+    }
+    @media(max-width:991px){
+      .card-front{ flex-direction:column; }
+      .aside-area{ width:100%; border-left:none; border-top:1px solid rgba(255,255,255,0.02); }
+    }
 
-  /* Left area: intro + services list */
-  .contact-left{ padding:8px 6px; }
-  .contact-left h3{ color:var(--neon-purple); text-shadow:0 0 10px var(--neon-purple); margin-bottom:8px; }
-  .services-list{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
-  .service-pill{
-    background: linear-gradient(90deg, rgba(138,43,226,0.12), rgba(0,188,212,0.08));
-    border:1px solid rgba(138,43,226,0.12);
-    color: #fff; padding:8px 12px; border-radius:999px; font-weight:600;
-    box-shadow: 0 6px 20px rgba(106,0,244,0.04);
-  }
+    /* Headline inside card */
+    .form-title {
+      font-size:1.4rem; margin:0 0 8px; color:var(--neon-white);
+      text-shadow: 0 0 12px rgba(156,224,255,0.14);
+      font-weight:800;
+    }
+    .form-sub { color: rgba(255,255,255,0.9); margin-bottom:16px; font-size:1rem; }
 
-  /* Right area: form */
-  .form-wrap{ padding:6px 8px; }
-  form#contactForm{
-    display:flex; flex-direction:column; gap:12px;
-  }
-  .form-control{
-    background: rgba(255,255,255,0.04);
-    color:#fff; border:1px solid rgba(255,255,255,0.06);
-    border-radius:10px; padding:12px 14px;
-  }
-  .form-control:focus{
-    outline:none;
-    box-shadow: 0 0 20px rgba(156,224,255,0.12);
-    border-color: var(--neon-blue);
-    background: rgba(255,255,255,0.03);
-  }
-  label { font-weight:600; color:#dfe9ff; font-size:0.95rem; }
+    /* Inputs: larger, high-contrast */
+    .form-control {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #fff; font-size:1.02rem; padding:14px 14px;
+      border-radius:10px; transition: box-shadow .18s ease, border-color .18s ease;
+    }
+    .form-control::placeholder { color: rgba(255,255,255,0.55); }
+    .form-control:focus{
+      border-color: var(--neon-blue); box-shadow: 0 6px 30px rgba(156,224,255,0.12);
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      outline:none;
+    }
+    label{ color:#fff; font-weight:700; font-size:.98rem; margin-bottom:6px; display:block; }
 
-  /* Select styling */
-  select.form-control{ -webkit-appearance:none; appearance:none; background-image:linear-gradient(45deg,transparent 50%, #fff 50%), linear-gradient(135deg,#fff 50%, transparent 50%); background-position:calc(100% - 18px) calc(1.1em + 2px), calc(100% - 13px) calc(1.1em + 2px); background-size:6px 6px,6px 6px; background-repeat:no-repeat; }
+    /* Big primary CTA */
+    .btn-primary-neon{
+      background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+      color:#fff; font-weight:800; padding:14px 18px; border-radius:12px;
+      border:none; font-size:1.05rem; box-shadow: 0 14px 50px rgba(106,0,244,0.16);
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .btn-primary-neon:hover{ transform: translateY(-4px); box-shadow: 0 20px 70px rgba(106,0,244,0.22); }
 
-  /* Buttons */
-  .btn-primary-neon{
-    background: linear-gradient(90deg, #8a2be2, #00bcd4);
-    border: none; color: #fff; font-weight:700; border-radius:12px;
-    padding:12px 16px; box-shadow: 0 6px 30px rgba(106,0,244,0.18);
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  .btn-primary-neon:hover{ transform: translateY(-4px); box-shadow: 0 10px 40px rgba(106,0,244,0.24); }
+    .btn-ghost {
+      background: transparent; border:1px solid rgba(255,255,255,0.06); color:#fff;
+      padding:12px 14px; border-radius:10px; font-weight:700;
+    }
 
-  .btn-outline-ghost{
-    background: transparent; color:#dfe9ff; border:1px solid rgba(255,255,255,0.06);
-    padding:10px 14px; border-radius:10px; font-weight:700;
-  }
+    .btn-disabled {
+      opacity:0.55; pointer-events:none; filter:grayscale(.03);
+    }
 
-  /* Disabled WhatsApp CTA style */
-  .btn-disabled {
-    opacity:0.55; pointer-events:none; filter:grayscale(.02);
-  }
+    /* Aside area styling: visible buttons and quick info */
+    .aside-h { font-weight:800; color:var(--neon-blue); font-size:1.05rem; margin-bottom:2px; text-shadow:0 0 8px rgba(156,224,255,0.18); }
+    .aside-p { color: rgba(255,255,255,0.95); font-size:0.98rem; margin-bottom:6px; }
+    .quick-buttons { display:flex; gap:10px; flex-wrap:wrap; }
+    .quick-buttons .btn { flex:1 1 auto; min-width:38%; }
 
-  /* Floating WhatsApp button */
-  .whatsapp-float {
-    position: fixed; right:20px; bottom:20px; z-index:1400;
-    width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    background: linear-gradient(90deg,#00c853,#25d366); color:#fff; font-size:26px;
-    box-shadow: 0 8px 32px rgba(37,211,102,0.18);
-    transition: transform .2s ease;
-  }
-  .whatsapp-float:active{ transform: scale(.96); }
+    /* Floating/inline WhatsApp + icons visible below the form too for clarity on mobile */
+    .contact-actions { display:flex; gap:12px; margin-top:8px; align-items:center; flex-wrap:wrap; }
 
-  /* Balloon & Flower canvas wrapper - sits above page while animating */
-  .intro-canvas{
-    pointer-events:none; position:fixed; inset:0; z-index:1350; overflow:hidden;
-  }
-  .intro-item{
-    position:absolute; width:44px; height:60px; border-radius:22px; transform-origin:center bottom;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  }
-  .flower{
-    width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0;
-    box-shadow: 0 8px 30px rgba(138,43,226,0.12);
-  }
+    /* subtle badge */
+    .small-note { font-size:0.88rem; color:rgba(255,255,255,0.78); }
 
-  /* Footer */
-  footer{
-    text-align:center; padding:18px 8px; color:#bfc9ff; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-  }
+    /* back to top */
+    #backToTop {
+      position:fixed; right:22px; bottom:22px; z-index:1600; border:none;
+      width:52px; height:52px; border-radius:50%; color:#fff;
+      background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+      box-shadow:0 12px 40px rgba(106,0,244,0.2);
+      display:none; align-items:center; justify-content:center; font-size:20px;
+    }
 
-  /* Small screens */
-  @media(max-width:576px){
-    .hero{ padding-top:80px; }
-    .contact-card{ margin:16px; grid-template-columns:1fr; gap:12px; padding:16px; }
-  }
-</style>
+    /* intro canvas covering page during animation */
+    .intro-canvas{ position:fixed; inset:0; pointer-events:none; z-index:1500; overflow:hidden; }
+    .intro-item{ position:absolute; will-change:transform,opacity; }
+    .balloon-shape{ border-radius:38% 38% 50% 50%; width:100%; height:100%; box-shadow:0 10px 30px rgba(0,0,0,0.25); }
+    .flower-shape{ width:100%; height:100%; border-radius:50%; box-shadow:0 10px 30px rgba(0,0,0,0.25); }
+
+    /* responsive tweaks */
+    @media (max-width:480px){
+      .hero h1{ font-size:1.6rem; }
+      .form-title{ font-size:1.12rem; }
+      .aside-area{ padding:18px; }
+      .form-area{ padding:18px; }
+      .card-front{ box-shadow: 0 8px 34px rgba(13,0,80,0.45); }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Navbar (same palette as services) -->
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">ZahidSolution</a>
-    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMain">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Intro hero -->
-<section class="hero">
-  <h1>Let’s build something amazing ✨</h1>
-  <p>Share your project details below — we’ll reply quickly via WhatsApp.</p>
-</section>
-
-<!-- Contact Card -->
-<main class="contact-card" role="main" aria-labelledby="contactHeading">
-  <!-- Left: info & services -->
-  <div class="contact-left" aria-hidden="false">
-    <h3 id="contactHeading">Contact ZahidSolution</h3>
-    <p style="opacity:.9">Choose a service and share the details — or call / email directly for faster responses.</p>
-
-    <div style="margin-top:18px;">
-      <div class="services-list" aria-hidden="false">
-        <div class="service-pill">Website Development</div>
-        <div class="service-pill">Graphic Designing</div>
-        <div class="service-pill">Video Editing</div>
-        <div class="service-pill">AI Chatbots</div>
-        <div class="service-pill">Portfolio Management</div>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">ZahidSolution</a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-    <div style="margin-top:22px; display:flex; gap:12px; flex-wrap:wrap;">
-      <!-- Email & Call always active -->
-      <a class="btn btn-outline-ghost" href="mailto:zahidsolutions360@gmail.com" aria-label="Email ZahidSolution">📧 Email</a>
-      <a class="btn btn-outline-ghost" href="tel:+923454627881" aria-label="Call ZahidSolution">📞 Call Now</a>
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-hidden="false">
+    <h1>Contact ZahidSolution</h1>
+    <p>Fill the form below — after submit we open WhatsApp with your message. Quick replies guaranteed.</p>
+  </header>
+
+  <!-- MAIN STAGE -->
+  <section class="stage" aria-labelledby="contactHeading">
+    <div class="card-front" role="region" aria-label="Contact card">
+
+      <!-- FORM (center-front) -->
+      <div class="form-area">
+        <h2 class="form-title" id="contactHeading">Send your project details</h2>
+        <p class="form-sub">Required fields highlighted. We will open WhatsApp with a copy of your message after submission.</p>
+
+        <!-- Netlify form -->
+        <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <p class="d-none"><label>Don’t fill this out if you are human: <input name="bot-field"></label></p>
+
+          <div class="row g-2">
+            <div class="col-12">
+              <label for="name">Name *</label>
+              <input id="name" name="name" class="form-control" placeholder="Your full name" required aria-required="true" />
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" class="form-control" placeholder="you@example.com" required aria-required="true" />
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" class="form-control" placeholder="+92..." />
+            </div>
+
+            <div class="col-12">
+              <label for="service">Service</label>
+              <select id="service" name="service" class="form-control">
+                <option>Website Development</option>
+                <option>Graphic Designing</option>
+                <option>Video Editing</option>
+                <option>AI Chatbots</option>
+                <option>Portfolio Management</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" rows="5" class="form-control" placeholder="Describe your project..." required aria-required="true"></textarea>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:12px; margin-top:16px; align-items:center; flex-wrap:wrap;">
+            <button id="sendBtn" type="submit" class="btn-primary-neon btn-disabled" aria-disabled="true" title="Fill required fields to enable">💬 Send via WhatsApp</button>
+
+            <button id="previewBtn" type="button" class="btn-ghost">Preview WhatsApp</button>
+
+            <div style="margin-left:auto;">
+              <small class="small-note">Required: Name, Email, Message</small>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- ASIDE (visible behind/right of form) -->
+      <aside class="aside-area" aria-label="Quick contact">
+        <div>
+          <div class="aside-h">Quick contact</div>
+          <div class="aside-p">Prefer to call or email? Both are always active — WhatsApp opens after the form is submitted.</div>
+        </div>
+
+        <div class="quick-buttons">
+          <a class="btn btn-ghost" href="mailto:zahidsolutions360@gmail.com" aria-label="Email ZahidSolution">📧 Email</a>
+          <a class="btn btn-ghost" href="tel:+923454627881" aria-label="Call ZahidSolution">📞 Call Now</a>
+        </div>
+
+        <div style="margin-top:10px;">
+          <div class="aside-h" style="font-size:0.98rem;">Services</div>
+          <div class="aside-p" style="margin-top:6px;">Website Development · Graphic Designing · Video Editing · AI Chatbots · Portfolio Management</div>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:auto;">
+          <a id="floatActionWhats" class="btn btn-primary-neon btn-disabled" href="#" aria-disabled="true" style="flex:1;">💬 WhatsApp (send)</a>
+          <a href="https://wa.me/923454627881?text=Hi%20ZahidSolution" class="btn btn-ghost" style="flex:1;">Chat Now</a>
+        </div>
+
+        <div style="margin-top:8px;">
+          <small class="small-note">Submissions are stored in Netlify Forms. Configure notifications in Netlify dashboard to receive emails at <strong>zahidsolutions360@gmail.com</strong>.</small>
+        </div>
+      </aside>
     </div>
+  </section>
 
-    <small style="display:block; margin-top:16px; color:rgba(255,255,255,0.65)">Netlify form enabled • WhatsApp opens after successful submission</small>
-  </div>
+  <!-- BACK TO TOP -->
+  <button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
 
-  <!-- Right: the form -->
-  <div class="form-wrap">
-    <!-- Netlify form -->
-    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-describedby="formNote" novalidate>
-      <input type="hidden" name="form-name" value="contact">
-      <!-- Honeypot -->
-      <p class="d-none"><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
+  <!-- Intro animation canvas (GSAP will render balloons & flowers here) -->
+  <div class="intro-canvas" id="introCanvas" aria-hidden="true"></div>
 
-      <div class="row g-2">
-        <div class="col-12">
-          <label for="name">Name *</label>
-          <input id="name" name="name" class="form-control" required aria-required="true" placeholder="Your full name">
-        </div>
-        <div class="col-12 col-md-6">
-          <label for="email">Email *</label>
-          <input id="email" name="email" type="email" class="form-control" required aria-required="true" placeholder="you@example.com">
-        </div>
-        <div class="col-12 col-md-6">
-          <label for="phone">Phone</label>
-          <input id="phone" name="phone" class="form-control" placeholder="+92...">
-        </div>
-        <div class="col-12">
-          <label for="service">Service</label>
-          <select id="service" name="service" class="form-control">
-            <option value="Website Development">Website Development</option>
-            <option value="Graphic Designing">Graphic Designing</option>
-            <option value="Video Editing">Video Editing</option>
-            <option value="AI Chatbots">AI Chatbots</option>
-            <option value="Portfolio Management">Portfolio Management</option>
-          </select>
-        </div>
-        <div class="col-12">
-          <label for="message">Message *</label>
-          <textarea id="message" name="message" rows="4" class="form-control" required aria-required="true" placeholder="Tell us about your project..."></textarea>
-        </div>
-      </div>
+  <!-- Footer -->
+  <footer style="padding:18px 10px; text-align:center; color:rgba(255,255,255,0.85);">
+    <small>&copy; <span id="year"></span> ZahidSolution — Designed by Zahid Hussain</small>
+  </footer>
 
-      <div style="display:flex; gap:12px; margin-top:12px; align-items:center;">
-        <!-- Primary CTA: sends to Netlify and then opens WhatsApp; disabled until required fields filled -->
-        <button id="whatsappSend" class="btn btn-primary-neon btn-disabled" type="submit" aria-disabled="true" title="Complete required fields to enable WhatsApp">💬 Send via WhatsApp</button>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Quick enable button: fills WhatsApp link but doesn't submit (kept disabled to respect Netlify requirement) -->
-        <button id="previewWhatsApp" type="button" class="btn btn-outline-ghost" title="Preview WhatsApp message (does not submit)">Preview</button>
-      </div>
+  <script>
+    // ====== DOM refs ======
+    const form = document.getElementById('contactForm');
+    const nameEl = document.getElementById('name');
+    const emailEl = document.getElementById('email');
+    const phoneEl = document.getElementById('phone');
+    const serviceEl = document.getElementById('service');
+    const messageEl = document.getElementById('message');
+    const sendBtn = document.getElementById('sendBtn');
+    const previewBtn = document.getElementById('previewBtn');
+    const floatActionWhats = document.getElementById('floatActionWhats');
+    const introCanvas = document.getElementById('introCanvas');
+    document.getElementById('year').innerText = new Date().getFullYear();
+    const WA_NUMBER = '923454627881';
 
-      <div id="formNote" style="margin-top:10px; color:#cfeaff; font-size:.92rem;">
-        <small>Required fields are marked *. After sending, a WhatsApp window will open with your message and a copy is stored in Netlify Forms.</small>
-      </div>
-    </form>
-  </div>
-</main>
+    // ====== Utility & validation ======
+    function isValid() {
+      return nameEl.value.trim() !== '' &&
+             emailEl.value.trim() !== '' &&
+             messageEl.value.trim() !== '';
+    }
 
-<!-- Floating WhatsApp (disabled until form valid) -->
-<a id="floatWhats" class="whatsapp-float btn-disabled" href="#" aria-label="Send message via WhatsApp (fill form first)">
-  <i class="bi bi-whatsapp"></i>
-</a>
+    function setEnabled(enabled) {
+      if (enabled) {
+        sendBtn.classList.remove('btn-disabled');
+        sendBtn.removeAttribute('aria-disabled');
+        floatActionWhats.classList.remove('btn-disabled');
+        floatActionWhats.removeAttribute('aria-disabled');
+      } else {
+        sendBtn.classList.add('btn-disabled');
+        sendBtn.setAttribute('aria-disabled','true');
+        floatActionWhats.classList.add('btn-disabled');
+        floatActionWhats.setAttribute('aria-disabled','true');
+      }
+    }
 
-<!-- Intro animation container (GSAP will add elements here) -->
-<div class="intro-canvas" id="introCanvas" aria-hidden="true"></div>
+    // initial state
+    setEnabled(isValid());
 
-<!-- Footer -->
-<footer>
-  <small>&copy; <span id="year"></span> ZahidSolution — Designed by Zahid Hussain</small>
-</footer>
+    [nameEl, emailEl, messageEl].forEach(el => {
+      el.addEventListener('input', () => setEnabled(isValid()));
+    });
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    function buildWhatsText() {
+      const name = nameEl.value.trim() || 'N/A';
+      const email = emailEl.value.trim() || 'N/A';
+      const phone = phoneEl.value.trim() || 'N/A';
+      const serv = serviceEl.value || 'General';
+      const msg = messageEl.value.trim() || 'N/A';
+      return [
+        "🌟 *New message for ZahidSolution* 🌟",
+        "",
+        `👤 Name: ${name}`,
+        `📧 Email: ${email}`,
+        `📞 Phone: ${phone}`,
+        `🛠 Service: ${serv}`,
+        `💬 Message: ${msg}`,
+        "",
+        "— Sent from ZahidSolution contact form"
+      ].join("\n");
+    }
 
-<script>
-/* =========================
-   Helper & DOM references
-   ========================= */
-const form = document.getElementById('contactForm');
-const nameEl = document.getElementById('name');
-const emailEl = document.getElementById('email');
-const phoneEl = document.getElementById('phone');
-const serviceEl = document.getElementById('service');
-const messageEl = document.getElementById('message');
-const whatsappBtn = document.getElementById('whatsappSend');
-const floatWhats = document.getElementById('floatWhats');
-const previewBtn = document.getElementById('previewWhatsApp');
-const introCanvas = document.getElementById('introCanvas');
-document.getElementById('year').innerText = new Date().getFullYear();
+    // ====== Preview button (opens WA without submitting) ======
+    previewBtn.addEventListener('click', () => {
+      if (!isValid()) {
+        alert('Please complete required fields (Name, Email, Message) to preview.');
+        return;
+      }
+      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildWhatsText())}`;
+      window.open(url, '_blank');
+    });
 
-/* =========================
-   Form validation & UI state
-   ========================= */
-function isFormValid() {
-  return nameEl.value.trim() !== '' &&
-         emailEl.value.trim() !== '' &&
-         messageEl.value.trim() !== '';
-}
+    // ====== Netlify friendly submit with fetch, then open WhatsApp ======
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!isValid()) {
+        alert('Please fill Name, Email and Message.');
+        return;
+      }
+      // temporarily disable to prevent duplicates
+      sendBtn.disabled = true;
+      sendBtn.classList.add('btn-disabled');
 
-function setWhatsEnabled(enabled){
-  if(enabled){
-    whatsappBtn.classList.remove('btn-disabled');
-    whatsappBtn.removeAttribute('aria-disabled');
-    floatWhats.classList.remove('btn-disabled');
-    floatWhats.setAttribute('tabindex','0');
-  } else {
-    whatsappBtn.classList.add('btn-disabled');
-    whatsappBtn.setAttribute('aria-disabled','true');
-    floatWhats.classList.add('btn-disabled');
-    floatWhats.removeAttribute('tabindex');
-  }
-}
+      // prepare payload
+      const data = new URLSearchParams();
+      data.append('form-name', 'contact');
+      data.append('name', nameEl.value.trim());
+      data.append('email', emailEl.value.trim());
+      data.append('phone', phoneEl.value.trim());
+      data.append('service', serviceEl.value);
+      data.append('message', messageEl.value.trim());
 
-/* Attach input listeners */
-[ nameEl, emailEl, messageEl ].forEach(el => {
-  el.addEventListener('input', () => {
-    setWhatsEnabled(isFormValid());
-  });
-});
+      // POST to current page (Netlify will capture it)
+      fetch(window.location.pathname, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data.toString()
+      })
+      .then(() => {
+        // open WhatsApp chat with message
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildWhatsText())}`, '_blank');
 
-/* Preview button - opens WhatsApp but does not submit (for testing) */
-previewBtn.addEventListener('click', () => {
-  if(!isFormValid()){
-    alert('Please fill Name, Email and Message to preview the WhatsApp message.');
-    return;
-  }
-  const text = buildWhatsText();
-  const url = `https://wa.me/923454627881?text=${encodeURIComponent(text)}`;
-  window.open(url, '_blank');
-});
+        // small success toast
+        toast('Message submitted — WhatsApp opened.', true);
 
-/* Build the WhatsApp message string with form values */
-function buildWhatsText() {
-  const name = nameEl.value.trim() || 'N/A';
-  const email = emailEl.value.trim() || 'N/A';
-  const phone = phoneEl.value.trim() || 'N/A';
-  const service = serviceEl.value || 'General';
-  const message = messageEl.value.trim() || 'N/A';
+        // reset form (optional) and disable buttons again
+        form.reset();
+        setEnabled(false);
+        setTimeout(() => { sendBtn.disabled = false; }, 1400);
+      })
+      .catch((err) => {
+        console.error('Form submit error', err);
+        // still attempt to open WA so user flow continues
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildWhatsText())}`, '_blank');
+        toast('Network error — WhatsApp opened but submission may not be saved.', false);
+        setEnabled(false);
+        setTimeout(() => { sendBtn.disabled = false; }, 1400);
+      });
+    });
 
-  const lines = [
-    "🌟 *New message for ZahidSolution* 🌟",
-    "",
-    `👤 Name: ${name}`,
-    `📧 Email: ${email}`,
-    `📞 Phone: ${phone}`,
-    `🛠️ Service: ${service}`,
-    `💬 Message: ${message}`,
-    "",
-    "— Sent from ZahidSolution contact form"
-  ];
-  return lines.join("\n");
-}
+    // floating aside WhatsApp button action
+    floatActionWhats.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (floatActionWhats.classList.contains('btn-disabled')) return;
+      if (!isValid()) { alert('Please complete the required fields first.'); return; }
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildWhatsText())}`, '_blank');
+    });
 
-/* =========================
-   Netlify-friendly form submit via fetch
-   =========================
-   We'll POST url-encoded data to the current path so Netlify records the submission.
-   After success, open WhatsApp. If fetch fails, still attempt to open WhatsApp
-   so user doesn't lose flow (but they may need to retry later).
-   ========================= */
-form.addEventListener('submit', function(evt){
-  evt.preventDefault();
-  if(!isFormValid()){
-    alert('Please fill required fields: Name, Email, Message.');
-    return;
-  }
+    // toast helper
+    function toast(text, success=true) {
+      const el = document.createElement('div');
+      el.style.position = 'fixed';
+      el.style.right = '18px';
+      el.style.top = '18px';
+      el.style.padding = '12px 16px';
+      el.style.borderRadius = '10px';
+      el.style.zIndex = 1600;
+      el.style.color = '#fff';
+      el.style.fontWeight = 800;
+      el.style.boxShadow = '0 10px 30px rgba(0,0,0,0.35)';
+      el.style.background = success ? 'linear-gradient(90deg,#00b09b,#96c93d)' : 'linear-gradient(90deg,#ffb347,#ffcc33)';
+      el.textContent = text;
+      document.body.appendChild(el);
+      setTimeout(()=> el.style.opacity='0.01', 2400);
+      setTimeout(()=> el.remove(), 3000);
+    }
 
-  // Disable button while processing
-  whatsappBtn.disabled = true;
-  whatsappBtn.classList.add('btn-disabled');
+    // ====== Back to top ======
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
 
-  const formName = form.querySelector('input[name="form-name"]').value || 'contact';
+    // ====== GSAP Intro animation: balloons + flowers (solid glowing look) ======
+    function spawnIntro() {
+      const colors = ['#9ce0ff','#a76bfa','#7ee8fa','#ffd56b','#ff9ce0'];
+      const items = [];
+      // 10 balloons
+      for (let i=0;i<10;i++){
+        const el = document.createElement('div');
+        el.className = 'intro-item';
+        const size = 36 + Math.random()*42;
+        el.style.width = size+'px';
+        el.style.height = (size*1.25)+'px';
+        el.style.left = (5 + Math.random()*90)+'%';
+        el.style.bottom = '-10%';
+        const color = colors[Math.floor(Math.random()*colors.length)];
+        el.innerHTML = `<div class="balloon-shape" style="background: radial-gradient(circle at 25% 25%, ${color}, rgba(0,0,0,0.06));"></div>`;
+        introCanvas.appendChild(el);
+        items.push(el);
+      }
+      // 8 flowers (circular bursts)
+      for (let j=0;j<8;j++){
+        const el = document.createElement('div');
+        el.className = 'intro-item';
+        const size = 44 + Math.random()*36;
+        el.style.width = size+'px';
+        el.style.height = size+'px';
+        el.style.left = (5 + Math.random()*90)+'%';
+        el.style.bottom = '-6%';
+        const hue = Math.floor(Math.random()*360);
+        el.innerHTML = `<div class="flower-shape" style="background: conic-gradient(hsl(${hue} 85% 70%), hsl(${(hue+45)%360} 85% 70%), hsl(${(hue+90)%360} 85% 70%)); border-radius:50%;"></div>`;
+        introCanvas.appendChild(el);
+        items.push(el);
+      }
 
-  const payload = new URLSearchParams();
-  // include form-name for Netlify
-  payload.append('form-name', formName);
-  payload.append('name', nameEl.value.trim());
-  payload.append('email', emailEl.value.trim());
-  payload.append('phone', phoneEl.value.trim());
-  payload.append('service', serviceEl.value);
-  payload.append('message', messageEl.value.trim());
+      // animate with GSAP
+      const tl = gsap.timeline();
+      items.forEach((el, idx) => {
+        const start = idx * 0.06;
+        tl.fromTo(el, {
+          y: 0, rotation: (Math.random()-0.5)*40, opacity:0, scale:0.9
+        },{
+          delay: start,
+          y: - (180 + Math.random()*160),
+          x: (Math.random()-0.5)*160,
+          rotation: (Math.random()-0.5)*140,
+          opacity:1,
+          scale: 1 + Math.random()*0.08,
+          duration: 2.2 + Math.random()*0.9,
+          ease: "power2.out"
+        }, 0);
+        tl.to(el, {
+          y: '-=' + (90 + Math.random()*160),
+          opacity:0,
+          duration: 0.7 + Math.random()*0.6,
+          ease: "power1.in"
+        }, `+=0.12`);
+      });
 
-  // Submit to Netlify endpoint (same path). Netlify will capture this.
-  fetch(window.location.pathname, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: payload.toString()
-  })
-  .then(response => {
-    // Even if Netlify responds with a redirect or success, we proceed
-    // Open WhatsApp with encoded message
-    const text = buildWhatsText();
-    const waUrl = `https://wa.me/923454627881?text=${encodeURIComponent(text)}`;
-    window.open(waUrl, '_blank');
+      // cleanup after ~4s
+      setTimeout(()=> introCanvas.innerHTML = '', 3800);
+    }
 
-    // Visual confirmation to user (small toast)
-    showTempToast('Message submitted — WhatsApp opened.', 'success');
-    // re-enable button after small delay
-    setTimeout(()=>{ whatsappBtn.disabled=false; setWhatsEnabled(isFormValid()); }, 1500);
-    // Optionally clear form (comment out if you prefer to keep fields)
-    form.reset();
-    setWhatsEnabled(false);
-  })
-  .catch(err=>{
-    console.error('Netlify form submit failed:', err);
-    // still open WhatsApp so user doesn't lose flow
-    const text = buildWhatsText();
-    const waUrl = `https://wa.me/923454627881?text=${encodeURIComponent(text)}`;
-    window.open(waUrl, '_blank');
-    showTempToast('Network issue — WhatsApp opened. Form may not be saved.', 'warning');
-    setTimeout(()=>{ whatsappBtn.disabled=false; setWhatsEnabled(isFormValid()); }, 1500);
-  });
-});
+    // ====== Speech greeting (speechSynthesis) ======
+    function speakGreeting(){
+      const greetings = [
+        "Hello! Welcome to ZahidSolution. We're happy to help — please share your project details.",
+        "Salam! Fill the form and we'll reply quickly via WhatsApp.",
+        "Hi there — ZahidSolution is ready to assist. Tell us about your project."
+      ];
+      const msg = greetings[Math.floor(Math.random()*greetings.length)];
+      if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(msg);
+        u.rate = 1.0;
+        u.pitch = 1.0;
+        // speak after a short delay so it doesn't clash with load
+        setTimeout(()=> speechSynthesis.speak(u), 400);
+      }
+    }
 
-/* Small toast helper (temporary message) */
-function showTempToast(msg, type='info'){
-  const el = document.createElement('div');
-  el.style.position='fixed';
-  el.style.right='18px';
-  el.style.top='18px';
-  el.style.padding='12px 16px';
-  el.style.borderRadius='10px';
-  el.style.zIndex=1500;
-  el.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)';
-  el.style.color='#fff';
-  el.style.fontWeight=700;
-  el.style.background = type==='success' ? 'linear-gradient(90deg,#00b09b,#96c93d)' : (type==='warning'? 'linear-gradient(90deg,#ffb347,#ffcc33)':'rgba(0,0,0,0.6)');
-  el.textContent = msg;
-  document.body.appendChild(el);
-  setTimeout(()=> el.style.opacity='0.01', 2500);
-  setTimeout(()=> el.remove(), 3000);
-}
+    // Run intro and greeting on load
+    window.addEventListener('load', () => {
+      try { spawnIntro(); } catch(e){ console.warn(e); }
+      try { speakGreeting(); } catch(e){ /* ignore */ }
+      setTimeout(()=> setEnabled(isValid()), 600);
+    });
 
-/* Floating WhatsApp: same action as preview (but only if enabled) */
-floatWhats.addEventListener('click', (e)=>{
-  if(floatWhats.classList.contains('btn-disabled')){ e.preventDefault(); return; }
-  const text = buildWhatsText();
-  const url = `https://wa.me/923454627881?text=${encodeURIComponent(text)}`;
-  window.open(url, '_blank');
-});
-
-/* =========================
-   GSAP animation: Balloons + Flowers burst on page load
-   ========================= */
-function createIntroItems(){
-  const items = [];
-  const colors = ['#9ce0ff','#a76bfa','#ff9ce0','#00d1ff','#ffd56b'];
-  // create 10 balloons and 8 flowers (total ~18)
-  for(let i=0;i<10;i++){
-    const el = document.createElement('div');
-    el.className = 'intro-item';
-    el.style.width = `${36 + Math.random()*28}px`;
-    el.style.height = `${48 + Math.random()*34}px`;
-    el.style.left = `${10 + Math.random()*80}%`;
-    el.style.bottom = '-20%';
-    el.style.background = `radial-gradient(circle at 30% 30%, ${colors[Math.floor(Math.random()*colors.length)]}, ${colors[Math.floor(Math.random()*colors.length)]})`;
-    el.style.borderRadius = '50% / 60%';
-    el.style.opacity = 0;
-    introCanvas.appendChild(el);
-    items.push({el,type:'balloon'});
-  }
-  for(let j=0;j<8;j++){
-    const el = document.createElement('div');
-    el.className = 'intro-item flower';
-    el.style.left = `${5 + Math.random()*90}%`;
-    el.style.bottom = '-10%';
-    const hue = Math.floor(Math.random()*360);
-    el.style.background = `conic-gradient(hsl(${hue} 80% 70%), hsl(${(hue+60)%360} 80% 70%), hsl(${(hue+120)%360} 80% 70%))`;
-    el.style.opacity = 0;
-    introCanvas.appendChild(el);
-    items.push({el,type:'flower'});
-  }
-  return items;
-}
-
-function runIntroAnimation(){
-  const items = createIntroItems();
-  const tl = gsap.timeline();
-  items.forEach((it, idx)=>{
-    const extraY = 110 + Math.random()*40;
-    // stagger start
-    const start = idx * 0.06;
-    // animate upward with rotation and fade
-    tl.to(it.el, {
-      duration: 2.6 + Math.random()*1.2,
-      yPercent: - (160 + Math.random()*80),
-      x: (Math.random()-0.5) * 120,
-      rotation: (Math.random()-0.5)*80,
-      scale: 1 + Math.random()*0.15,
-      opacity: 1,
-      ease: "power2.out"
-    }, start);
-    // then fade out and move up more
-    tl.to(it.el, {
-      duration: 0.9 + Math.random()*0.9,
-      yPercent: - (260 + Math.random()*120),
-      opacity: 0,
-      ease: "power1.in"
-    }, start + 2.1 + Math.random()*0.3);
-  });
-  // cleanup after 4s
-  tl.call(()=> { introCanvas.innerHTML=''; }, null, "+=0.2");
-}
-
-/* Run intro once on load */
-window.addEventListener('load', ()=> {
-  try{ runIntroAnimation(); } catch(e){ console.warn(e); }
-  // Ensure initial button state
-  setWhatsEnabled(isFormValid());
-});
-
-/* Accessibility: allow Enter on floating button when enabled */
-floatWhats.addEventListener('keydown', (e)=>{
-  if((e.key === 'Enter' || e.key === ' ') && !floatWhats.classList.contains('btn-disabled')){
-    floatWhats.click();
-  }
-});
-
-/* Prevent accidental form resubmit on reload (for UX) */
-if (window.history.replaceState) {
-  window.history.replaceState(null, null, window.location.href);
-}
-</script>
+    // prevent accidental back/forward form resubmit
+    if (window.history.replaceState) window.history.replaceState(null, null, window.location.href);
+  </script>
 </body>
 </html>

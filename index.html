@@ -126,6 +126,13 @@
   </div>
 </header>
 
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="home">
+  <h1>👋 Welcome to Zahid Solutions</h1>
+  <p>Let’s build something extraordinary together — design, development & creativity powered by innovation.</p>
+  <img src="images/profile.png" alt="Zahid Profile">
+</section>
+
 <style>
 /* ===== NEON GLASS NAVBAR ===== */
 .navbar {
@@ -258,15 +265,15 @@
   }
 }
 
-/* ===== HERO SECTION FIX ===== */
+/* ===== HERO SECTION ===== */
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100vh;
-  padding: 0 20px;
+  min-height: 100vh;
+  padding: 100px 20px 40px; /* add top padding for navbar */
   background: linear-gradient(135deg, rgba(10, 0, 21, 0.9), rgba(75, 0, 130, 0.8), rgba(0, 255, 255, 0.4));
   background-size: 300% 300%;
   animation: heroGlow 8s ease-in-out infinite;
@@ -293,6 +300,7 @@
   font-size: 1.2rem;
   color: #ddd;
   max-width: 600px;
+  line-height: 1.6;
 }
 
 /* Profile Image */
@@ -321,7 +329,6 @@
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
 }
-
 </style>
 
 <script>
@@ -338,9 +345,7 @@ document.addEventListener('click', (e) => {
     navLinks.classList.remove('active');
   }
 });
-</script>   
-
-   
+</script>
 
 <!-- 🚀 Premium Profile Section (Neon + Glassmorphism + Highlighted Text) -->
 <!-- ================= PROFILE SECTION ================= -->
@@ -2272,7 +2277,7 @@ document.querySelectorAll(".faq-toggle").forEach(btn => {
 
 <script>
   // 💡 Put your Gemini API key here
-  const GEMINI_API_KEY = "AIzaSyD1t53Roac4KD5X83t7724EimyAk3zLxhM"; // <--- replace with your real key
+  const GEMINI_API_KEY = ""; // <--- replace with your real key
 
   const chatBtn = document.querySelector('.chat-btn');
   const chatWindow = document.getElementById('chatWindow');

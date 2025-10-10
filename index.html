@@ -547,6 +547,13 @@ document.addEventListener('click', (e) => {
   box-shadow: 0 0 30px rgba(155, 0, 255, 0.5);
   position: relative;
   z-index: 2;
+
+  /* ✅ Fix: Center text and content */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Glowing Titles */

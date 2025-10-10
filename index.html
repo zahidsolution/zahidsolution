@@ -2149,216 +2149,160 @@ document.querySelectorAll(".faq-toggle").forEach(btn => {
  
     
 <!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <div class="footer-overlay"></div>
-  <div class="footer-glow"></div>
-
-  <div class="footer-container">
-    <!-- About -->
-    <div class="footer-about glass-card">
-      <h3 class="footer-title">Zahid Solutions 💎</h3>
-      <p class="footer-text">
-        Empowering creativity with next-level <span class="highlight">AI</span>, 
-        <span class="highlight">Design</span>, and <span class="highlight">Development</span> solutions.  
-        Let’s build your vision together 🚀.
+<!-- ====== Zahid Premium Footer (Safe Scoped Version) ====== -->
+<footer id="zahid-footer">
+  <div class="zf-overlay"></div>
+  <div class="zf-container">
+    <div class="zf-card">
+      <h3 class="zf-title">Let’s Build Something Together 🚀</h3>
+      <p class="zf-text">
+        Empowering your ideas with <span class="zf-highlight">AI</span>, <span class="zf-highlight">Design</span>,
+        and <span class="zf-highlight">Innovation</span>.
       </p>
     </div>
 
-    <!-- Links -->
-    <div class="footer-links glass-card">
-      <h4 class="glow-text">Quick Links</h4>
-      <ul>
-        <li><a href="#home">🏠 Home</a></li>
-        <li><a href="#services">💼 Services</a></li>
-        <li><a href="#portfolio">📂 Portfolio</a></li>
-        <li><a href="#contact">📩 Contact</a></li>
-        <li><a href="#faqs">❓ FAQs</a></li>
-      </ul>
+    <div class="zf-card">
+      <h4 class="zf-subtitle">Contact</h4>
+      <p>📧 <a href="mailto:zahidsolutions360@gmail.com">zahidsolutions360@gmail.com</a></p>
+      <p>📞 <a href="https://wa.me/923454627881">+92 345 4627881</a></p>
     </div>
 
-    <!-- Contact -->
-    <div class="footer-contact glass-card">
-      <h4 class="glow-text">Contact Us</h4>
-      <p>📍 Near Noor Mahal Road, Bahawalpur</p>
-      <p>📞 <a href="tel:+923454627881">+92 345 4627881</a> (Call/WhatsApp)</p>
-      <p>✉ <a href="mailto:zahidsolutions360@gmail.com">zahidsolutions360@gmail.com</a></p>
-      <p id="footer-status"></p>
-    </div>
-
-    <!-- Social -->
-    <div class="footer-social glass-card">
-      <h4 class="glow-text">Follow Us</h4>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/zahidsolutions360" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/zahidsolutions360" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/company/zahidsolutions360" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <div class="zf-card">
+      <h4 class="zf-subtitle">Follow</h4>
+      <div class="zf-icons">
+        <a href="https://facebook.com/zahidsolutions360" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/zahidsolutions360" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com/in/zahid-hussain-351756375" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
   </div>
 
-  <div class="footer-divider"></div>
-
-  <div class="footer-bottom">
-    <p>&copy; <span id="year"></span> Zahid Solutions — Crafted with 💙 by Zahid Hussain</p>
-  </div>
+  <div class="zf-bottom">© <span id="zf-year"></span> Zahid Solutions | Crafted with 💙</div>
 </footer>
 
-<!-- ===== FOOTER STYLES ===== -->
+<!-- ===== Scoped Styles (Won’t Affect Rest of Site) ===== -->
 <style>
-.footer {
+#zahid-footer {
   position: relative;
-  overflow: hidden;
-  padding: 100px 20px 60px;
+  padding: 80px 20px 40px;
+  background: rgba(20, 0, 40, 0.8);
+  backdrop-filter: blur(15px);
   color: #fff;
-  background: radial-gradient(circle at bottom right, #c9f3ff 0%, #b3a4ff 50%, #e1e1ff 100%);
-  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  overflow: hidden;
+  z-index: 10;
+  border-top: 2px solid rgba(255,255,255,0.2);
 }
 
-/* Overlay Glow Animation */
-.footer-overlay {
+/* Overlay glow */
+#zahid-footer .zf-overlay {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
-  mix-blend-mode: overlay;
-  pointer-events: none;
+  inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(0,255,255,0.15), transparent 60%),
+              radial-gradient(circle at 70% 80%, rgba(140,0,255,0.25), transparent 60%);
+  animation: zf-glowMove 10s infinite alternate ease-in-out;
+}
+@keyframes zf-glowMove {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-30px); }
 }
 
-.footer-glow {
-  position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.4), transparent 70%);
-  opacity: 0.4;
-  filter: blur(120px);
-  animation: glowMove 12s infinite linear;
-}
-
-@keyframes glowMove {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(20%, -20%); }
-  100% { transform: translate(0, 0); }
-}
-
-/* Container */
-.footer-container {
-  display: grid;
-  gap: 30px;
-  max-width: 1200px;
-  margin: auto;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+#zahid-footer .zf-container {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
 }
 
-/* Glass Cards */
-.glass-card {
-  background: rgba(255,255,255,0.25);
+#zahid-footer .zf-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   padding: 25px;
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 0 20px rgba(255,255,255,0.2), 0 0 40px rgba(0,255,255,0.2);
-  transition: all 0.4s ease;
+  flex: 1 1 250px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.2);
+  transition: all 0.3s ease;
 }
-.glass-card:hover {
+#zahid-footer .zf-card:hover {
+  box-shadow: 0 0 40px rgba(0,255,255,0.6);
   transform: translateY(-5px);
-  box-shadow: 0 0 40px rgba(0,255,255,0.6), 0 0 60px rgba(187,134,252,0.5);
 }
 
-/* Titles */
-.glow-text, .footer-title {
-  font-size: 1.5rem;
-  background: linear-gradient(90deg, #6a00ff, #00e0ff);
+#zahid-footer .zf-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00ffff, #a200ff);
   -webkit-background-clip: text;
   color: transparent;
-  font-weight: 700;
-  animation: glowPulse 2s ease-in-out infinite alternate;
+  animation: zf-textGlow 2s infinite alternate;
 }
-@keyframes glowPulse {
-  from { text-shadow: 0 0 10px #00e0ff; }
-  to { text-shadow: 0 0 30px #6a00ff, 0 0 60px #00e0ff; }
+@keyframes zf-textGlow {
+  from { text-shadow: 0 0 10px #00ffff; }
+  to { text-shadow: 0 0 25px #a200ff; }
 }
 
-.footer-text {
-  color: #222;
+#zahid-footer .zf-text {
   font-size: 1rem;
-  font-weight: 500;
+  margin-top: 10px;
+  color: rgba(255,255,255,0.85);
 }
-.highlight { color: #6a00ff; font-weight: 600; }
 
-/* Links */
-.footer-links ul { list-style: none; padding: 0; margin: 0; }
-.footer-links li { margin-bottom: 10px; }
-.footer-links a {
-  color: #111; text-decoration: none; font-weight: 600;
-  position: relative; transition: 0.3s ease;
+#zahid-footer .zf-highlight {
+  color: #00ffff;
+  font-weight: bold;
 }
-.footer-links a::after {
-  content: ""; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px;
-  background: linear-gradient(90deg, #6a00ff, #00e0ff);
-  transition: width 0.3s ease;
-}
-.footer-links a:hover::after { width: 100%; }
-.footer-links a:hover { color: #6a00ff; }
 
-/* Social */
-.social-icons { display: flex; gap: 15px; margin-top: 10px; }
-.social-icons a {
-  font-size: 1.8rem; color: #111;
-  background: rgba(255,255,255,0.4);
-  border-radius: 50%; padding: 10px;
-  transition: all 0.3s;
+#zahid-footer .zf-subtitle {
+  font-size: 1.2rem;
+  color: #00ffff;
+  margin-bottom: 10px;
 }
-.social-icons a:hover {
-  background: linear-gradient(135deg, #6a00ff, #00e0ff);
+
+#zahid-footer .zf-icons a {
+  margin: 0 8px;
+  font-size: 1.6rem;
   color: #fff;
-  box-shadow: 0 0 20px #6a00ff, 0 0 40px #00e0ff;
+  transition: 0.3s;
+}
+#zahid-footer .zf-icons a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff;
 }
 
-/* Divider & Bottom */
-.footer-divider {
-  margin: 40px auto 20px;
-  width: 80%;
-  height: 2px;
-  background: linear-gradient(90deg, #6a00ff, #00e0ff, transparent);
-}
-.footer-bottom {
-  text-align: center;
-  font-size: 0.95rem;
-  color: #222;
-  font-weight: 500;
-  position: relative;
-  z-index: 2;
+#zahid-footer .zf-bottom {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
-/* Responsive */
-@media(max-width: 600px) {
-  .footer { padding: 60px 15px; }
-  .footer-title { font-size: 1.3rem; }
+@media (max-width: 600px) {
+  #zahid-footer { padding: 60px 15px; }
+  #zahid-footer .zf-title { font-size: 1.4rem; }
 }
 </style>
 
-<!-- ===== FOOTER SCRIPT ===== -->
+<!-- ===== Scripts ===== -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script>
-// Year
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// Open status
-const fStatus = document.getElementById("footer-status");
-const now = new Date();
-const day = now.getDay(), hour = now.getHours();
-let open = false;
-if (day >= 1 && day <= 5 && hour >= 9 && hour < 18) open = true;
-if (day === 6 && hour >= 10 && hour < 16) open = true;
-fStatus.textContent = open ? "✅ Open Now" : "❌ Closed";
-
-// GSAP Animations
-gsap.to(".footer-glow", { duration: 20, xPercent: 15, yPercent: -10, repeat: -1, yoyo: true, ease: "sine.inOut" });
-gsap.from(".glass-card", { opacity: 0, y: 50, duration: 1, stagger: 0.2, ease: "power2.out" });
-gsap.to(".footer-title", { textShadow: "0 0 20px #00e0ff, 0 0 40px #6a00ff", repeat: -1, yoyo: true, duration: 2 });
-</script>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script>
+document.getElementById("zf-year").textContent = new Date().getFullYear();
+
+gsap.from("#zahid-footer .zf-card", {
+  opacity: 0, y: 40, duration: 1, stagger: 0.2, ease: "power2.out"
+});
+gsap.to("#zahid-footer", {
+  backgroundPosition: "200% center",
+  repeat: -1,
+  yoyo: true,
+  duration: 10,
+  ease: "sine.inOut"
+});
+</script>
+
 
 
 <!-- ===== BACK TO TOP BUTTON ===== -->

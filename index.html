@@ -107,301 +107,379 @@
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
 </head>
-
   <body>
-   <!-- 🌐 Zahid Solution – Responsive Premium Navbar + Profile Section -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Zahid Hussain – Web Developer, Video Editor, and Graphic Designer offering professional creative services with a modern touch." />
-  <meta name="keywords" content="Zahid Solution, Web Developer, Video Editor, Graphic Designer, IT Services, Zahid Hussain" />
-  <meta name="author" content="Zahid Hussain" />
-  <title>Zahid Solution | Zahid Hussain - Web Developer & Designer</title>
+   <!-- ✅ Slim Premium Navbar -->
+<nav class="navbar">
+  <div class="logo">ZahidSolution</div>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="feedback.html">Feedback</a></li>
+  </ul>
+</nav>
 
-  <style>
-    /* ===== Global Reset ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: "Poppins", sans-serif;
-      background: #0b002b;
-      color: #fff;
-      overflow-x: hidden;
-    }
+<style>
+/* ===== BASIC STYLING ===== */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #0b002b;
+  color: white;
+}
 
-    /* ===== Navbar ===== */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(20, 0, 40, 0.9);
-      padding: 12px 20px;
-      border-bottom: 2px solid #6a0dad;
-      box-shadow: 0 2px 15px rgba(106, 13, 173, 0.7);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: #bb86fc;
-      text-shadow: 0 0 10px #9d00ff;
-    }
-    ul.nav-links {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-    ul.nav-links li a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    ul.nav-links li a:hover,
-    ul.nav-links li a.active {
-      color: #a855f7;
-      text-shadow: 0 0 10px #9d00ff;
-    }
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0d0d0d;
+  padding: 10px 20px;
+  border-bottom: 2px solid #6a0dad;
+  box-shadow: 0 2px 10px rgba(106, 13, 173, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: white;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-    }
+.logo {
+  color: #bb86fc;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-shadow: 0 0 8px #9d00ff;
+}
 
-    /* Mobile Menu */
-    @media (max-width: 1024px) {
-      ul.nav-links {
-        position: fixed;
-        right: -100%;
-        top: 60px;
-        flex-direction: column;
-        background: #1a0038;
-        width: 75%;
-        height: calc(100vh - 60px);
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        transition: right 0.4s ease;
-      }
-      ul.nav-links.show {
-        right: 0;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
+/* ===== NAV LINKS ===== */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
 
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 6px);
-    }
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -6px);
-    }
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
 
-    /* ===== Hero/Profile Section ===== */
-    section#profile {
-      position: relative;
-      padding: 100px 20px 80px;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #1a0038, #25064c, #320072);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #bb86fc;
+  text-shadow: 0 0 8px #9d00ff;
+}
 
-    /* Animated background bubbles */
-    .bubbles span {
-      position: absolute;
-      display: block;
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 50%;
-      animation: moveUp 20s linear infinite;
-    }
-    @keyframes moveUp {
-      0% { transform: translateY(100vh) scale(0); opacity: 0.3; }
-      50% { opacity: 0.9; }
-      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-    }
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
 
-    .bubbles span:nth-child(1) { left: 10%; width: 30px; height: 30px; animation-duration: 15s; }
-    .bubbles span:nth-child(2) { left: 30%; width: 50px; height: 50px; animation-delay: 3s; }
-    .bubbles span:nth-child(3) { left: 50%; width: 60px; height: 60px; animation-delay: 5s; }
-    .bubbles span:nth-child(4) { left: 70%; width: 40px; height: 40px; animation-delay: 2s; }
-    .bubbles span:nth-child(5) { left: 85%; width: 70px; height: 70px; animation-delay: 4s; }
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
 
-    /* Glass Card */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.07);
-      backdrop-filter: blur(14px);
-      border-radius: 25px;
-      padding: 50px 35px;
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 10px 35px rgba(106, 13, 173, 0.4);
-      max-width: 850px;
-      width: 100%;
-    }
+/* ===== MOBILE & LAPTOP VIEW ===== */
+@media (max-width: 1024px) {
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 60px;
+    background: #1a0038;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    height: calc(100vh - 60px);
+    transition: all 0.4s ease;
+    padding-top: 40px;
+  }
 
-    /* Profile Image */
-    .profile-image-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-    .profile-image {
-      width: 240px;
-      height: 240px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #a855f7;
-      box-shadow: 0 0 25px #9333ea, 0 0 45px #3b82f6;
-      transition: all 0.4s ease;
-    }
-    .profile-image:hover {
-      transform: scale(1.06);
-      box-shadow: 0 0 35px #a855f7, 0 0 60px #3b82f6;
-    }
+  .nav-links.show {
+    right: 0;
+  }
 
-    /* Text Styling */
-    .premium-title {
-      font-size: 3.3rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, #a855f7, #60a5fa, #a855f7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: hueShift 6s linear infinite;
-      margin-bottom: 10px;
-    }
-    @keyframes hueShift {
-      from { filter: hue-rotate(0deg); }
-      to { filter: hue-rotate(360deg); }
-    }
-    .premium-subtitle {
-      font-size: 1.8rem;
-      color: #bba0ff;
-      text-shadow: 0 0 15px #7c3aed;
-      margin-bottom: 20px;
-    }
-    .premium-text {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #e5e5ff;
-      font-weight: 500;
-    }
-    .premium-text .highlight {
-      color: #00d9ff;
-      text-shadow: 0 0 12px #00d9ff;
-      font-weight: 700;
-    }
+  .hamburger {
+    display: flex;
+  }
 
-    /* ===== Responsive Fixes ===== */
-    @media (max-width: 768px) {
-      section#profile {
-        padding: 80px 15px 60px;
-      }
-      .profile-image {
-        width: 180px;
-        height: 180px;
-      }
-      .premium-title {
-        font-size: 2.2rem;
-      }
-      .premium-subtitle {
-        font-size: 1.3rem;
-      }
-      .premium-text {
-        font-size: 1rem;
-      }
-      .glass-card {
-        padding: 35px 20px;
-      }
-    }
+  .nav-links li {
+    margin: 20px 0;
+  }
+}
 
-    @media (max-width: 480px) {
-      .profile-image {
-        width: 150px;
-        height: 150px;
-      }
-      .premium-title {
-        font-size: 1.8rem;
-      }
-      .premium-subtitle {
-        font-size: 1.1rem;
-      }
-    }
+/* ===== DESKTOP VIEW ===== */
+@media (min-width: 1025px) {
+  .hamburger {
+    display: none;
+  }
+
+  .nav-links {
+    position: static;
+    flex-direction: row;
+    height: auto;
+    background: none;
+  }
+}
+</style>
+
+<script>
+// Navbar toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+  hamburger.classList.toggle('active');
+});
+
+// Animate hamburger lines
+hamburger.addEventListener('click', () => {
+  const spans = hamburger.querySelectorAll('span');
+  spans[0].classList.toggle('rotate1');
+  spans[1].classList.toggle('hide');
+  spans[2].classList.toggle('rotate2');
+});
+</script>
+
+<style>
+/* Animation for hamburger lines */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+</style>
+
+
+
+
+<!-- 🚀 Premium Profile Section (Neon + Glassmorphism + Highlighted Text) -->
+<!-- ================= PROFILE SECTION ================= -->
+<section id="profile" class="premium-section py-5" itemscope itemtype="https://schema.org/Person">
+  
+  <!-- Animated Bubbles Background -->
+  <div class="bubbles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="container text-center glass-card">
+
+    <!-- Profile Image -->
+    <div class="profile-image-wrapper mb-4">
+      <img src="static/images/my_photo.jpg"
+           alt="Zahid Hussain - Founder & CEO of Zahid Solution"
+           itemprop="image"
+           class="profile-image shadow-lg">
+    </div>
+
+    <!-- Profile Info -->
+    <h1 class="premium-title" itemprop="name">👤 Zahid Hussain</h1>
+    <h2 class="premium-subtitle" itemprop="jobTitle">Founder & CEO – Zahid Solution</h2>
+
+    <p class="premium-text" itemprop="description">
+      I am an expert in <span class="highlight">🌐 Web Development</span>,  
+      <span class="highlight">🎬 Video Editing</span>,  
+      <span class="highlight">🎨 Graphic Designing</span>, and  
+      <span class="highlight">💻 IT Services</span>.  
+      <br><br>
+      My mission is to craft <span class="highlight">modern</span>,  
+      <span class="highlight">creative</span>, and  
+      <span class="highlight">affordable</span> solutions that empower businesses and individuals.  
+      <br><br>
+      With passion for <span class="highlight">technology</span> and <span class="highlight">design</span>,  
+      I bring ideas to life with <span class="highlight">style</span> and <span class="highlight">performance</span>.  
+    </p>
+
+  </div>
+</section>
+
+<style>
+/* ===== Section Background ===== */
+.premium-section {
+  position: relative;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* ===== Animated Bubbles ===== */
+.bubbles span {
+  position: absolute;
+  display: block;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  animation: moveUp 18s linear infinite;
+}
+.bubbles span:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-duration: 12s; }
+.bubbles span:nth-child(2) { left: 25%; width: 55px; height: 55px; animation-duration: 18s; animation-delay: 2s; }
+.bubbles span:nth-child(3) { left: 40%; width: 70px; height: 70px; animation-duration: 20s; animation-delay: 4s; }
+.bubbles span:nth-child(4) { left: 55%; width: 45px; height: 45px; animation-duration: 14s; animation-delay: 1s; }
+.bubbles span:nth-child(5) { left: 70%; width: 60px; height: 60px; animation-duration: 16s; animation-delay: 3s; }
+.bubbles span:nth-child(6) { left: 80%; width: 50px; height: 50px; animation-duration: 22s; animation-delay: 5s; }
+.bubbles span:nth-child(7) { left: 90%; width: 65px; height: 65px; animation-duration: 24s; animation-delay: 7s; }
+.bubbles span:nth-child(8) { left: 95%; width: 75px; height: 75px; animation-duration: 19s; animation-delay: 6s; }
+.bubbles span:nth-child(9) { left: 35%; width: 55px; height: 55px; animation-duration: 17s; animation-delay: 3s; }
+.bubbles span:nth-child(10){ left: 50%; width: 40px; height: 40px; animation-duration: 21s; animation-delay: 4s; }
+
+@keyframes moveUp {
+  0% { transform: translateY(100vh) scale(0); opacity: 0.3; }
+  50% { opacity: 0.9; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* ===== Glass Card ===== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 30px;
+  padding: 70px 45px;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  z-index: 2;
+  max-width: 900px;
+}
+
+/* ===== Profile Image ===== */
+.profile-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.profile-image {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border: 4px solid #a855f7;
+  box-shadow: 0 0 25px rgba(168,85,247,0.8);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+.profile-image-wrapper:hover .profile-image {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px #a855f7, 0 0 45px #9333ea, 0 0 70px #c084fc;
+}
+
+/* ===== Title (Gradient Animated) ===== */
+.premium-title {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #facc15);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 6s ease infinite;
+  text-shadow: 0 0 30px rgba(255,255,255,1);
+}
+@keyframes gradientText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Subtitle (Glowing) ===== */
+.premium-subtitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9),
+               0 0 25px rgba(168, 85, 247, 0.8),
+               0 0 35px rgba(147, 51, 234, 0.6);
+  margin-bottom: 1.5rem;
+  animation: glowText 3s ease-in-out infinite alternate;
+}
+
+/* ===== Description Text (Glowing) ===== */
+.premium-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9),
+               0 0 25px rgba(168, 85, 247, 0.8),
+               0 0 35px rgba(147, 51, 234, 0.6);
+  line-height: 1.8;
+  margin-top: 20px;
+  animation: glowText 3s ease-in-out infinite alternate;
+}
+
+/* ===== Highlighted Words ===== */
+.highlight {
+  color: #facc15; /* golden */
+  font-weight: 700;
+  text-shadow: 0 0 10px #facc15, 0 0 20px #facc15;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes glowText {
+  from { text-shadow: 0 0 10px #fff, 0 0 20px #9333ea; }
+  to   { text-shadow: 0 0 20px #fff, 0 0 40px #c084fc; }
+}
+
+@keyframes pulse {
+  from { text-shadow: 0 0 10px #facc15; }
+  to   { text-shadow: 0 0 25px #facc15; }
+}
+/* ===== Responsive Fixes ===== */
+@media (max-width: 768px) {
+  .profile-image {
+    width: 230px;
+    height: 230px;
+  }
+  .premium-title {
+    font-size: 2.9rem;
+  }
+  .premium-subtitle {
+    font-size: 1.7rem;
+  }
+  .premium-text {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-image {
+    width: 160px;
+    height: 160px;
+  }
+  .premium-title {
+    font-size: 2rem;
+  }
+  .premium-subtitle {
+    font-size: 1.2rem;
+  }
+  .premium-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  }
   </style>
-</head>
-
-<body>
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">ZahidSolution</div>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="feedback.html">Feedback</a></li>
-    </ul>
-  </nav>
-
-  <!-- Profile Section -->
-  <section id="profile">
-    <div class="bubbles">
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-    <div class="glass-card">
-      <div class="profile-image-wrapper">
-        <!-- 💡 Replace the path below with your image -->
-        <img src="static/images/my_photo.jpg" alt="Zahid Hussain - Web Developer" class="profile-image">
-      </div>
-      <h1 class="premium-title">Zahid Hussain</h1>
-      <h2 class="premium-subtitle">Founder & CEO – Zahid Solution</h2>
-      <p class="premium-text">
-        I’m passionate about <span class="highlight">Web Development</span>,  
-        <span class="highlight">Graphic Design</span>,  
-        and <span class="highlight">Video Editing</span>.  
-        My goal is to create digital experiences that blend  
-        <span class="highlight">creativity</span>,  
-        <span class="highlight">innovation</span>, and  
-        <span class="highlight">performance</span>.
-      </p>
-    </div>
-  </section>
-
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-      hamburger.classList.toggle('active');
-    });
-  </script>
-</html>
-
-
+    
   <!-- ================= HERO WELCOME OVERLAY (replaceable section) ================= -->
 <section id="heroWelcome" class="hero-welcome" aria-hidden="false">
   <!-- Particle canvas behind overlay -->

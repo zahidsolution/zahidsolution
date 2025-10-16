@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zahid Solutions | Portfolio</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <style>
+    /* ======= GLOBAL ======= */
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 2.8rem;
+      text-shadow: 0 0 25px #bb86fc, 0 0 40px #00e0ff;
+      animation: glowPulse 3s infinite alternate;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #eae6ff;
+      max-width: 700px;
+      margin-bottom: 50px;
+      line-height: 1.7;
+    }
+
+    /* ======= PORTFOLIO GRID ======= */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .portfolio-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 25px;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+      transition: all 0.4s ease;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 0 45px rgba(0, 229, 255, 0.6),
+        0 0 30px rgba(168, 85, 247, 0.4);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .portfolio-content {
+      padding: 25px;
+    }
+
+    .portfolio-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 0 12px #bb86fc;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-desc {
+      color: #ddd;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    /* ======= BUTTONS ======= */
+    .portfolio-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #bb86fc, #00e0ff);
+      border: none;
+      padding: 10px 22px;
+      color: #fff;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      box-shadow: 0 0 25px #bb86fc, 0 0 45px #00e0ff;
+      transform: scale(1.05);
+    }
+
+    /* ======= BACK TO TOP ======= */
+    .back-top {
+      margin-top: 50px;
+      display: inline-block;
+      color: #00e0ff;
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: 0 0 10px #00e0ff;
+      transition: 0.3s;
+    }
+    .back-top:hover {
+      color: #bb86fc;
+    }
+
+    /* ======= ANIMATIONS ======= */
+    @keyframes glowPulse {
+      from {
+        text-shadow: 0 0 15px #bb86fc, 0 0 30px #00f0ff;
+      }
+      to {
+        text-shadow: 0 0 25px #ff00ff, 0 0 60px #00f0ff;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🌈 Portfolio Section -->
+  <section id="portfolio">
+    <h2>💼 My Portfolio</h2>
+    <p>Here are some of my creative works, blending innovation and design into meaningful digital experiences.</p>
+
+    <div class="portfolio-grid">
+      <!-- Item 1 -->
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/600x400?text=Web+Design+Project" alt="Project 1" />
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">Modern Web Design</h3>
+          <p class="portfolio-desc">A sleek, responsive website created with HTML, CSS, and JS, focusing on performance and style.</p>
+          <div class="portfolio-buttons">
+            <a href="#" class="btn">View Project</a>
+            <a href="#" class="btn">Visit Site</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/600x400?text=App+UI+Design" alt="Project 2" />
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">App UI Design</h3>
+          <p class="portfolio-desc">A futuristic mobile app interface designed using Figma and Adobe XD with focus on UX.</p>
+          <div class="portfolio-buttons">
+            <a href="#" class="btn">View Project</a>
+            <a href="#" class="btn">Visit Site</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/600x400?text=Video+Editing" alt="Project 3" />
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">Creative Video Edits</h3>
+          <p class="portfolio-desc">Professional edits made using CapCut & Adobe Premiere Pro for brand promotions and storytelling.</p>
+          <div class="portfolio-buttons">
+            <a href="#" class="btn">View Project</a>
+            <a href="#" class="btn">Visit Site</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#top" class="back-top">⬆ Back to Home</a>
+  </section>
+
+</body>
+</html>

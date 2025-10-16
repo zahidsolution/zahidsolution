@@ -899,14 +899,72 @@ tabs.forEach(tab => {
     </div>
   </div>
 </section>
+<!-- 🚀 Case Study Section -->
+<section class="premium-case-section" style="display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; text-align: center; position: relative;">
+
+  <canvas id="caseStudiesCanvas"></canvas>
+
+  <div class="premium-case-content">
+    <h2 class="case-title glow-text">💼 Case Studies</h2>
+    <p class="case-intro">
+      Real-world success stories where creativity met technology —  
+      transforming challenges into digital excellence.
+    </p>
+
+    <div class="case-studies-grid">
+      <div class="case-study-item glass-purple">
+        <h3 class="case-study-title">E-Commerce Revamp</h3>
+        <p class="case-study-text">
+          Revamped a <span class="highlight">local clothing brand</span> into a fully automated  
+          online store with <span class="highlight">70% faster load times</span> and  
+          <span class="result">💰 Boosted sales by 150%</span>
+        </p>
+      </div>
+
+      <div class="case-study-item glass-purple">
+        <h3 class="case-study-title">SEO + Branding</h3>
+        <p class="case-study-text">
+          Helped a <span class="highlight">startup tech agency</span> dominate search results  
+          using modern SEO + personal branding.  
+          <span class="result">🚀 Ranked top 3 in their city</span>
+        </p>
+      </div>
+
+      <div class="case-study-item glass-purple">
+        <h3 class="case-study-title">Portfolio Design</h3>
+        <p class="case-study-text">
+          Designed a <span class="highlight">modern portfolio</span> that converts visitors  
+          into clients using clean UX, speed, and style.  
+          <span class="result">🎨 Increased client reach by 120%</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <style>
 /* Section Background */
 .premium-case-section {
-  position: relative;
   padding: 100px 20px;
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   overflow: hidden;
+  text-align: center;
 }
 #caseStudiesCanvas {
   position: absolute;
@@ -942,12 +1000,16 @@ tabs.forEach(tab => {
 /* Case studies grid */
 .case-studies-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
   margin-top: 20px;
+  justify-items: center;
 }
 .case-study-item {
   padding: 30px 25px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 100%;
+  max-width: 350px;
 }
 .case-study-item:hover {
   transform: translateY(-6px) scale(1.02);
@@ -990,10 +1052,10 @@ tabs.forEach(tab => {
 /* Stats grid */
 .stats-grid {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 60px;
-  gap: 20px;
+  gap: 40px;
 }
 .stat-item {
   text-align: center;
@@ -1029,7 +1091,15 @@ tabs.forEach(tab => {
   from { text-shadow: 0 0 15px #bb86fc, 0 0 30px #00f0ff; }
   to   { text-shadow: 0 0 25px #ff00ff, 0 0 60px #00f0ff; }
 }
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .case-title { font-size: 2.3rem; }
+  .case-intro { font-size: 1.1rem; }
+  .stat-number { font-size: 2.4rem; }
+}
 </style>
+
 
 <script>
 /* Animated counter for stats */
